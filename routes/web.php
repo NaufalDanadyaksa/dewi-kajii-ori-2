@@ -1,5 +1,13 @@
 <?php
 
+use App\Http\Controllers\AtraksiController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\HomestayController;
+use App\Http\Controllers\KatalogIkanController;
+use App\Http\Controllers\PaketWisataController;
+use App\Http\Controllers\SejarahController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\UlasanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +21,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [SessionController::class, 'index'] )->name('login');
+    Route::post('/login', [SessionController::class, 'login']);
 });
+Route::middleware(['auth'])->group(function () {
+    Route::resource('atraksi', AtraksiController::class);
+    Route::resource('homestay', HomestayController::class);
+    Route::resource('ikan', KatalogIkanController::class);
+    Route::resource('wisata', PaketWisataController::class);
+    Route::resource('berita', BeritaController::class);
+    Route::resource('ulasan ', UlasanController::class);
+    Route::resource('sejarah', SejarahController::class);
+    Route::get('/logout', [SessionController::class, 'logout']);
+    Route::get('/dashboard', function () {
+    return view('dashboard');
+        })->name('dashboard');
+});
+Route::get('/home', function () {
+    return redirect('dashboard');
+});
+Route::get('/', function () {
+    return view('home');
+});
+

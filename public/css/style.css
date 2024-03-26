@@ -1,20 +1,20 @@
 body {
     background-color: #e7dace;
-  }
-  
-  .navbar {
+}
+
+.navbar {
     background-color: rgba(0, 0, 0, 0.521);
-  }
-  
-  .carousel-item {
+}
+
+.carousel-item {
     transition: transform 2s ease;
-  }
-  
-  .container-atraksi {
+}
+
+.container-atraksi {
     background-color: white;
-  }
-  
-  .deskripsi {
+}
+
+.deskripsi {
     display: none;
     position: absolute;
     top: 50%;
@@ -27,88 +27,86 @@ body {
     width: 100%;
     height: 100%;
     text-align: center;
-  }
-  
-  .foto:hover .deskripsi {
+}
+
+.foto:hover .deskripsi {
     display: block;
-  }
-  
-  .card-atraksi {
+}
+
+.card-atraksi {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-  }
-  
-  .foto {
+}
+
+.foto {
     position: relative;
     overflow: hidden;
     width: 160px;
     height: 200px;
-  }
-  
-  .foto img {
+}
+
+.foto img {
     transition: transform 0.3s ease;
     width: 100%;
     height: 100%;
-  }
-  
-  .foto:hover img {
+}
+
+.foto:hover img {
     transform: scale(1.1);
-  }
-  
-  .swiper {
+}
+
+.swiper {
     height: 100%;
     height: 100%;
-  }
-  
-  .swiper-wrapper {
+}
+
+.swiper-wrapper {
     display: flex;
     align-items: center;
-  }
-  
-  .swiper-slide {
+}
+
+.swiper-slide {
     height: 500px;
-  }
-  
-  .swiper-slide img {
+}
+
+.swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-  
-  
-  .card-group {
+}
+
+.card-group {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-  }
-  
-  .card {
+}
+
+.card {
     margin: 10px;
     max-width: 250px;
-  }
-  
-  .card-img-top {
-  
+}
+
+.card-img-top {
     max-height: 120px;
     min-height: 120px;
     min-width: 100%;
-  }
-  
-  .list-unstyled li {
+}
+
+.list-unstyled li {
     border-bottom: 1px solid #ccc;
     padding: 5px 0;
-  }
-  
-  .list-unstyled li:last-child {
+}
+
+.list-unstyled li:last-child {
     border-bottom: none;
-  }
-  
-  @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
     .swiper-wrapper {
-      padding-left: 100px;
+        padding-left: 100px;
     }
-  }
+}
