@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ulasan;
 use Illuminate\Http\Request;
 
 class UlasanController extends Controller
@@ -11,7 +12,8 @@ class UlasanController extends Controller
      */
     public function index()
     {
-        //
+        $ulasan= Ulasan::all();
+        return view('ulasan.ulasan', compact('ulasan'));
     }
 
     /**
@@ -19,7 +21,7 @@ class UlasanController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -27,7 +29,13 @@ class UlasanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required | email',
+            'ulasan' => 'required',
+        ]);
+        Ulasan::create($request->all());
+        return view('home')->with('success', 'Ulasan Berhasil Dikirim');
     }
 
     /**
@@ -35,7 +43,8 @@ class UlasanController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $ulasan = Ulasan::find($id);
+        return view('ulasan.show', compact('ulasan'));
     }
 
     /**
@@ -59,6 +68,7 @@ class UlasanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Ulasan::where( $id)->delete();
+        return view('home')->with('success', 'Ulasan Berhasil Dihapus');
     }
 }
