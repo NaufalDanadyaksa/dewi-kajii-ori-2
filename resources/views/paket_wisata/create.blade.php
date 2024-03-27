@@ -19,11 +19,11 @@
 
             <div class="mb-3">
                 <label for="contents" class="form-label">Isi Paket Wisata</label>
-                <input type="text" class="form-control" id="contents" name="contents[]" required>
-                <input type="text" class="form-control" id="contents" name="contents[]">
-                <input type="text" class="form-control" id="contents" name="contents[]">
-                <input type="text" class="form-control" id="contents" name="contents[]">
-                <input type="text" class="form-control" id="contents" name="contents[]">
+                <input type="text" class="form-control" id="contents1" name="contents[]" required>
+                <input type="text" class="form-control" id="contents2" name="contents[]" required>
+                <input type="text" class="form-control" id="contents3" name="contents[]">
+                <input type="text" class="form-control" id="contents4" name="contents[]">
+                <input type="text" class="form-control" id="contents5" name="contents[]">
                
             </div>
 
