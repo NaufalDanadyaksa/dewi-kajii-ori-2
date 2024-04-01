@@ -34,6 +34,7 @@
 
             <div class="form-group">
                 <label for="contents" class="form-label">Isi Paket Wisata</label>
+
                 <input type="text" class="form-control mt-2 rounded-pill text-white" id="contents1" name="contents[]" style="background-color:
         #886c6c;text-decoration: none; opacity:1.0; box-shadow:none;
         border:none" required>
@@ -49,7 +50,6 @@
                 <input type="text" class="form-control mt-2 rounded-pill text-white" id="contents5" name="contents[]" style="background-color:
         #886c6c;text-decoration: none; opacity:1.0; box-shadow:none;
         border:none">
-            
             </div>
 
             <div class="form-group">
