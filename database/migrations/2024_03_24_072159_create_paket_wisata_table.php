@@ -28,7 +28,7 @@ return new class extends Migration
         Schema::create('paket_wisata_content', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('paket_wisata_id');
-            $table->string('content');
+            $table->string('content')->nullable();
             $table->timestamps();
     
             $table->foreign('paket_wisata_id')->references('id')->on('paket_wisata');

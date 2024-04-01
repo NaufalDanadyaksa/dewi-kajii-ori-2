@@ -34,7 +34,6 @@ class PaketWisataController extends Controller
         $request->validate([
             'name' => 'required|string',
             'price' => 'required|integer',
-            'contents.*' => 'required|string',
             'images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust max file size as needed
         ]);
 
