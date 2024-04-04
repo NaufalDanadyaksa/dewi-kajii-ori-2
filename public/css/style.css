@@ -27,6 +27,13 @@ body {
     width: 100%;
     height: 100%;
     text-align: center;
+    width: 180px;
+    height: 180px;
+}
+
+.nama-atraksi {
+    text-align: left;
+    margin-bottom: 0;
 }
 
 .foto:hover .deskripsi {
@@ -37,26 +44,28 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    align-items: start;
+    text-align: start;
 }
 
 .foto {
     position: relative;
     overflow: hidden;
     width: 160px;
-    height: 200px;
+    height: 180px;
 }
 
-.foto img {
+.foto-atraksi {
+    width: 180px;
+    height: 180px;
     transition: transform 0.3s ease;
-    width: 100%;
-    height: 100%;
 }
 
 .foto:hover img {
     transform: scale(1.1);
 }
+
+/* swiper */
 
 .swiper {
     height: 100%;
@@ -79,18 +88,24 @@ body {
     object-fit: cover;
 }
 
-.card-group {
+@media (min-width: 768px) {
+    .swiper-wrapper {
+        padding-left: 100px;
+    }
+}
+
+.card-paket-wisata {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.card {
+.cardPaketWisata {
     margin: 10px;
     max-width: 250px;
 }
 
-.card-img-top {
+.img-card-paket-wisata {
     max-height: 120px;
     min-height: 120px;
     min-width: 100%;
@@ -105,8 +120,15 @@ body {
     border-bottom: none;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .swiper-wrapper {
-        padding-left: 100px;
+        padding-left: 0;
     }
+    .card-ikan {
+        max-width: calc(100%);
+    }
+}
+
+.container-homestay {
+    background-color: white;
 }
