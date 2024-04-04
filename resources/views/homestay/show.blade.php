@@ -49,13 +49,13 @@
     <div class="row">
         <div class="col-md-6">
             @foreach($homestay->images as $image)
-                <img src="{{ asset('/posts/homstay/'.$image->url) }}" class="atraksi-image" alt="Gambar Atraksi">
+                <img src="{{ asset('/posts/homestay/'.$image->url) }}" class="atraksi-image" alt="Gambar Atraksi">
             @endforeach
         </div>
         <div class="col-md-6">
             <div class="atraksi-details">
                 <h2 class="atraksi-title">{{ $homestay->name }}</h2>
-                <h2 class="atraksi-title">{{$homesytay->location}}</h2>
+                <h2 class="atraksi-title">{{$homestay->location}}</h2>
                 <p class="atraksi-description">{{ $homestay->description }}</p>
             </div>
         </div>

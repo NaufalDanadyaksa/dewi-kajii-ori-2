@@ -32,14 +32,17 @@
 
     <div class="form-group">
         <label for="image_input">Pilih Gambar:</label>
-        <input
-          type="file"
-          name="image[]" id="image" 
-          multiple required class="form-control rounded-pill text-white"
-          style=" display: none;"
-        />
-        <button type="button" onclick="document.getElementById('image').click()" class="btn text-white rounded-pill" style="background-color: #886c6c;" id="chooseImageButton">Pilih Gambar</button>
-        <div id="preview"></div>
+        <div class="prev-img">
+            <input
+            type="file"
+            name="image[]" id="image" 
+            multiple required class="form-control rounded-pill text-white"
+            style=" display: none;"
+          />
+          <button type="button" onclick="document.getElementById('image').click()" class="btn text-white rounded-pill" style="background-color: #886c6c;" id="chooseImageButton">Pilih Gambar</button>
+          <div id="preview" ></div>
+        </div>
+        
         <small id="imageHelp" class="form-text text-muted">Pilih beberapa gambar dengan menekan tombol Ctrl/Cmd saat memilih.</small>
     </div>
       
@@ -101,3 +104,4 @@ document.getElementById('image').addEventListener('change', function(e) {
 });
 </script>
 @endsection
+    
