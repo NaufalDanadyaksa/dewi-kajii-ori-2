@@ -85,7 +85,7 @@ class PaketWisataController extends Controller
             'name' => 'required|string',
             'price' => 'required|string',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif',
-            'contents.*' => 'string',
+            
         ]);
     
         $wisata = PaketWisata::findOrFail($id);

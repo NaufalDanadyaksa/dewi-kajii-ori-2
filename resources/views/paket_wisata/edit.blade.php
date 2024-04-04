@@ -39,7 +39,7 @@
             @foreach ($wisata->content as $content)
             <input type="text" class="form-control mt-2 rounded-pill text-white" id="contents1" name="contents[]" style="background-color:
             #886c6c;text-decoration: none; opacity:1.0; box-shadow:none;
-            border:none" value="{{ $content->content }}" required>
+            border:none" value="{{ $content->content }}">
             @endforeach
         </div>
 

@@ -55,7 +55,7 @@
         <div class="col-md-6">
             <div class="atraksi-details">
                 <h2 class="atraksi-title">{{ $homestay->name }}</h2>
-                <h2 class="atraksi-title">{{$homesytay->location}}</h2>
+                <h2 class="atraksi-title">{{$homestay->location}}</h2>
                 <p class="atraksi-description">{{ $homestay->description }}</p>
             </div>
         </div>
