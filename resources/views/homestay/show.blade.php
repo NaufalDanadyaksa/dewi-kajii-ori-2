@@ -49,7 +49,7 @@
     <div class="row">
         <div class="col-md-6">
             @foreach($homestay->images as $image)
-                <img src="{{ asset('/posts/homstay/'.$image->url) }}" class="atraksi-image" alt="Gambar Atraksi">
+                <img src="{{ asset('/posts/homestay/'.$image->url) }}" class="atraksi-image" alt="Gambar Atraksi">
             @endforeach
         </div>
         <div class="col-md-6">
