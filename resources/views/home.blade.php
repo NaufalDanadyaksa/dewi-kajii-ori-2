@@ -210,7 +210,7 @@
   <section class="cta mt-5">
     <div class="container text-center">
       <div class="row">
-        
+
         <div class="col order-last">
           <img src="./element/koiii.png" alt="" srcset="" style="width: 18rem">
         </div>
@@ -371,7 +371,9 @@
             </div>
             <div class="card-body d-flex justify-content-between flex-column">
                 <h5 class="card-title">{{$item->name}}</h5>
+
                 <a href="{{ url('homestay/detail/'.$item->id) }}" class="btn align-self-end text-white" style="background-color: #d8eb8ae9;">Show</a>
+
 
             </div>
         </div>
