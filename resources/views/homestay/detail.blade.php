@@ -1,6 +1,4 @@
-@php
-    $homestay = \App\Models\Homestay::with('images')->get();
-@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,15 +59,16 @@
 <body>
 <div class="container mt-5">
     <div class="row justify-content-center">
-        @foreach ($homestay as $item)
+        
         <div class="col-md-5 order-md-1 order-2">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    @foreach($item->images as $image)
+                    @foreach($homestay->images as $image)
                     <div class="carousel-item active">
-                        <img src="{{ asset('/posts/homestay/'.$image->url) }}" class="d-block w-100" alt="First slide">
+                        <img src="{{ asset('/posts/homestay/'.$image->url) }}" class="img-card-homestay p-2 d-block w-100" alt="..." style="height: 12rem; border-radius: 10px;">
                     </div>
                     @endforeach
+                </div>
                 </div>
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -89,12 +88,12 @@
         <div class="col-md-5 order-md-2 order-1 mt-3 mt-md-0">
             <div class="container rounded p-4" style="background-color: #B37D7D;">
                 <div class="text">
-                    <h3>{{$item->name}}</h3>
-                    <p>{{$item->description}}</p>
+                    <h3>{{$homestay->name}}</h3>
+                    <p>{{$homestay->description}}</p>
                 </div>
             </div>
         </div>
-        @endforeach
+       
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
