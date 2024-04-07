@@ -17,7 +17,7 @@
     }
     
     .content-container {
-      background-color: rgba(255, 255, 255, 0.9); /* Warna latar belakang konten */
+      background-color:#F1F1F1; /* Warna latar belakang konten */
       border-radius: 10px; /* Tambahkan border radius sesuai keinginan */
       padding: 20px; /* Tambahkan padding sesuai keinginan */
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk membuat konten menonjol */
@@ -25,7 +25,7 @@
     }
 
     body{
-      background-color: #E7DACE;
+      background-color: #FFE382;
     }
   </style>
 </head>
