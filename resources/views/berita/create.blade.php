@@ -4,62 +4,106 @@
 
 <form action='{{ url('berita') }}' method='POST' enctype="multipart/form-data">
 @csrf 
-    <a href='{{ url('berita') }}' class="btn text-white" style="background-color: #948989;text-decoration: none;
-    opacity:1.0;
-    box-shadow:none;
-    border:none"><< kembali</a>
+<body style="background-color: #FFF78A;">
+    <a href='{{ url('berita') }}' class="btn text-white" style="background-color: #76885B;text-decoration: none; opacity:1.0; box-shadow:none; border:none">&lt;</a>
     
-
-    <div class="form-group">
-        <label for="tittle">Judul</label>
-        <input
-          type="text"
-          class="form-control rounded-pill text-white"
-          name='title' value="{{ old('title') }}" id="title"
-          style="
-            background-color: #886c6c;
+    
+    <div>
+        <label for="title" class="col-sm-2 col-form-label">Title</label>
+        <div class="col-sm-10">
+            
+            <input type="text" class="form-control" name='title' value="{{ old('title') }}" id="title"
+            style="
+            background-color: #d8eb8ae9;
             text-decoration: none;
             opacity: 1;
             box-shadow: none;
             border: none;
-          "
-        />
-      </div>
-
-
-
-    <div class="form-group">
-        <label for="text_input2">Artikel</label>
-        <textarea type="text" class="form-control rounded-pill text-white p-3"
-        name="article" id="article" style="background-color:
-        #886c6c;text-decoration: none; opacity:1.0; box-shadow:none;
-        border:none">{{ old('article') }}</textarea>
+            border-radius: 6px;
+          ">
+        </div>
     </div>
-
+    <div>
+        <label for="article" class="col-sm-2 col-form-label">Article</label>
+        <div class="col-sm-10">
+            <textarea name="article" id="article" class="form-control"  style="
+            background-color: #d8eb8ae9;
+            text-decoration: none;
+            opacity: 1;
+            box-shadow: none;
+            border: none;
+            border-radius: 6px;
+          ">{{ old('article') }}</textarea>
+        </div>
+    </div>
     <div class="form-group">
-        <label for="image_input">Pilih Gambar:</label>
         <input
           type="file"
-          name="image" id="image"
+          name="image[]" id="image" 
           multiple required class="form-control rounded-pill text-white"
-          style=" background-color: #886c6c;"
+          style=" display: none; "
         />
+        <button type="button" onclick="document.getElementById('image').click()" class="btn text-white rounded-pill" style="background-color: #76885B; margin-top:20px; margin-bottom:10px; " id="chooseImageButton">Pilih Gambar</button>
+        <div id="preview"></div>
+        <small id="imageHelp" class="form-text text-muted">Pilih beberapa gambar dengan menekan tombol Ctrl/Cmd saat memilih.</small>
     </div>
-
-      <div class="row justify-content-end">
-        <div class="col-auto">
-          <button
-            type="submit"
-            name="submit"
-            class="btn text-white rounded-pill py-2 px-3"
-            style="background-color: #948989;text-decoration: none;
-            opacity:1.0;
-            box-shadow:none;
-            border:none""
-          >
-            Submit
-          </button>
-        </div>
+      
+    <div class="row justify-content-end">
+          <div class="col-auto">
+            <button type="submit" name="submit" class="btn text-white rounded-pill py-2 px-3" style="background-color: #76885B;text-decoration: none; opacity:1.0; box-shadow:none; border:none">Submit</button>
+          </div>
+      </div>
 </form>
+
+<!-- AKHIR FORM --> 
+<script>
+document.getElementById('image').addEventListener('change', function(e) {
+    var files = e.target.files;
+    var preview = document.getElementById('preview');
+    var chooseImageButton = document.getElementById('chooseImageButton');
+    
+    preview.innerHTML = '';
+    
+    if (files.length > 0) {
+        chooseImageButton.style.display = 'none';
+    } else {
+        chooseImageButton.style.display = 'block';
+    }
+    
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+            var img = document.createElement('img');
+            img.src = e.target.result;
+            img.style.maxWidth = '200px';
+            img.style.marginRight = '10px';
+            
+            var button = document.createElement('button');
+            button.innerText = 'X';
+            button.type = 'button';
+            button.classList.add('btn', 'btn-danger', 'rounded-circle', 'mb-2');
+            button.style.cursor = 'pointer';
+            button.style.border = 'none';
+            
+            button.addEventListener('click', function() {
+                preview.removeChild(div);
+                if (preview.children.length === 0) {
+                    chooseImageButton.style.display = 'block';
+                }
+            });
+            
+            var div = document.createElement('div');
+            div.appendChild(img);
+            div.appendChild(button);
+            
+            preview.appendChild(div);
+        }
+        
+        reader.readAsDataURL(file);
+    }
+});
+</script>
 <!-- AKHIR FORM -->
 @endsection

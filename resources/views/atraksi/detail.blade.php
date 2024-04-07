@@ -59,6 +59,7 @@
 <body>
 <div class="container mt-5">
     <div class="row justify-content-center">
+<<<<<<< HEAD
         <div class="col-md-5 order-md-1 order-2">
             <div id="carouselDetailAtraksi" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
@@ -78,6 +79,29 @@
                     <span class="sr-only">Previous</span>
                 </a>
                 <a class="carousel-control-next" href="#carouselDetailAtraksi" role="button" data-slide="next">
+=======
+        
+        <div class="col-md-5 order-md-1 order-2">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach($atraksi->images as $image)
+                    <div class="carousel-item active">
+                        <img src="{{ asset('/posts/atraksi/'.$image->url) }}" class="img-card-atraksi p-2 d-block w-100" alt="..." style="height: 12rem; border-radius: 10px;">
+                    </div>
+                    @endforeach
+                </div>
+                </div>
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"><i class="ti ti-chevron-left"></i></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+>>>>>>> 643fc9c0ee38ee787dec76a2978d5ad119f9faee
                     <span class="carousel-control-next-icon" aria-hidden="true"><i class="ti ti-chevron-right"></i></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -91,6 +115,10 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+=======
+       
+>>>>>>> 643fc9c0ee38ee787dec76a2978d5ad119f9faee
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
