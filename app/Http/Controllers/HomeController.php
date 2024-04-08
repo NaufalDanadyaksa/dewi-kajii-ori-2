@@ -25,11 +25,12 @@ class HomeController extends Controller
 
         return view('atraksi.detail', compact('atraksi'));
     }
-    public function showSejarah(string $id)
+    public function showSejarah()
     {
-        $sejarah = Sejarah::with('images')->findOrFail($id);
+        $id="1";
+        $sejarah = Sejarah::findOrFail($id);
 
-        return view('sejarah.detail', compact('sejarah'));
+        return view('sejarah.profile', compact('sejarah'));
     }
     public function showBerita(string $id)
     {

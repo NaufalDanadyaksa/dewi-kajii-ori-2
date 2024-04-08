@@ -28,6 +28,7 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/login', [SessionController::class, 'login']);
     Route::get('/homestay/detail/{id}', [HomeController::class,'showHomestay']);
     Route::get('/atraksi/detail/{id}', [HomeController::class,'showAtraksi']);
+    Route::get('/sejarah/profile/', [HomeController::class,'showSejarah'])->name("profile");
 });
 Route::middleware(['auth'])->group(function () {
     Route::resource('atraksi', AtraksiController::class);
