@@ -2,6 +2,9 @@
 
 @section('content') 
 <div class="container">
+    <div class="my-3 p-3 bg-body rounded shadow-sm">
+        <a href='{{ route('wisata.index') }}' class="btn btn-secondary"><< Kembali</a>
+
 <body style="background-color: #FFF78A;">
     
         <form action='{{ route('wisata.store') }}' method='POST' enctype="multipart/form-data">
@@ -36,53 +39,14 @@
             </div>
 
             <div class="mb-3">
-    <label for="contents" class="form-label">Isi Paket Wisata</label>
-    <input type="text" class="form-control mb-2" id="contents" name="contents[]" required    
-        style="
-        background-color: #d8eb8ae9;
-        text-decoration: none;
-        opacity: 1;
-        box-shadow: none;
-        border: none;
-        border-radius: 6px;
-        ">
-    <input type="text" class="form-control mb-2" id="contents" name="contents[]"
-        style="
-        background-color: #d8eb8ae9;
-        text-decoration: none;
-        opacity: 1;
-        box-shadow: none;
-        border: none;
-        border-radius: 6px;
-        ">
-    <input type="text" class="form-control mb-2" id="contents" name="contents[]"
-        style="
-        background-color: #d8eb8ae9;
-        text-decoration: none;
-        opacity: 1;
-        box-shadow: none;
-        border: none;
-        border-radius: 6px;
-        ">
-    <input type="text" class="form-control mb-2" id="contents" name="contents[]"
-        style="
-        background-color: #d8eb8ae9;
-        text-decoration: none;
-        opacity: 1;
-        box-shadow: none;
-        border: none;
-        border-radius: 6px;
-        ">
-    <input type="text" class="form-control mb-2" id="contents" name="contents[]"
-        style="
-        background-color: #d8eb8ae9;
-        text-decoration: none;
-        opacity: 1;
-        box-shadow: none;
-        border: none;
-        border-radius: 6px;
-        ">
-</div>
+                <label for="contents" class="form-label">Isi Paket Wisata</label>
+                <input type="text" class="form-control" id="contents" name="contents[]" required>
+                <input type="text" class="form-control" id="contents" name="contents[]" required>
+                <input type="text" class="form-control" id="contents" name="contents[]">
+                <input type="text" class="form-control" id="contents" name="contents[]">
+                <input type="text" class="form-control" id="contents" name="contents[]">
+
+            </div>
 
 <div class="form-group" style="margin-top: 20px;">
     <input
