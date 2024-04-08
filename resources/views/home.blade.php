@@ -177,8 +177,8 @@
 
   <!-- Atraksi -->
   <section class="atraksi" id="atraksi">
-  <div class="col-md-4">
-        <img src="./element/sea-star.png" alt="" style="width: 10rem;">
+  <div class="row">
+        <img src="./element/sea-star.png" alt="" style="width: 12rem; margin-bottom:-90px; margin-top:20px;">
       </div>
     <div class="container-atraksi container justify-content-center">
       <div class="row">
@@ -230,10 +230,12 @@
           <img src="./element/koiii.png" alt="" srcset="" style="width: 18rem">
         </div>
         <div class="col">
-          <h4 class="text-start text-white">Periksa <br> Paket Wisata Kami</h4>
-          <div class="text-start">
-            <a href="#" class="btn rounded-5 text-white px-5 py-2 text-left" style="background-color: #B37D7D">Periksa</a></div>
-        </div>
+  <h4 class="text-start text-white" style="margin-top: 90px; margin-left: 80px; margin-bottom: 20px;">Periksa <br> Paket Wisata Kami</h4>
+  <div class="text-start">
+    <a href="#" class="btn rounded-5 text-white px-5 py-2 text-left" style="background-color: #B37D7D; margin-left:80px;">Periksa</a>
+  </div>
+</div>
+
         <div class="col order-first">
           <img src="./element/koii.png" alt="" srcset="" style="width: 18rem">
         </div>
@@ -291,8 +293,8 @@
 <section class="cta-2 mt-5">
   <div class="container text-center">
     <div class="row">
-      <div class="col-md-4">
-        <img src="./element/sea-star.png" alt="" style="width: 14rem">
+      <div class="col-md-4 ml-4 mb-10" >
+        <img src="koi.png" alt="" style="width: 8rem">
       </div>
       <div class="col-md-4 offset-md-4 mt-4">
         <h4 class="text-start text-white">Anda bisa <br> reservasi di sini</h4>
@@ -305,6 +307,9 @@
 </section>
 
 <section>
+<div class="col text-center mb-20">
+    <p class="fw-bold fs-5 mt-5">K A T A L O G  I K A N</p>
+  </div>
   <div class="swiper katalog-ikan" style="height: 100%; position: relative">
     <div class="swiper-wrapper" style="display: flex; align-items: center">
       @foreach ($ikan as $item)
