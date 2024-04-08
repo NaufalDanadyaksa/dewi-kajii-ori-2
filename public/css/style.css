@@ -132,3 +132,73 @@ body {
 .container-homestay {
     background-color: white;
 }
+.custom-button1 {
+    background-color: #d8eb8ae9; /* Warna latar belakang */
+    color: white; /* Warna teks */
+    border: none; /* Tanpa border */
+    padding: 6px 30px; /* Padding tombol */
+    text-align: center; /* Teks rata tengah */
+    text-decoration: none; /* Tanpa dekorasi teks */
+    display: inline-block; /* Menjadikan tombol sebagai blok inline */
+    font-size: 16px; /* Ukuran font */
+    font-weight: bold;
+    border-radius: 20px; /* Sudut border-radius */
+    transition: background-color 0.3s ease; /* Transisi warna latar belakang */
+  }
+
+  .custom-button1:hover {
+    background-color: #c8e3854e; /* Warna latar belakang hover */
+  }
+  .custom-button2 {
+    background-color: #d8eb8ae9; /* Warna latar belakang */
+    color: white; /* Warna teks */
+    border: none; /* Tanpa border */
+    padding: 6px 30px; /* Padding tombol */
+    text-align: center; /* Teks rata tengah */
+    text-decoration: none; /* Tanpa dekorasi teks */
+    display: inline-block; /* Menjadikan tombol sebagai blok inline */
+    font-size: 16px; /* Ukuran font */
+    font-weight: bold;
+    border-radius: 20px; /* Sudut border-radius */
+    transition: background-color 0.3s ease; /* Transisi warna latar belakang */
+  }
+
+  .custom-button2:hover {
+    background-color: #c8e3854e; /* Warna latar belakang hover */
+  }
+  .welcome-text {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 10px;
+    font-size: 32pt;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    z-index: 1000;
+  }
+  .welcome-text1 {
+    position: absolute;
+    top: 40%;
+    left: 26%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 10px;
+    font-size: 32pt;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    z-index: 1000;
+  }
+  .welcome-text2 {
+    position: absolute;
+    top: 40%;
+    left: 26%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 10px;
+    font-size: 32pt;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    z-index: 1000;
+  }

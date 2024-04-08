@@ -59,15 +59,25 @@
 <body>
 <div class="container mt-5">
     <div class="row justify-content-center">
+
         <div class="col-md-5 order-md-1 order-2">
             <div id="carouselDetail" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     @foreach($homestay->images as $index => $image)
                     <div class="carousel-item {{$index == 0 ? 'active' : ''}}">
+
+        
+        <div class="col-md-5 order-md-1 order-2">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach($homestay->images as $image)
+                    <div class="carousel-item active">
+
                         <img src="{{ asset('/posts/homestay/'.$image->url) }}" class="img-card-homestay p-2 d-block w-100" alt="..." style="height: 12rem; border-radius: 10px;">
                     </div>
                     @endforeach
                 </div>
+
                 <ol class="carousel-indicators">
                     @foreach($homestay->images as $index => $image)
                     <li data-target="#carouselDetail" data-slide-to="{{$index}}" class="{{$index == 0 ? 'active' : ''}}"></li>
@@ -78,6 +88,19 @@
                     <span class="sr-only">Previous</span>
                 </a>
                 <a class="carousel-control-next" href="#carouselDetail" role="button" data-slide="next">
+
+                </div>
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"><i class="ti ti-chevron-left"></i></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+
                     <span class="carousel-control-next-icon" aria-hidden="true"><i class="ti ti-chevron-right"></i></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -91,6 +114,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
