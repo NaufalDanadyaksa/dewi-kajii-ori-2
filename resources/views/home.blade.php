@@ -177,10 +177,13 @@
 
   <!-- Atraksi -->
   <section class="atraksi" id="atraksi">
+  <div class="col-md-4">
+        <img src="./element/sea-star.png" alt="" style="width: 10rem;">
+      </div>
     <div class="container-atraksi container justify-content-center">
-      <div class="row mt-5">
+      <div class="row">
         <div class="col text-center">
-          <p class="fw-bold fs-5">A T R A K S I</p>
+          <p class="fw-bold fs-5 mt-5">A T R A K S I</p>
         </div>
       </div>
 
