@@ -5,27 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dashboard - DEWI KAJII</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-/>
   <style>
     /* Custom CSS */
-    .navbar-brand {
-      font-weight: bold;
-      font-size: 24px;
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.5); /* Atur opacity sesuai kebutuhan */
     }
-    
+
+    .navbar-brand {
+      color: white; /* Ganti warna teks agar sesuai dengan latar belakang */
+    }
+
+    .navbar-nav .nav-link {
+      color: white; /* Ganti warna teks agar sesuai dengan latar belakang */
+    }
+
+    .offcanvas {
+      background-color: rgba(0, 0, 0, 0.2); /* Atur opacity untuk offcanvas menu */
+    }
+
     .content-container {
       background-color: rgba(255, 255, 255, 0.9); /* Warna latar belakang konten */
       border-radius: 10px; /* Tambahkan border radius sesuai keinginan */
       padding: 20px; /* Tambahkan padding sesuai keinginan */
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk membuat konten menonjol */
-      margin-top:50px   
-    }
-
-    body{
-      background-color: #E7DACE;
+      margin-top:50px;
     }
   </style>
 </head>
@@ -35,7 +38,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <img src="https://via.placeholder.com/30" alt="Logo" class="d-inline-block align-top me-2">
-      DEWI KAJII
+      Desa Wisata Kajii
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -98,7 +101,6 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

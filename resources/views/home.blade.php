@@ -152,13 +152,25 @@
   >
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="./img/empang1.jpg" class="d-block w-100" alt="Image 1" />
+        <img src="empang1.jpg" class="d-block w-100" alt="Image 1" />
+        <a href="profil.blade.php" class="custom-button1" style="position: absolute; left: 55px; top: 340px;">Kunjungi Profil</a>
+        <div class="welcome-text">Selamat Datang di
+        <br>Desa Wisata Kajii</br>
+      </div>
       </div>
       <div class="carousel-item">
-        <img src="./img/fotbarrr.jpg" class="d-block w-100" alt="Image 2" />
+        <img src="fotbarrr.jpg" class="d-block w-100" alt="Image 2" />
+        <a href="profil.blade.php" class="custom-button2" style="position: absolute; left: 55px; top: 340px;">Lihat Berita</a>
+        <div class="welcome-text1">Kunjungan Magang
+        <br>Siswa SMK N 2 Surakarta</br>
+      </div>
       </div>
       <div class="carousel-item">
-        <img src="./img/seoeda.jpg" class="d-block w-100" alt="Image 3" />
+        <img src="seoeda.jpg" class="d-block w-100" alt="Image 3" />
+        <a href="profil.blade.php" class="custom-button2" style="position: absolute; left: 55px; top: 340px;">Lihat Berita</a>
+        <div class="welcome-text2">Aktivitas Farm Visit
+        <br>Menjadi Daya Tarik Utama</br>
+      </div>
       </div>
     </div>
   </div>
