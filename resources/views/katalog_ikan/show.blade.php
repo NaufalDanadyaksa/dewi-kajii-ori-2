@@ -1,67 +1,100 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Detail Ikan</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title></title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
     <style>
-        body {
-            background-color: #f8f9fa;
+        .carousel-indicators {
+            bottom: -50px;
         }
-        .container {
-            max-width: 800px;
-            margin-top: 50px;
+        .carousel-indicators li {
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background-color: black;
         }
-        .atraksi-image {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        /* Tambahkan gaya untuk tombol prev dan next */
+        .carousel-control-prev,
+        .carousel-control-next {
+            margin-left: -15px;
+            margin-right: -15px;
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black; /* tambahkan warna hitam */
+            top: calc(50% - 15px); /* menempatkan di tengah */
         }
-        .atraksi-details {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        /* Gaya untuk ikon */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            color: black;
         }
-        .atraksi-title {
-            font-size: 24px;
-            color: #333333;
-            margin-bottom: 10px;
+        /* Gaya untuk foto */
+        .carousel-item img {
+            height: 400px; /* tinggi foto */
+            object-fit: cover; /* agar foto tetap proporsional */
+            border-radius: 20px;
         }
-        .atraksi-description {
-            font-size: 16px;
-            color: #666666;
-        }
-        .btn-back {
-            margin-bottom: 20px;
+
+        /* Gaya untuk konten lainnya */
+        @media (max-width: 576px) {
+            .carousel,
+            .carousel-inner,
+            .carousel-item,
+            .container {
+                height: auto;
+            }
         }
     </style>
 </head>
-<body>
-
-<div class="container">
-    <a href="{{ route('ikan.index') }}" class="btn btn-secondary btn-back">&laquo; Kembali</a>
-    
-    <div class="row">
-        <div class="col-md-6">
-            @foreach($ikan->images as $image)
-                <img src="{{ asset('/posts/katalog_ikan/'.$image->url) }}" class="atraksi-image" alt="Gambar Atraksi">
-            @endforeach
+<body style=" background-color: #FFE382;">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5 order-md-1 order-2">
+            <div id="carouselDetailikan" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach($ikan->images as $index => $image)
+                    <div class="carousel-item {{$index == 0 ? 'active' : ''}}">
+                        <img src="{{ asset('/posts/katalog_ikan/'.$image->url) }}" class="img-card-homestay d-block w-100" alt="..." style="height: 12rem; border-radius: 10px;">
+                    </div>
+                    @endforeach
+                </div>
+                <ol class="carousel-indicators">
+                    @foreach($ikan->images as $index => $image)
+                    <li data-target="#carouselDetailikan" data-slide-to="{{$index}}" class="{{$index == 0 ? 'active' : ''}}"></li>
+                    @endforeach
+                </ol>
+                <a class="carousel-control-prev" href="#carouselDetailikan" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"><i class="ti ti-chevron-left"></i></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselDetailikan" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"><i class="ti ti-chevron-right"></i></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
         </div>
-        <div class="col-md-6">
-            <div class="atraksi-details">
-                <h2 class="atraksi-title">{{ $ikan->name }}</h2>
-                <h2 class="atraksi-title">{{$ikan->price}}</h2>
-                <p class="atraksi-description">{{ $ikan->description }}</p>
+        <div class="col-md-5 order-md-2 order-1 mt-3 mt-md-0">
+            <div class="container rounded p-4" style="background-color: #68687D">
+                <div class="text">
+                    <h3 class="text-white">{{$ikan->name}}</h3>
+                    <p class="text-white">{{$ikan->price}}</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

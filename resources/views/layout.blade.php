@@ -23,13 +23,16 @@
         background-color: rgba(0, 0, 0, 0.2); /* Atur opacity untuk offcanvas menu */
       }
 
-      .content-container {
-        background-color:#F1F1F1; /* Warna latar belakang konten */
-        border-radius: 10px; /* Tambahkan border radius sesuai keinginan */
-        padding: 20px; /* Tambahkan padding sesuai keinginan */
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk membuat konten menonjol */
-        margin-top:50px   
-      }
+
+    .content-container {
+      background-color:#F1F1F1; /* Warna latar belakang konten */
+      border-radius: 10px; /* Tambahkan border radius sesuai keinginan */
+      padding: 20px; /* Tambahkan padding sesuai keinginan */
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk membuat konten menonjol */
+      margin-top:50px   
+    }
+
+   
 
       body{
         background-color: #FFE382;
@@ -105,55 +108,57 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script>
 document.getElementById('image').addEventListener('change', function(e) {
-    var files = e.target.files;
-    var preview = document.getElementById('preview');
-    var chooseImageButton = document.getElementById('chooseImageButton');
-    
-    preview.innerHTML = '';
-    
-    if (files.length > 0) {
-        chooseImageButton.style.display = 'none';
-    } else {
-        chooseImageButton.style.display = 'block';
-    }
-    
-    for (var i = 0; i < files.length; i++) {
-        var file = files[i];
-        var reader = new FileReader();
-        
-        reader.onload = function(e) {
-            var img = document.createElement('img');
-            img.src = e.target.result;
-            img.style.maxWidth = '200px';
-            img.style.marginRight = '10px';
-            
-            var button = document.createElement('button');
-            button.innerText = 'X';
-            button.type = 'button';
-            button.classList.add('btn', 'btn-dark', 'rounded-circle', 'mb-2');
-            button.style.cursor = 'pointer';
-            button.style.border = 'none';
-            
-            button.addEventListener('click', function() {
-                preview.removeChild(div);
-                if (preview.children.length === 0) {
-                    chooseImageButton.style.display = 'block';
-                }
-            });
-            
-            var div = document.createElement('div');
-            div.appendChild(img);
-            div.appendChild(button);
-            
-            preview.appendChild(div);
-        }
-        
-        reader.readAsDataURL(file);
-    }
+  var files = e.target.files;
+  var preview = document.getElementById('preview');
+  var chooseImageButton = document.getElementById('chooseImageButton');
+  
+  preview.innerHTML = '';
+  
+  if (files.length > 0) {
+      chooseImageButton.style.display = 'none';
+  } else {
+      chooseImageButton.style.display = 'block';
+  }
+  
+  for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+      var reader = new FileReader();
+      
+      reader.onload = function(e) {
+          var img = document.createElement('img');
+          img.src = e.target.result;
+          img.style.maxWidth = '200px';
+          img.style.marginRight = '10px';
+          
+          var button = document.createElement('button');
+          button.innerText = 'X';
+          button.type = 'button';
+          button.classList.add('btn', 'btn-dark', 'rounded-circle', 'mb-2');
+          button.style.cursor = 'pointer';
+          button.style.border = 'none';
+          
+          button.addEventListener('click', function() {
+              preview.removeChild(div);
+              if (preview.children.length === 0) {
+                  chooseImageButton.style.display = 'block';
+              }
+          });
+          
+          var div = document.createElement('div');
+          div.appendChild(img);
+          div.appendChild(button);
+          
+          preview.appendChild(div);
+      }
+      
+      reader.readAsDataURL(file);
+  }
 });
 </script>
-  </body>
-  </html>
+</body>
+</html>
+

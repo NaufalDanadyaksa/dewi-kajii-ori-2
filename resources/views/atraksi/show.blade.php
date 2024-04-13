@@ -64,7 +64,9 @@
                 <div class="carousel-inner">
                     @foreach($atraksi->images as $index => $image)
                     <div class="carousel-item {{$index == 0 ? 'active' : ''}}">
-                        <img src="{{ asset('/posts/atraksi/'.$image->url) }}" class="img-card-homestay p-2 d-block w-100" alt="..." style="height: 12rem; border-radius: 10px;">
+
+                        <img src="{{ asset('/posts/atraksi/'.$image->url) }}" class="img-card-homestay d-block w-100" alt="..." style="height: 12rem; border-radius: 10px;">
+
                     </div>
                     @endforeach
                 </div>
@@ -86,8 +88,10 @@
         <div class="col-md-5 order-md-2 order-1 mt-3 mt-md-0">
             <div class="container rounded p-4" style="background-color: #68687D">
                 <div class="text">
-                    <h3>{{$atraksi->name}}</h3>
-                    <p>{{$atraksi->description}}</p>
+
+                    <h3 class="text-white">{{$atraksi->name}}</h3>
+                    <p class="text-white">{{$atraksi->description}}</p>
+
                 </div>
             </div>
         </div>

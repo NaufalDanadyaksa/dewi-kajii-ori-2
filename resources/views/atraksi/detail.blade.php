@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Bootstrap Carousel with Pagination Below</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
     <style>
@@ -57,6 +56,7 @@
     </style>
 </head>
 <body>
+
 <div class="container mt-5">
     <div class="row justify-content-center">
 
@@ -87,10 +87,23 @@
                     @foreach($atraksi->images as $image)
                     <div class="carousel-item active">
                         <img src="{{ asset('/posts/atraksi/'.$image->url) }}" class="img-card-atraksi p-2 d-block w-100" alt="..." style="height: 12rem; border-radius: 10px;">
+
                     </div>
-                    @endforeach
+                    <ol class="carousel-indicators">
+                        @foreach($atraksi->images as $index => $image)
+                        <li data-target="#carouselDetailAtraksi" data-slide-to="{{$index}}" class="{{$index == 0 ? 'active' : ''}}"></li>
+                        @endforeach
+                    </ol>
+                    <a class="carousel-control-prev" href="#carouselDetailAtraksi" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"><i class="ti ti-chevron-left"></i></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselDetailAtraksi" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"><i class="ti ti-chevron-right"></i></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
-                </div>
+
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -105,21 +118,21 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"><i class="ti ti-chevron-right"></i></span>
                     <span class="sr-only">Next</span>
                 </a>
+
             </div>
-        </div>
-        <div class="col-md-5 order-md-2 order-1 mt-3 mt-md-0">
-            <div class="container rounded p-4" style="background-color: #B37D7D;">
-                <div class="text">
-                    <h3>{{$atraksi->name}}</h3>
-                    <p>{{$atraksi->description}}</p>
+            <div class="col-md-5 order-md-2 order-1 mt-3 mt-md-0">
+                <div class="container rounded p-4" style="background-color: #B37D7D;">
+                    <div class="text">
+                        <h3 class="text-white">{{$atraksi->name}}</h3>
+                        <p class="text-white">{{$atraksi->description}}</p>
+                    </div>
                 </div>
             </div>
         </div>
 
     </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
