@@ -22,12 +22,14 @@
             <label for="image">Upload gambar baru:</label>
             <input
                 type="file"
+
                 name='image' 
                 id="image"
                 class="form-control rounded-pill text-white"
                 style=" display: none;"
             />
             <button type="button" onclick="document.getElementById('image').click()" class="btn text-white rounded-pill" style="background-color: #68687D; margin-top:10px; margin-bottom:10px; " id="chooseImageButton">Pilih Gambar</button>
+
             <div id="preview"></div>
             @if ($berita->image)
                 <img src="{{ asset($berita->image) }}" alt="Gambar Berita" class="mt-2" style="max-width: 300px;">
@@ -36,9 +38,11 @@
 
         <div class="row justify-content-end">
             <div class="col-auto">
+
                 <a href="{{ route('berita.index') }}"  class="btn text-white rounded-pill py-2 px-3" style="background-color: #95959a;text-decoration: none; opacity: 1.0; box-shadow: none; border: none">Batal</a>
                 <button type="submit" name="submit" class="btn text-white rounded-pill py-2 px-3" style="background-color: #68687D; text-decoration: none; opacity: 1.0; box-shadow: none; border: none">Update</button>
                 
+
             </div>
         </div>
         
@@ -46,7 +50,9 @@
 </div>
 
 <script>
+
 document.getElementById('image').addEventListener('change', function(e) {
+
     var files = e.target.files;
     var preview = document.getElementById('preview');
     var chooseImageButton = document.getElementById('chooseImageButton');

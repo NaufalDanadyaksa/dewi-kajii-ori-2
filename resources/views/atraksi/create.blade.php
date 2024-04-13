@@ -62,6 +62,7 @@
 
 <!-- AKHIR FORM --> 
 
+
 <script>
          document.getElementById('image').addEventListener('change', function(e) {
         var files = e.target.files;
@@ -111,5 +112,6 @@
         }
     });
 </script>
+
 @endsection
 

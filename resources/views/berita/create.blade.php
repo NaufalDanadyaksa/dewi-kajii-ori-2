@@ -2,6 +2,10 @@
 
 @section('content')
 <!-- START FORM -->
+
+@section('content')
+
+
 <style>
     #title::placeholder,
     #article::placeholder {
@@ -10,6 +14,7 @@
 </style>
 
 <form action='{{ url('berita') }}' method='POST' enctype="multipart/form-data">
+
     @csrf 
     <body style="background-color: #FFE382;">
         
@@ -27,8 +32,10 @@
                         color: white;"
                     placeholder="Judul Berita">
             </div>
+
         </div>
         <div>
+
             <div>
                 <textarea name="article" id="article" class="form-control"  style="
                     background-color: #68687D;
@@ -58,6 +65,7 @@
                     style="background-color: #68687D;text-decoration: none; opacity:1.0; box-shadow:none; border:none">Submit</button>
             </div>
         </div>
+
 </form>
 
 <!-- AKHIR FORM --> 
@@ -109,6 +117,8 @@
             reader.readAsDataURL(file);
         }
     });
+
 </script>
+
 <!-- AKHIR FORM -->
 @endsection
