@@ -149,6 +149,6 @@ class PaketWisataController extends Controller
         $wisata->delete();
     
         return redirect()->route('wisata.index')->with('success', 'wisata beserta gambar berhasil dihapus.');
-    }
+    } 
     
 }

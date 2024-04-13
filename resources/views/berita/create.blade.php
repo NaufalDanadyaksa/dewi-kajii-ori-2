@@ -1,7 +1,7 @@
 @extends('layout')
-<!-- START FORM -->
-@section('content')
 
+@section('content')
+<!-- START FORM -->
 <style>
     #title::placeholder,
     #article::placeholder {
@@ -10,56 +10,54 @@
 </style>
 
 <form action='{{ url('berita') }}' method='POST' enctype="multipart/form-data">
-@csrf 
-<body style="background-color: #FFE382;">
-    
-    
-    <div>
+    @csrf 
+    <body style="background-color: #FFE382;">
+        
         <div>
-            
-            <input type="text" class="form-control" name='title' value="{{ old('title') }}" id="title"
-            style="
-            background-color: #68687D;
-            text-decoration: none;
-            opacity: 1;
-            box-shadow: none;
-            border: none;
-            border-radius: 6px;
-            margin-bottom:10px;
-            color: white;"
-          placeholder="Judul Berita">
+            <div>
+                <input type="text" class="form-control" name='title' value="{{ old('title') }}" id="title"
+                    style="
+                        background-color: #68687D;
+                        text-decoration: none;
+                        opacity: 1;
+                        box-shadow: none;
+                        border: none;
+                        border-radius: 6px;
+                        margin-bottom:10px;
+                        color: white;"
+                    placeholder="Judul Berita">
+            </div>
         </div>
-    </div>
-    <div>
         <div>
-            <textarea name="article" id="article" class="form-control"  style="
-            background-color: #68687D;
-            text-decoration: none;
-            opacity: 1;
-            box-shadow: none;
-            border: none;
-            border-radius: 6px;
-            color: white;"
-          placeholder="Artikel">{{ old('article') }}</textarea>
+            <div>
+                <textarea name="article" id="article" class="form-control"  style="
+                    background-color: #68687D;
+                    text-decoration: none;
+                    opacity: 1;
+                    box-shadow: none;
+                    border: none;
+                    border-radius: 6px;
+                    color: white;"
+                    placeholder="Artikel">{{ old('article') }}</textarea>
+            </div>
         </div>
-    </div>
-    <div class="form-group" style="margin-top: 20px;">
-    <input
-      type="file"
-      name="image" id="image" 
-    class="form-control rounded-pill text-white"
-      style=" display: none;"
-    />
-    <button type="button" onclick="document.getElementById('image').click()" class="btn text-white rounded-pill" style="background-color: #68687D; margin-top:10px; margin-bottom:10px; " id="chooseImageButton">Pilih Gambar</button>
-    <div id="preview"></div>
-</div>
+        <div class="form-group" style="margin-top: 20px;">
+            <input type="file" name="image" id="image" class="form-control rounded-pill text-white"
+                style=" display: none;" />
+            <button type="button" onclick="document.getElementById('image').click()"
+                class="btn text-white rounded-pill" style="background-color: #68687D; margin-top:10px; margin-bottom:10px; "
+                id="chooseImageButton">Pilih Gambar</button>
+            <div id="preview"></div>
+        </div>
 
-    <div class="row justify-content-end">
-          <div class="col-auto">
-          <a href="{{ url('atraksi') }}" class="btn text-white rounded-pill py-2 px-3" style="background-color: #95959a;text-decoration: none; opacity:1.0; box-shadow:none; border:none">Kembali</a>
-            <button type="submit" name="submit" class="btn text-white rounded-pill py-2 px-3" style="background-color: #68687D;text-decoration: none; opacity:1.0; box-shadow:none; border:none">Submit</button>
-          </div>
-      </div>
+        <div class="row justify-content-end">
+            <div class="col-auto">
+                <a href="{{ url('berita') }}" class="btn text-white rounded-pill py-2 px-3"
+                    style="background-color: #95959a;text-decoration: none; opacity:1.0; box-shadow:none; border:none">Kembali</a>
+                <button type="submit" name="submit" class="btn text-white rounded-pill py-2 px-3"
+                    style="background-color: #68687D;text-decoration: none; opacity:1.0; box-shadow:none; border:none">Submit</button>
+            </div>
+        </div>
 </form>
 
 <!-- AKHIR FORM --> 
@@ -111,6 +109,6 @@
             reader.readAsDataURL(file);
         }
     });
-    </script>
+</script>
 <!-- AKHIR FORM -->
 @endsection
