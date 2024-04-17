@@ -1,36 +1,6 @@
 @extends('layout')
 
 @section('content')
-<style>
-    .swiper {
-    height: 100%;
-    height: 100%;
-}
-
-.swiper-wrapper {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    height: 100%;
-}
-
-.swiper-slide {
-    height: 500px;
-}
-
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-@media (min-width: 768px) {
-    .swiper-wrapper {
-        padding-left: 100px;
-    }
-}
-</style>
 
 <form action='{{ route('atraksi.update', $atraksi->id) }}' method='post' enctype="multipart/form-data">
     @csrf 
