@@ -56,6 +56,7 @@
     </style>
 </head>
 <body>
+
 <div class="container mt-5">
     <div class="row justify-content-center">
 
@@ -102,8 +103,6 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-<<<<<<< HEAD
-=======
 
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -120,7 +119,6 @@
                     <span class="sr-only">Next</span>
                 </a>
 
->>>>>>> 244149bf8a937c910291faac80e6619ea8d8cff0
             </div>
             <div class="col-md-5 order-md-2 order-1 mt-3 mt-md-0">
                 <div class="container rounded p-4" style="background-color: #B37D7D;">
@@ -131,10 +129,7 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> 244149bf8a937c910291faac80e6619ea8d8cff0
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

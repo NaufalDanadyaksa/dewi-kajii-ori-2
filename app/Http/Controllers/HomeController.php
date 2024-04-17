@@ -25,13 +25,6 @@ class HomeController extends Controller
 
         return view('atraksi.detail', compact('atraksi'));
     }
-<<<<<<< HEAD
-    public function showSejarah(string $id)
-    {
-        $sejarah = Sejarah::with('images')->findOrFail($id);
-
-        return view('sejarah.detail', compact('sejarah'));
-=======
 
     public function showSejarah()
     {
@@ -40,7 +33,6 @@ class HomeController extends Controller
 
         return view('sejarah.profile', compact('sejarah'));
 
->>>>>>> 244149bf8a937c910291faac80e6619ea8d8cff0
     }
     public function showBerita(string $id)
     {

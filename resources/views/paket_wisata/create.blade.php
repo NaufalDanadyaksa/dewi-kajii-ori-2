@@ -11,16 +11,20 @@
 </style>
 
 <div class="container">
+
     <form action="{{ route('wisata.store') }}" method="POST" enctype="multipart/form-data" id="attractionForm">
         @csrf
+
     
         <div class="form-group">
             <input type="text" class="form-control text-white" placeholder="nama wisata" name='name' value="{{ old('name') }}" id="name" required style="background-color: #68687D; text-decoration: none; opacity: 1; box-shadow: none; border: none; border-radius: 6px; margin-bottom: 10px;">
         </div>
 
+
         <div class="form-group">
             <input type="number" class="form-control text-white" placeholder="harga" name='price' value="{{ old('price') }}" id="price" required style="background-color: #68687D; text-decoration: none; opacity: 1; box-shadow: none; border: none; border-radius: 6px;">
         </div>
+
 
         <div class="form-group mb-3 mt-2">
             <input type="text" id="contents" class="form-control text-white" placeholder="Isi paket wisata" name="contents[]" required style="background-color: #68687D; text-decoration: none; opacity: 1; box-shadow: none; border: none; border-radius: 6px; margin-bottom: 5px;">

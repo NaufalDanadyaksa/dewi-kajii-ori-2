@@ -2,8 +2,6 @@
 
 @section('content')
 
-@section('content')
-<!-- START FORM -->
 <style>
     #title::placeholder,
     #article::placeholder {
@@ -112,6 +110,7 @@
         }
     });
 </script>
+
 
 <!-- AKHIR FORM -->
 @endsection
