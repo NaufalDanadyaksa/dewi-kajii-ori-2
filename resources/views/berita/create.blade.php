@@ -5,7 +5,7 @@
 <style>
     #title::placeholder,
     #article::placeholder {
-        color: #ffffff ; 
+        color: #ffffffa0 ;
     }
 </style>
 

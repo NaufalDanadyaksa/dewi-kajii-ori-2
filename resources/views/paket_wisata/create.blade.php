@@ -6,7 +6,7 @@
     #name::placeholder,
     #price::placeholder,
     #contents::placeholder{
-        color: #ffffff ; 
+        color: #ffffffa0 ;
     }
 </style>
 

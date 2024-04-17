@@ -15,13 +15,13 @@
                 class="form-control text-white"
                 name='name' id="name"
                 style="
-            background-color:  #68687D;
-            text-decoration: none;
-            opacity: 1;
-            box-shadow: none;
-            border: none;
-            border-radius: 6px;
-            margin-bottom:10px;
+                background-color:  #68687D;
+                text-decoration: none;
+                opacity: 1;
+                box-shadow: none;
+                border: none;
+                border-radius: 6px;
+                margin-bottom:10px;
           "
                 value="{{ $wisata->name }}" required>
         </div>

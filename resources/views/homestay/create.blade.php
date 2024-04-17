@@ -5,7 +5,7 @@
     #name::placeholder,
     #description::placeholder,
     #location::placeholder{
-        color: #ffffff ; 
+        color: #ffffffa0 ;
     }
 </style>
 
