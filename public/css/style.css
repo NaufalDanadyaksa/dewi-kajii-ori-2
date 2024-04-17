@@ -1,5 +1,5 @@
 body {
-    background-color: #e7dace;
+    background-color: #FFE382;
 }
 
 .navbar {
@@ -133,7 +133,7 @@ body {
     background-color: white;
 }
 .custom-button1 {
-    background-color: #d8eb8ae9; /* Warna latar belakang */
+    background-color: rgba(133, 133, 133, 0.5); /* Warna latar belakang dengan opacity (kejelasan) 0.5 */
     color: white; /* Warna teks */
     border: none; /* Tanpa border */
     padding: 6px 30px; /* Padding tombol */
@@ -150,7 +150,7 @@ body {
     background-color: #c8e3854e; /* Warna latar belakang hover */
   }
   .custom-button2 {
-    background-color: #d8eb8ae9; /* Warna latar belakang */
+    background-color: rgba(133, 133, 133, 0.5); /* Warna latar belakang dengan opacity (kejelasan) 0.5 */
     color: white; /* Warna teks */
     border: none; /* Tanpa border */
     padding: 6px 30px; /* Padding tombol */

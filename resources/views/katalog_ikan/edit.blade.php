@@ -37,7 +37,7 @@
     <div class="row row-cols-1 row-cols-md-3 mt-5">
         @foreach($ikan->images as $image)
     <div class="swiper-slide" style="height: 500px;">
-        <img src="{{ asset('posts/homestay/'.$image->url) }}" class="rounded mb-3 w-100 h-100" style="max-height: 300px;">
+        <img src="{{ asset('posts/katalog_ikan/'.$image->url) }}" class="rounded mb-3 w-100 h-100" style="max-height: 300px;">
         <!-- Tambahkan checkbox untuk menghapus gambar -->
         <input type="checkbox" name="delete_image[]" value="{{ $image->id }}" class="form-check-input rounded-circle me-2">Hapus
     </div>

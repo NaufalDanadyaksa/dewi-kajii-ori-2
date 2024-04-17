@@ -1,6 +1,8 @@
 @extends('layout')
 
 @section('content')
+
+@section('content')
 <!-- START FORM -->
 <style>
     #title::placeholder,
@@ -110,5 +112,7 @@
         }
     });
 </script>
+
 <!-- AKHIR FORM -->
 @endsection
+

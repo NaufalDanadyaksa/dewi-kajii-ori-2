@@ -1,36 +1,6 @@
 @extends('layout')
 
 @section('content')
-<style>
-    .swiper {
-    height: 100%;
-    height: 100%;
-}
-
-.swiper-wrapper {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    height: 100%;
-}
-
-.swiper-slide {
-    height: 500px;
-}
-
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-@media (min-width: 768px) {
-    .swiper-wrapper {
-        padding-left: 100px;
-    }
-}
-</style>
 
 <form action='{{ route('atraksi.update', $atraksi->id) }}' method='post' enctype="multipart/form-data">
     @csrf 
@@ -75,15 +45,9 @@
              </div>
 
     <div class="form-group">
-        <input
-          type="file"
-          name="new_image[]" id="image" 
-          multiple class="form-control rounded-pill text-white"
-          style=" display: none;"
-        />
-        <button type="button" onclick="document.getElementById('image').click()" class="btn text-white rounded-pill" style="background-color: #68687D; margin-bottom:10px; " id="chooseImageButton">Pilih Gambar</button>
-        <div id="preview"></div>
-        <small id="imageHelp" class="form-text text-muted">Pilih beberapa gambar dengan menekan tombol Ctrl/Cmd saat memilih.</small>
+        <div style="margin-bottom:30px;">
+            <input type="file" class="form-control rounded-pill text-white" name='new_image[]' multiple style="background-color: #886c6c;">
+        </div>
     </div>
 
     

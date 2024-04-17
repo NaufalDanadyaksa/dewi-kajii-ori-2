@@ -152,7 +152,13 @@
   >
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="./img/empang1.jpg" class="d-block w-100" alt="Image 1" />
+
+        <img src="empang1.jpg" class="d-block w-100" alt="Image 1" />
+        <a href="{{route('profile')}}" class="custom-button1" style="position: absolute; left: 55px; top: 340px;">Kunjungi Profil</a>
+        <div class="welcome-text">Selamat Datang di
+        <br>Desa Wisata Kajii</br>
+      </div>
+
       </div>
       <div class="carousel-item">
         <img src="./img/fotbarrr.jpg" class="d-block w-100" alt="Image 2" />
@@ -165,10 +171,13 @@
 
   <!-- Atraksi -->
   <section class="atraksi" id="atraksi">
+  <div class="col-md-4">
+        <img src="./element/sea-star.png" style="width: 10rem; margin-bottom:-90px;">
+      </div>
     <div class="container-atraksi container justify-content-center">
-      <div class="row mt-5">
+      <div class="row">
         <div class="col text-center">
-          <p class="fw-bold fs-5">A T R A K S I</p>
+          <p class="fw-bold fs-5" style="margin-top: 25px; margin-bottom:40px;">A T R A K S I</p>
         </div>
       </div>
 
@@ -215,9 +224,9 @@
           <img src="./element/koiii.png" alt="" srcset="" style="width: 18rem">
         </div>
         <div class="col">
-          <h4 class="text-start text-white">Periksa <br> Paket Wisata Kami</h4>
+          <h4 class="text-start text-white" style="margin-left:80px; margin-top:80px;">Periksa <br> Paket Wisata Kami</h4>
           <div class="text-start">
-            <a href="#" class="btn rounded-5 text-white px-5 py-2 text-left" style="background-color: #B37D7D">Periksa</a></div>
+            <a href="#" class="btn rounded-5 text-white px-5 py-2 text-left" style="background-color: #858585; margin-left:80px;">Periksa</a></div>
         </div>
         <div class="col order-first">
           <img src="./element/koii.png" alt="" srcset="" style="width: 18rem">
@@ -277,12 +286,12 @@
   <div class="container text-center">
     <div class="row">
       <div class="col-md-4">
-        <img src="./element/sea-star.png" alt="" style="width: 14rem">
+        <img src="./element/sea-star.png" alt="" style="width: 10rem">
       </div>
       <div class="col-md-4 offset-md-4 mt-4">
         <h4 class="text-start text-white">Anda bisa <br> reservasi di sini</h4>
         <div class="text-start">
-          <a href="#" class="btn rounded-5 text-white px-5 py-2" style="background-color: #B37D7D">pesan</a>
+          <a href="#" class="btn rounded-5 text-white px-5 py-2" style="background-color: #858585">pesan</a>
         </div>
       </div>
     </div>
@@ -290,6 +299,11 @@
 </section>
 
 <section>
+<div class="row">
+        <div class="col text-center">
+          <p class="fw-bold fs-5" style="margin-top: 25px; margin-bottom:40px;">K A T A L O G  I K A N</p>
+        </div>
+      </div>
   <div class="swiper katalog-ikan" style="height: 100%; position: relative">
     <div class="swiper-wrapper" style="display: flex; align-items: center">
       @foreach ($ikan as $item)
@@ -347,12 +361,11 @@
   </div>
 </section>
 
-
 <section class="homestay">
   <div class="container-homestay container justify-content-center">
     <div class="row mt-5">
       <div class="col text-center">
-        <p class="fw-bold fs-5">H O M E S T A Y</p>
+        <p class="fw-bold fs-5" style="margin-top:20px;">H O M E S T A Y</p>
       </div>
     </div>
 
@@ -379,6 +392,19 @@
         </div>
       </div>
       @endforeach
+    </div>
+  </div>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="./element/sea-star.png" alt="" style="width: 10rem">
+      </div>
+      <div class="col-md-4 offset-md-4 mt-4">
+        <h4 class="text-start text-white">Anda bisa <br> reservasi di sini</h4>
+        <div class="text-start">
+          <a href="#" class="btn rounded-5 text-white px-5 py-2" style="background-color: #858585">pesan</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
