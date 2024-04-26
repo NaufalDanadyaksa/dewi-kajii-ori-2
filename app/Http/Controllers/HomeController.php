@@ -13,12 +13,12 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function showHomestay(string $id)
-    {
-        $homestay = Homestay::with('images')->findOrFail($id);
+    public function createUlasan(){
 
-        return view('homestay.detail', compact('homestay'));
+        return view('ulasan.create');
     }
+
+    
     public function showAtraksi(string $id)
     {
         $atraksi = Atraksi::with('images')->findOrFail($id);
@@ -36,7 +36,7 @@ class HomeController extends Controller
     }
     public function showBerita(string $id)
     {
-        $berita = Berita::with('images')->findOrFail($id);
+        $berita = Berita::findOrFail($id);
 
         return view('berita.detail', compact('berita'));
     }
