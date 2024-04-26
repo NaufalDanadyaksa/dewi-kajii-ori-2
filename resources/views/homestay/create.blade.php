@@ -26,8 +26,6 @@
             border-radius: 6px;
             margin-bottom:10px;"
            placeholder="Nama Homestay"
-            margin-bottom:10px;"
-           placeholder="Nama Homestay"
          />
     </div>
 </div>
@@ -38,20 +36,11 @@
             name="description" id="description" style="background-color:
             #68687D;text-decoration: none; opacity:1.0; box-shadow:none; border-radius: 6px;
             border:none; margin-bottom:10px;">{{ old('description') }}</textarea>
-    <div class="row">
-        <div class="col-sm-18">
-            <textarea type="text" class="form-control text-white p-3"
-            placeholder="Deskripsi"
-            name="description" id="description" style="background-color:
-            #68687D;text-decoration: none; opacity:1.0; box-shadow:none; border-radius: 6px;
-            border:none; margin-bottom:10px;">{{ old('description') }}</textarea>
         </div>
     </div>
     
-    
     <div class="col-sm-18">
-            <input type="text" class="form-control text-white" name='location' value="{{ old('location') }}" id="location"  
-            <input type="text" class="form-control text-white" name='location' value="{{ old('location') }}" id="location"  
+        <input type="text" class="form-control text-white" name='location' value="{{ old('location') }}" id="location"  
             style="
             background-color: #68687D;
             background-color: #68687D;
@@ -61,11 +50,10 @@
             border: none;
             border-radius: 6px;
             margin-bottom:10px;"
-            margin-bottom:10px;"
           placeholder="Lokasi">
         </div>
           
-        <div class="form-group" style="margin-top: 20px;">
+    <div class="form-group" style="margin-top: 20px;">
     <input
       type="file"
       name="image[]" id="image" 
