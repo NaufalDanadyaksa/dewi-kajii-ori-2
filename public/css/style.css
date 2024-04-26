@@ -1,204 +1,518 @@
 body {
-    background-color: #FFE382;
-}
-
-.navbar {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F0F0F0;
+    overflow-x: hidden;
+  }
+  
+  .dashboard{
+  position: relative;
+  }
+  
+  .navbar {
     background-color: rgba(0, 0, 0, 0.521);
-}
-
-.carousel-item {
-    transition: transform 2s ease;
-}
-
-.container-atraksi {
-    background-color: white;
-}
-
-.deskripsi {
+  }
+  
+  .navbar-mobile{
+    background-color: rgba(0, 0, 0, 0.521);
+    color: white;
+  }
+  
+  .text-overlay {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    padding: 20px;
+  }
+  
+  .text-overlay h1 {
+    margin: 0;
+    font-size: 4vw;
+  
+  }
+  
+  .text-overlay h1 span {
+    display: block;
+    font-size: 7vw;
+  }
+  
+  .container-sejarah {
+    position: relative;
+    z-index: 1;
+    margin-top: -35px; 
+    background-color: #063C48;
+    border-radius: 50px;
+  }
+  
+  .sjrh{
+    padding-bottom: 200px;
+  }
+  
+  .pict-sejarah {
+    position: relative;
+    z-index: 1; /* Set a lower z-index to place it below container-sejarah */
+    width: 100%; /* Ensure the image fills its container */
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .container-sejarah .row {
+    position: relative;
+    z-index: 3;
+  }
+  
+  .text-sejarah {
+    color: #ffffffa7;
+    size: 1.5em;
+  }
+  
+  .berita {
+    margin-top: -200px;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 4;
+  }
+  
+  .swiper-container-berita{
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+  
+  .swiper-pagination {
+    position: relative;
+    margin-top: 200px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .swiper-slide-berita {
+    background-size: cover;
+    background-position: center;
+    margin-left: -28px;
+    margin-right: -28px;
+    width: 18rem; 
+    height: 28rem;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+  
+  .swiper-slide-berita.swiper-slide-berita-active {
+    opacity: 1;
+  }
+  
+  .swiper-pagination-bullet {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 8px;
+    background-color: #000000;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background-color: #063C48;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+  
+  .card-berita {
+    width: 18rem;
+    height: 28rem; 
+    position: relative;
+    border-radius: 10pt !important;
+    border: none !important;
+  }
+  
+  .berita-pict {
+    border-radius: 10pt;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card-text-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    text-align: left;
+    color: white;
+    border-radius: 10pt;
+    background-image: radial-gradient(at 84% 80%, hsla(128, 0%, 0%, 0.35) 0px, transparent 50%),
+      radial-gradient(at 20% 76%, hsla(240, 0%, 0%, 0.35) 0px, transparent 50%),
+      radial-gradient(at 83% 20%, hsla(240, 0%, 0%, 0.35) 0px, transparent 50%),
+      radial-gradient(at 19% 18%, hsla(343, 0%, 0%, 0.35) 0px, transparent 50%);
+  }
+  
+  .card-text-container p:first-child {
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 2em;
+  }
+  
+  .card-text-container p:last-child {
+    margin-top: 0;
+    font-size: 1em;
+  }
+  
+  .card-text {
+    margin-bottom: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  
+  .card-text-container button {
+    margin-top: 10px;
+  }
+  
+  .button-berita {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 10px;
+    border: none !important;
+  }
+  
+  .button-berita:hover {
+    background-color: #ffffff;
+    color: #000000ac;
+  }
+  
+  .card-paket-wisata{
+    position: relative; 
+    display: inline-block;
+  }
+  
+  .pict-paket{
+    width: 250px; 
+    height: 350px; 
+    margin: 30px; 
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  
+  .text-container-paket{
+    position: absolute; 
+    top: 50%; left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-color: rgba(255, 255, 255, 0.7); 
+    padding: 10px; 
+    border-radius: 10px; 
+    width: 200px; 
+    height: 220px; 
+    margin-top: 35px;
+  }
+  
+  .judul-paket{
+    font-size: 20px; 
+    font-weight: bold; 
+    margin-top: 5px; 
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .list-paket{
+    font-size: 15px; 
+    font-weight: 100; 
+    font-family: 'Poppins', sans-serif; 
+    border-bottom: 0.2px solid black; 
+    padding-bottom: 3px; 
+    margin-bottom: 8px;
+  }
+  
+  .ulasan{
+    overflow-x: hidden;
+    background-color:#063C48;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .judul-ulasan{
+    font-family: 'Rozha One', serif;
+    padding: 20px;
+    color: white;
+  }
+  
+  .card-ulasan{
+    
+    overflow-y: auto;
+    max-width: 350px; 
+    min-height: 250px;
+    max-height: 250px;
+    height: auto;
+    position: relative;
+  }
+  
+  .card-ulasan::-webkit-scrollbar {
+    width: 5px;
+    margin: 10px;
+    
+  }
+  
+  .card-ulasan::-webkit-scrollbar-track {
+    background: #f0f0f093; /* warna latar belakang track scrollbar */
+    border-radius: 10px; /* radius border track scrollbar */
+  }
+  
+  .card-ulasan::-webkit-scrollbar-thumb {
+    background: #d4cfcf; /* warna thumb scrollbar */
+    border-radius: 10px; /* radius border thumb scrollbar */
+  }
+  
+  .card-ulasan::-webkit-scrollbar-thumb:hover {
+    background: #063C48; /* warna thumb scrollbar saat hover */
+  }
+  
+  
+  
+  .nama-pengulas,
+  .text-ulasan {
+    color: #063C48;
+  }
+  
+  .card-homestay {
+  position: relative;
+  width: 14rem;
+  height: 20rem;
+  padding: 0;
+  }
+  
+  .homestay-pict {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 0;
+  }
+  
+  .card-overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  color: #000000;
+  font-weight: bolder;
+  font-size:1.4em;
+  
+  }
+  
+  .card-overlay-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  color: #ffffff;
+  }
+  
+  .homestay-title {
+  margin-bottom: 10px;
+  }
+  
+  .button-homestay {
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+  color: #000000;
+  border-radius: 15px;
+  border: none !important;
+  font-weight: bold;
+  font-size: 0.7em;
+  }
+  
+  .button-homestay:hover {
+  background-color: #ffffff;
+  color: #000000ac;
+  }
+  
+  
+  
+  
+  @media (max-width: 768px) {
+  
+  .deskripsi-sejarah{
+    font-size: 0.6em;
+  }  
+  
+  .swiper-slide-berita {
+    background-size: cover;
+    background-position: center;
+    margin-left: -28px;
+    margin-right: -28px;
+    width: 14rem; 
+    height: 20rem;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+  
+  
+  .card-berita {
+    width: 14rem;
+    height: 20rem; 
+    position: relative;
+    border-radius: 10pt !important;
+    border: none !important;
+  }
+  
+  .berita-pict {
+    border-radius: 10pt;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  .card-text-container p:first-child {
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+  
+  .card-text-container p:last-child {
+    margin-top: 0;
+    font-size: 0.5em;
+  }
+  
+  
+  
+  .button-berita {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 10px;
+    border: none !important;
+    font-size: 0.8em;
+  }
+  
+  
+  .card-paket-wisata{
+    position: relative; 
+    display: inline-block;
+  }
+  
+  .pict-paket{
+    width: 180px; 
+    height: 250px; 
+    margin: 30px; 
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  
+  .text-container-paket{
+    position: absolute; 
+    top: 50%; left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-color: rgba(255, 255, 255, 0.7); 
+    padding: 10px; 
+    border-radius: 10px; 
+    width: 130px; 
+    height: 150px; 
+    margin-top: 35px;
+  }
+  
+  .list-paket{
+    font-size: 10px; 
+    font-weight: 100; 
+    font-family: 'Poppins', sans-serif; 
+    border-bottom: 0.2px solid black; 
+    padding-bottom: 3px; 
+    margin-bottom: 8px;
+  }
+  
+  .nama-pengulas,
+  .text-ulasan {
+    font-size: 0.6em;
+  }
+  
+  .card-ulasan{
+    
+  overflow-y: auto;
+  max-width: 350px; 
+  min-height: 150px;
+  max-height: 150px;
+  height: auto;
+  position: relative;
+  }
+  
+  .card-homestay {
+  position: relative;
+  width: 10rem;
+  height: 14rem;
+  }
+  
+  .button-homestay {
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+  color: #000000;
+  border-radius: 15px;
+  border: none !important;
+  font-weight: bold;
+  font-size: 0.5em;
+  }
+  
+  .homestay-pict {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  }
+  
+  
+  
+  
+  }
+  
+  .card-atraksi{
+    width: 12rem; 
+    height: 18rem;
+    border: none !important;
+    background-color: #F0F0F0;
+    display: flex;
+  }
+  
+  .atraksi-pict{
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .deskripsi-atraksi{
     display: none;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.2);
     color: white;
     padding: 10px;
     transition: opacity 0.3s;
-    width: 100%;
-    height: 100%;
+    width: 12rem;
+    height: 16rem;
     text-align: center;
-    width: 180px;
-    height: 180px;
-}
-
-.nama-atraksi {
-    text-align: left;
-    margin-bottom: 0;
-}
-
-.foto:hover .deskripsi {
-    display: block;
-}
-
-.card-atraksi {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    text-align: start;
-}
-
-.foto {
+  }
+  
+  .hover{
     position: relative;
     overflow: hidden;
-    width: 160px;
-    height: 180px;
-}
-
-.foto-atraksi {
-    width: 180px;
-    height: 180px;
-    transition: transform 0.3s ease;
-}
-
-.foto:hover img {
+    width: 12rem;
+    height: 16rem;
+  }
+  
+  .hover:hover img {
     transform: scale(1.1);
-}
-
-/* swiper */
-
-.swiper {
-    height: 100%;
-    height: 100%;
-}
-
-.swiper-wrapper {
-    display: flex;
-    align-items: center;
-}
-
-.swiper-slide {
-    height: 500px;
-}
-
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-@media (min-width: 768px) {
-    .swiper-wrapper {
-        padding-left: 100px;
-    }
-}
-
-.card-paket-wisata {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.cardPaketWisata {
-    margin: 10px;
-    max-width: 250px;
-}
-
-.img-card-paket-wisata {
-    max-height: 120px;
-    min-height: 120px;
-    min-width: 100%;
-}
-
-.list-unstyled li {
-    border-bottom: 1px solid #ccc;
-    padding: 5px 0;
-}
-
-.list-unstyled li:last-child {
-    border-bottom: none;
-}
-
-@media (max-width: 768px) {
-    .swiper-wrapper {
-        padding-left: 0;
-    }
-    .card-ikan {
-        max-width: calc(100%);
-    }
-}
-
-.container-homestay {
-    background-color: white;
-}
-.custom-button1 {
-    background-color: rgba(133, 133, 133, 0.5); /* Warna latar belakang dengan opacity (kejelasan) 0.5 */
-    color: white; /* Warna teks */
-    border: none; /* Tanpa border */
-    padding: 6px 30px; /* Padding tombol */
-    text-align: center; /* Teks rata tengah */
-    text-decoration: none; /* Tanpa dekorasi teks */
-    display: inline-block; /* Menjadikan tombol sebagai blok inline */
-    font-size: 16px; /* Ukuran font */
-    font-weight: bold;
-    border-radius: 20px; /* Sudut border-radius */
-    transition: background-color 0.3s ease; /* Transisi warna latar belakang */
   }
-
-  .custom-button1:hover {
-    background-color: #c8e3854e; /* Warna latar belakang hover */
-  }
-  .custom-button2 {
-    background-color: rgba(133, 133, 133, 0.5); /* Warna latar belakang dengan opacity (kejelasan) 0.5 */
-    color: white; /* Warna teks */
-    border: none; /* Tanpa border */
-    padding: 6px 30px; /* Padding tombol */
-    text-align: center; /* Teks rata tengah */
-    text-decoration: none; /* Tanpa dekorasi teks */
-    display: inline-block; /* Menjadikan tombol sebagai blok inline */
-    font-size: 16px; /* Ukuran font */
-    font-weight: bold;
-    border-radius: 20px; /* Sudut border-radius */
-    transition: background-color 0.3s ease; /* Transisi warna latar belakang */
-  }
-
-  .custom-button2:hover {
-    background-color: #c8e3854e; /* Warna latar belakang hover */
-  }
-  .welcome-text {
-    position: absolute;
-    top: 40%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    margin-bottom: 10px;
-    font-size: 32pt;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-weight: 700;
-    z-index: 1000;
-  }
-  .welcome-text1 {
-    position: absolute;
-    top: 40%;
-    left: 26%;
-    transform: translate(-50%, -50%);
-    margin-bottom: 10px;
-    font-size: 32pt;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-weight: 700;
-    z-index: 1000;
-  }
-  .welcome-text2 {
-    position: absolute;
-    top: 40%;
-    left: 26%;
-    transform: translate(-50%, -50%);
-    margin-bottom: 10px;
-    font-size: 32pt;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-weight: 700;
-    z-index: 1000;
+  
+  .hover:hover .deskripsi-atraksi {
+  display: block;
   }
