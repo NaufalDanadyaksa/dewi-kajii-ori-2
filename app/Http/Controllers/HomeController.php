@@ -13,6 +13,11 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      */
+    public function createUlasan(){
+
+        return view('ulasan.create');
+    }
+
     
     public function showAtraksi(string $id)
     {
