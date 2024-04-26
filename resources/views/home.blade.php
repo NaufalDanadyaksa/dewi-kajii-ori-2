@@ -22,234 +22,123 @@
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
-<!-- Navbar Mobile -->
-<nav class="navbar navbar-expand-lg fixed-top navbar-light d-lg-none p-0">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img
-        src="element/logo.png"
-        alt="logo"
-        class="img-fluid"
-        style="max-width: 40px; height: auto"
-      />
-    </a>
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img
-        src="element/logo.png"
-        alt="logo"
-        class="img-fluid"
-        style="max-width: 40px; height: auto"
-      />
-    </a>
 
-    <button
-      class="navbar-toggler border-0 text-white"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasNavbar"
-      aria-controls="offcanvasNavbar"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span><i class="ti ti-menu-2"></i></span>
-    </button>
-  </div>
-</nav>
-    <button
-      class="navbar-toggler border-0 text-white"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasNavbar"
-      aria-controls="offcanvasNavbar"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span><i class="ti ti-menu-2"></i></span>
-    </button>
-  </div>
-</nav>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-light d-lg-none p-0">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img
+          src="img/logo.png"
+          alt="logo"
+          class="img-fluid"
+          style="max-width: 40px; height: auto"
+        />
+      </a>
 
-<!-- Offcanvas Sidebar -->
-<div
-  class="offcanvas offcanvas-end d-lg-none navbar-mobile"
-  tabindex="-1"
-  id="offcanvasNavbar"
-  aria-labelledby="offcanvasNavbarLabel"
->
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-    <button
-      type="button"
-      class="btn text-white ms-auto"
-      data-bs-dismiss="offcanvas"
-      aria-label="Close" 
-    ><i class="ti ti-x icon-2xl"></i></button>
-  </div>
-  <div class="offcanvas-body">
-    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Atraksi</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Paket Wisata</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Katalog Ikan</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Homestay</a>
-      </li>
-    </ul>
-  </div>
-</div>
-<!-- Offcanvas Sidebar -->
-<div
-  class="offcanvas offcanvas-end d-lg-none navbar-mobile"
-  tabindex="-1"
-  id="offcanvasNavbar"
-  aria-labelledby="offcanvasNavbarLabel"
->
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-    <button
-      type="button"
-      class="btn text-white ms-auto"
-      data-bs-dismiss="offcanvas"
-      aria-label="Close" 
-    ><i class="ti ti-x icon-2xl"></i></button>
-  </div>
-  <div class="offcanvas-body">
-    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Atraksi</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Paket Wisata</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Katalog Ikan</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Homestay</a>
-      </li>
-    </ul>
-  </div>
-</div>
+      <button
+        class="navbar-toggler border-0 text-white"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span><i class="ti ti-menu-2"></i></span>
+      </button>
+    </div>
+  </nav>
 
-<!-- Navbar Desktop -->
-<nav
-  class="navbar navbar-expand-lg fixed-top navbar-light d-none d-lg-block p-0"
->
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img
-        src="element/logo.png"
-        alt="logo"
-        class="img-fluid"
-        style="max-width: 40px; height: auto"
-      />
-    </a>
-    <button
-      class="navbar-toggler border-0 text-white"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarText"
-      aria-controls="navbarText"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span><i class="ti ti-menu-2"></i></span>
-    </button>
-    <div
-      class="collapse navbar-collapse justify-content-start"
-      id="navbarText"
-    >
-      <ul class="navbar-nav">
+  <!-- Offcanvas Sidebar -->
+  <div
+    class="offcanvas offcanvas-end d-lg-none navbar-mobile"
+    tabindex="-1"
+    id="offcanvasNavbar"
+    aria-labelledby="offcanvasNavbarLabel"
+  >
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+      <button
+        type="button"
+        class="btn text-white ms-auto"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close" 
+      ><i class="ti ti-x icon-2xl"></i></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
         <li class="nav-item">
-          <a
-            class="text-white nav-link active"
-            aria-current="page"
-            href="#section1"
-            >Home</a
-          >
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="text-white nav-link" href="#section2">Atraksi</a>
+          <a class="nav-link" href="#">Atraksi</a>
         </li>
         <li class="nav-item">
-          <a class="text-white nav-link" href="#section2">Paket Wisata</a>
+          <a class="nav-link" href="#">Paket Wisata</a>
         </li>
         <li class="nav-item">
-          <a class="text-white nav-link" href="#section2">Katalog Ikan</a>
+          <a class="nav-link" href="#">Katalog Ikan</a>
         </li>
         <li class="nav-item">
-          <a class="text-white nav-link" href="#section2">Homestay</a>
+          <a class="nav-link" href="#">Homestay</a>
         </li>
       </ul>
     </div>
   </div>
-</nav>
-<!-- Navbar Desktop -->
-<nav
-  class="navbar navbar-expand-lg fixed-top navbar-light d-none d-lg-block p-0"
->
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img
-        src="element/logo.png"
-        alt="logo"
-        class="img-fluid"
-        style="max-width: 40px; height: auto"
-      />
-    </a>
-    <button
-      class="navbar-toggler border-0 text-white"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarText"
-      aria-controls="navbarText"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span><i class="ti ti-menu-2"></i></span>
-    </button>
-    <div
-      class="collapse navbar-collapse justify-content-start"
-      id="navbarText"
-    >
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a
-            class="text-white nav-link active"
-            aria-current="page"
-            href="#section1"
-            >Home</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="text-white nav-link" href="#section2">Atraksi</a>
-        </li>
-        <li class="nav-item">
-          <a class="text-white nav-link" href="#section2">Paket Wisata</a>
-        </li>
-        <li class="nav-item">
-          <a class="text-white nav-link" href="#section2">Katalog Ikan</a>
-        </li>
-        <li class="nav-item">
-          <a class="text-white nav-link" href="#section2">Homestay</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
 
+  <!-- Navbar Desktop -->
+  <nav
+    class="navbar navbar-expand-lg fixed-top navbar-light d-none d-lg-block p-0"
+  >
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img
+          src="img/logo.png"
+          alt="logo"
+          class="img-fluid"
+          style="max-width: 40px; height: auto"
+        />
+      </a>
+      <button
+        class="navbar-toggler border-0 text-white"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span><i class="ti ti-menu-2"></i></span>
+      </button>
+      <div
+        class="collapse navbar-collapse justify-content-start"
+        id="navbarText"
+      >
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a
+              class="text-white nav-link active"
+              aria-current="page"
+              href="#section1"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="text-white nav-link" href="#section2">Atraksi</a>
+          </li>
+          <li class="nav-item">
+            <a class="text-white nav-link" href="#section2">Paket Wisata</a>
+          </li>
+          <li class="nav-item">
+            <a class="text-white nav-link" href="#section2">Katalog Ikan</a>
+          </li>
+          <li class="nav-item">
+            <a class="text-white nav-link" href="#section2">Homestay</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
   <section class="dashboard">
     <img src="fotbarrr.jpg" class="pict-dahboard d-block w-100" alt="Image 1" />
     <div class="text-overlay">
@@ -327,50 +216,16 @@
               @endforeach
           </div>
       </div>
-          <div class="row d-flex justify-content-center">
-              @foreach ($atraksi as $item)
-              <div class="col-md-3 mb-3 col-6 d-flex justify-content-center">
-                  @foreach($item->images as $image)
-                  <div class="card card-atraksi">
-                      <div class="hover">
-                          <img src="{{ asset('/posts/atraksi/'.$image->url) }}" alt="Description of image" class="atraksi-pict">
-                          <p class="deskripsi-atraksi h-4"> {{ $item->description }}</p>
-                      </div>
-                      <h6 class="judul-atraksi mt-2 fw-bold">Kaonashi</h6>
-                  </div>
-                  @endforeach
-              </div>
-              @endforeach
-          </div>
-      </div>
   </section>
 
-
-
-<!-- Paket Wisata -->
 <!-- Paket Wisata -->
 <section class="paket-wisata">
   <div class="col text-center">
     <p class="fw-bold fs-5 mt-5">P A K E T W I S A T A</p>
   </div>
   <div class="swiper-container-Paket" style="overflow-x: hidden;">
-  <div class="swiper-container-Paket" style="overflow-x: hidden;">
     <div class="swiper-wrapper">
       @foreach ($wisata as $item)
-        <div class="swiper-slide">
-          @foreach($item->images as $image)
-            <div class="card-paket-wisata">
-              <img src="{{ asset('/posts/paket_wisata/'.$image->url) }}" alt="Description of image" class="pict-paket">
-              <div class="text-container-paket">
-                <p class="judul-paket">{{ $item->name }}</p>
-                @foreach($item->content as $content)
-                  <p class="list-paket">{{ $content->content }}</p>
-                @endforeach
-              </div>
-            </div>
-          @endforeach
-        </div>
-      @endforeach
         <div class="swiper-slide">
           @foreach($item->images as $image)
             <div class="card-paket-wisata">
@@ -392,29 +247,6 @@
     <div class="swiper-button-prev"></div>
   </div>
 </section>
-
-
-
-<section class="homestay mt-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <div class="row row-cols-2 row-cols-md-4 justify-content-center"
-        @foreach ($homestay as $item)
-          <div class="col mt-3 d-flex justify-content-center">
-            @foreach($item->images as $image)
-            <div class="card card-homestay">
-              <img src="{{ asset('/posts/homestay/'.$image->url) }}" class="homestay-pict" alt="card" />
-              <div class="card-overlay-text">
-                <p class="homestay-title pt-2">{{$item->name}}</p>
-              </div>
-              @endforeach
-              <div class="card-overlay-button">
-                <a href="{{ url('homestay/detail/'.$item->id) }}"><button class="btn button-homestay px-2 py-2 text">Selengkapnya</button></a>
-              </div>
-            </div>
-            @endforeach
-          </div>
         
 
 <section class="homestay mt-5">
@@ -441,11 +273,7 @@
         </div>
       </div>
     </div>
-  </div>
 </section>
-
-
-
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
