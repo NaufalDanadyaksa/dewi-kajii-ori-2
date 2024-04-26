@@ -138,19 +138,12 @@
       </div>
     </div>
   </nav>
-  
+
   <section class="dashboard">
     <img src="fotbarrr.jpg" class="pict-dahboard d-block w-100" alt="Image 1" />
     <div class="text-overlay">
       <h1>Welcome to</h1>
       <h1><span>Dewi Kajii</span></h1>
-  <section class="dashboard">
-    <img src="fotbarrr.jpg" class="pict-dahboard d-block w-100" alt="Image 1" />
-    <div class="text-overlay">
-      <h1>Welcome to</h1>
-      <h1><span>Dewi Kajii</span></h1>
-    </div>
-  </section>
   </section>
 
   <section class="container-sejarah p-5">
