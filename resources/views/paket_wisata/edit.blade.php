@@ -81,7 +81,7 @@
 
         <div class="row row-cols-1 row-cols-md-3 mt-5">
         <div class="row row-cols-1 row-cols-md-3 mt-5">
-                @foreach($wisata->images as $image)
+            @foreach($wisata->images as $image)
             <div class="swiper-slide" style="height: 500px;">
                 <img src="{{ asset('posts/paket_wisata/'.$image->url) }}" class="rounded mb-3 w-100 h-100" style="max-height: 300px;">
                 <!-- Tambahkan checkbox untuk menghapus gambar -->
@@ -134,57 +134,59 @@
         </div>
     </form>
 </div>
-
 <script>
-    document.getElementById('image').addEventListener('change', function(e) {
-        var files = e.target.files;
-        var preview = document.getElementById('preview');
-        var chooseImageButton = document.getElementById('chooseImageButton');
+document.getElementById('image').addEventListener('change', function(e) {
+    var files = e.target.files;
+    var preview = document.getElementById('preview');
+    var chooseImageButton = document.getElementById('chooseImageButton');
+    
+    preview.innerHTML = '';
+    
+    if (files.length > 0) {
+        chooseImageButton.style.display = 'none';
+    } else {
+        chooseImageButton.style.display = 'block';
+    }
+    
+    for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        var reader = new FileReader();
         
-        preview.innerHTML = '';
-        
-        if (files.length > 0) {
-            chooseImageButton.style.display = 'none';
-        } else {
-            chooseImageButton.style.display = 'block';
+        reader.onload = function(e) {
+            var img = document.createElement('img');
+            img.src = e.target.result;
+            img.style.maxWidth = '200px';
+            img.style.marginRight = '10px';
+            
+            var button = document.createElement('button');
+            button.innerText = 'x';
+            button.type = 'button';
+            button.classList.add('btn', 'btn-dark', 'rounded-circle', 'mb-2');
+            button.style.cursor = 'pointer';
+            button.style.border = 'none';
+            
+            button.addEventListener('click', function() {
+                preview.removeChild(div);
+                if (preview.children.length === 0) {
+                    chooseImageButton.style.display = 'block';
+                }
+            });
+            
+            var div = document.createElement('div');
+            div.appendChild(img);
+            div.appendChild(button);
+            
+            preview.appendChild(div);
         }
         
-        for (var i = 0; i < files.length; i++) {
-            var file = files[i];
-            var reader = new FileReader();
-            
-            reader.onload = function(e) {
-                var img = document.createElement('img');
-                img.src = e.target.result;
-                img.style.maxWidth = '200px';
-                img.style.marginRight = '10px';
-                
-                var button = document.createElement('button');
-                button.innerText = 'x';
-                button.type = 'button';
-                button.classList.add('btn', 'btn-dark', 'rounded-circle', 'mb-2');
-                button.style.cursor = 'pointer';
-                button.style.border = 'none';
-                
-                button.addEventListener('click', function() {
-                    preview.removeChild(div);
-                    if (preview.children.length === 0) {
-                        chooseImageButton.style.display = 'block';
-                    }
-                });
-                
-                var div = document.createElement('div');
-                div.appendChild(img);
-                div.appendChild(button);
-                
-                preview.appendChild(div);
-            }
-            
-            reader.readAsDataURL(file);
-        }
-    });
+        reader.readAsDataURL(file);
+    }
+});
 
 </script>
+
+
+
 @endsection
 
 

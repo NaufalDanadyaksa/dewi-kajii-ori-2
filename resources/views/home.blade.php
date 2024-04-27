@@ -172,7 +172,7 @@
             <div class="card-text-container">
               <p class="text-end me-2">{{ $item->title }}</p>
               <p class="card-text">{{ $item->article }}</p>
-              <a href="{{url('berita/detail/'.$item->id)}}" class="btn button-berita">Selengkapnya</a>
+              <a href="{{url('berita/'.$item->id)}}" class="btn button-berita">Selengkapnya</a>
             </div>  
           </div>
         </div>
@@ -190,20 +190,20 @@
 
   <!-- Atraksi -->
   <section class="atraksi" id="atraksi">
+    <div>
+      <h1 class="judul-atraksi ms-3 mt-3">Atraksi</h1>
+    </div>
       <div class="container mt-5">
-        <div>
-          <h1>Atraksi</h1>
-        </div>
           <div class="row d-flex justify-content-center">
               @foreach ($atraksi as $item)
-              <div class="col-md-3 mb-3 col-6 d-flex justify-content-center">
+              <div class="col-md-3 mb-4 col-6 d-flex justify-content-center">
                   @foreach($item->images as $image)
                   <div class="card card-atraksi">
                       <div class="hover">
                           <img src="{{ asset('/posts/atraksi/'.$image->url) }}" alt="Description of image" class="atraksi-pict">
                           <p class="deskripsi-atraksi h-4"> {{ $item->description }}</p>
                       </div>
-                      <h6 class="judul-atraksi mt-2 fw-bold">Kaonashi</h6>
+                      <h6 class="judul-atraksi mt-2 fw-bold">{{ $item->name}}</h6>
                   </div>
                   @endforeach
               </div>
@@ -216,8 +216,8 @@
 
 <!-- Paket Wisata -->
 <section class="paket-wisata">
-  <div class="col text-center">
-    <p class="fw-bold fs-5 mt-5">P A K E T W I S A T A</p>
+  <div>
+    <h1 class="judul-PaketWisata ms-3 mt-3">Paket Wisata</h1>
   </div>
   <div class="swiper-container-Paket" style="overflow-x: hidden;">
     <div class="swiper-wrapper">
@@ -246,32 +246,143 @@
 
 
 <section class="homestay mt-5">
-  <div class="container">
+  <div>
+    <h1 class="judul-Homestay ms-3 mt-3">Homestay</h1>
+  </div>
+  <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-12">
-        <div class="row row-cols-2 row-cols-md-4 justify-content-center"
-        @foreach ($homestay as $item)
-          <div class="col mt-3 d-flex justify-content-center">
-            @foreach($item->images as $image)
+        <div class="row row-cols-2 row-cols-md-4 d-flex justify-content-center">
+          @foreach ($homestay as $item)
+          <div class="col mb-4 d-flex justify-content-center">
             <div class="card card-homestay">
+              @foreach($item->images as $image)
               <img src="{{ asset('/posts/homestay/'.$image->url) }}" class="homestay-pict" alt="card" />
-              <div class="card-overlay-text">
-                <p class="homestay-title pt-2">{{$item->name}}</p>
-              </div>
               @endforeach
+              <div class="card-overlay-text">
+                <p class="homestay-title pt-2 text-white">{{$item->name}}</p>
+              </div>
               <div class="card-overlay-button">
                 <a href="{{ url('homestay/detail/'.$item->id) }}"><button class="btn button-homestay px-2 py-2 text">Selengkapnya</button></a>
               </div>
             </div>
-            @endforeach
           </div>
-        
+          @endforeach
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<section class="ulasan">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="judul-ulasan">Ulasan</h1>
+    <button class="btn button-ulasan me-3">
+      <i class="ti ti-plus icon-plus">{{ url('ulasan'.$item->id) }}</i>
+    </button>
+  </div>
+
+  <div class="swiper-container-ulasan">
+    <div class="swiper-wrapper">
+
+        <div class="swiper-slide swiper-slide-ulasan">
+          <div class="card card-ulasan ms-4">
+              <div class="card-body">
+                  <p class="nama-pengulas pt-3 px-2"><strong>Devan Miliar</strong></p>
+                  <p class="text-ulasan pt-3 px-2">
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga autem, hic ab excepturi nostrum blanditiis
+                      pariatur
+                  </p>
+              </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="container" id="container" style="            width: 800px;
+height: 500px;">
+  <h1>Berikan Tanggapan Anda</h1>
+
+  <div class="form-group">
+      <input
+      type="text"
+      class="form-control text-white"
+      placeholder="Username"
+      name='name' value="" id="name"
+      />
+      <span class="placeholder"></span> 
+  </div>
+
+  <div class="form-group">
+      <input
+      type="text"
+      class="form-control text-white"
+      placeholder="Email"
+      name='email' value="" id="email"
+      />
+      <span class="placeholder"></span> 
+  </div>
+
+  <div class="form-group">
+      <input
+      type="text"
+      class="form-control text-white"
+      placeholder="Tanggapan"
+      name='description' value="" id="description"
+      style="height: 90px;"
+      />
+      <span class="placeholder"></span> 
+  </div>
+
+  <button class="button-submit-ulasan">Kirim</button>
+</div>
+
+
+<section class="footer" style="color: #063C48;">
+  <footer class="bg-light py-5 pt-5">
+      <div class="container text-center">
+          <div class="row">
+              <div class="col-md-3">
+                  <h5>Desa Wisata Kajii</h5>
+                  <img src="/element/logo.png" alt="" style="width: 200px; height: 200px;">
+              </div>
+              <div class="col-md-3">
+                  <h5>Alamat</h5>
+                  <p class="text-start">Kadisoro, Gilangharjo, Kec. Pandak, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55761, Indonesia</p>
+                  <h5 class="text-start">Map Lokasi</h5>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.975546932868!2d110.3090821!3d-7.897623299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7aff55db42a7e5%3A0xb31e373fc1e28cad!2sDesa%20Wisata%20Kajii%20(Dewi%20Kajii%20-%20Edukasi%20Ikan%20Hias)!5e0!3m2!1sid!2sid!4v1711380178061!5m2!1sid!2sid" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  
+              </div>
+              <div class="col-md-3">
+                  <div class="row">
+                      <div class="col">
+                          <h5>NO TELP</h5>
+                          <p>0882-2520-8880</p>
+                      </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col">
+                          <h5>About</h5>
+                          <p>pelajari Selengkapnya</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <h5>OUR SOCIAL MEDIA</h5>
+                  <ul>
+                    <i class="ti ti-brand-youtube" style="font-size: 28px;"></i>
+                    <i class="ti ti-brand-instagram" style="font-size: 28px;"></i>
+                    <i class="ti ti-brand-facebook" style="font-size: 28px;"></i>
+                    <i class="ti ti-brand-twitter" style="font-size: 28px;"></i>
+                  </ul>
+              </div>
+          </div>
+          <small class="text-muted ">&copy; 2024 Desa Wisata Kajii. All rights reserved.</small>
+      </div>
+  </footer>
+</section>
 
 
 
