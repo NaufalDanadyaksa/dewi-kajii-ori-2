@@ -6,6 +6,7 @@
     #description::placeholder,
     #location::placeholder{
         color: #ffffffa0 ;
+        color: #ffffffa0 ;
     }
 </style>
 
@@ -15,8 +16,11 @@
 <div class="row">
 @csrf
 <div class="row">
+@csrf
+<div class="row">
     <div class="col-sm-18">
         <input type="text" class="form-control text-white" name='name' value="{{ old('name') }}" id="name"   style="
+            background-color: #68687D;
             background-color: #68687D;
             background-color: #68687D;
             text-decoration: none;
@@ -24,6 +28,8 @@
             box-shadow: none;
             border: none;
             border-radius: 6px;
+            margin-bottom:10px;"
+           placeholder="Nama Homestay"
             margin-bottom:10px;"
            placeholder="Nama Homestay"
          />
@@ -36,12 +42,15 @@
             name="description" id="description" style="background-color:
             #68687D;text-decoration: none; opacity:1.0; box-shadow:none; border-radius: 6px;
             border:none; margin-bottom:10px;">{{ old('description') }}</textarea>
-        </div>
     </div>
+    
     
     <div class="col-sm-18">
         <input type="text" class="form-control text-white" name='location' value="{{ old('location') }}" id="location"  
+            <input type="text" class="form-control text-white" name='location' value="{{ old('location') }}" id="location"  
+            <input type="text" class="form-control text-white" name='location' value="{{ old('location') }}" id="location"  
             style="
+            background-color: #68687D;
             background-color: #68687D;
             background-color: #68687D;
             text-decoration: none;
@@ -49,6 +58,7 @@
             box-shadow: none;
             border: none;
             border-radius: 6px;
+            margin-bottom:10px;"
             margin-bottom:10px;"
           placeholder="Lokasi">
         </div>
@@ -122,6 +132,7 @@
             reader.readAsDataURL(file);
         }
     });
+
 
 </script>
 <!-- AKHIR FORM -->

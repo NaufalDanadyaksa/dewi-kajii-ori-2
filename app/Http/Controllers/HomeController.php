@@ -40,4 +40,11 @@ class HomeController extends Controller
 
         return view('berita.detail', compact('berita'));
     }
+
+    public function showHomestay(string $id){
+        $homestay=Homestay::findOrFail($id);
+
+
+        return view('homestay.detail', compact('homestay'));
+    }
 }
