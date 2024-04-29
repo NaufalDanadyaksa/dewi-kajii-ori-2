@@ -3,12 +3,14 @@
     $wisata = \App\Models\PaketWisata::with('images')->get();
     $ikan = \App\Models\KatalogIkan::with('images')->get();
     $homestay = \App\Models\Homestay::with('images')->get();
+    $sejarah= App\Models\Sejarah::findOrFail("1");
 @endphp
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Desa Wisata Kajii</title>
@@ -32,7 +34,7 @@
     <div class="container">
       <a class="navbar-brand" href="#">
         <img
-          src="./img/logo.png"
+          src="logo.png"
           alt="logo"
           class="img-fluid"
           style="max-width: 40px; height: auto"
@@ -144,30 +146,54 @@
     </div>
   </nav>
 
-  <!-- Carousel -->
-  <div
-    id="carouselExampleCaptions"
-    class="carousel slide"
-    data-bs-ride="carousel"
-  >
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-
-        <img src="empang1.jpg" class="d-block w-100" alt="Image 1" />
-        <a href="{{route('profile')}}" class="custom-button1" style="position: absolute; left: 55px; top: 340px;">Kunjungi Profil</a>
-        <div class="welcome-text">Selamat Datang di
-        <br>Desa Wisata Kajii</br>
-      </div>
-
-      </div>
-      <div class="carousel-item">
-        <img src="./img/fotbarrr.jpg" class="d-block w-100" alt="Image 2" />
-      </div>
-      <div class="carousel-item">
-        <img src="./img/seoeda.jpg" class="d-block w-100" alt="Image 3" />
-      </div>
+  <section class="dashboard">
+    <img src="fotbarrr.jpg" class="pict-dahboard d-block w-100" alt="Image 1" />
+    <div class="text-overlay">
+      <h1>Welcome to</h1>
+      <h1><span>Dewi Kajii</span></h1>
     </div>
-  </div>
+  </section>
+
+  <section class="container-sejarah p-5">
+    <div class="container sjrh">
+        <div class="container text-start">
+            <div class="row justify-content-center">
+              <div class="col-md-6 col-lg-6"> <!-- Adjust column size as needed for responsiveness -->
+                <img src="fotbarrr.jpg" alt="" srcset="" class="pict-sejarah img-fluid">
+              </div>
+              <div class="col-md-6 col-lg-4"> <!-- Adjust column size as needed for responsiveness -->
+                <h2 class="text-sejarah">Sejarah</h2>
+                <p class="deskripsi-sejarah text-white">$sejarah->article</p>
+              </div>
+            </div>
+          </div>
+    </div>
+  </section>
+
+  <section class="berita" id="berita">
+    <div class="swiper-container-berita"> 
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide swiper-slide-berita d-flex justify-content-center">
+          <div class="card card-berita ">
+            <img src="fotbarrr.jpg" class="berita-pict" alt="card" />
+            <div class="card-text-container">
+              <p class="text-end me-2">Title</p>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi iste illum sunt officia. Sint, cum. Nisi eaque facilis molestiae debitis amet aut saepe provident natus inventore error consequatur, dolores hic.</p>
+              <button class="btn button-berita px-4 py-2 "> Selengkapnya</button>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </section>
+
 
   <!-- Atraksi -->
   <section class="atraksi" id="atraksi">
@@ -243,42 +269,58 @@
     <p class="fw-bold fs-5 mt-5">P A K E T W I S A T A</p>
   </div>
   <div class="swiper PaketWisata">
-    <div class="swiper-wrapper">
-      @foreach ($wisata as $item)
-<div class="swiper-slide">
-    <div class="card-paket-wisata">
-        <div class="col mt-2">
-            <div class="card cardPaketWisata bg-light">
-                <div id="carouselPaketwisata" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        @foreach($item->images as $image)
-                        <div class="carousel-item active">
-                            <img src="{{ asset('/posts/paket_wisata/'.$image->url) }}" class="img-card-paket-wisata p-2 rounded-4" alt="Paket B">
-                        </div>
-                        @endforeach
+  @foreach ($wisata as $item)
+        <div class="row">
+          <div
+            class="col-12 col-md-6 col-lg-4 wow fadeInUp mb-5 mb-lg-0 text-center"
+            style="
+              visibility: visible;
+              animation-name: fadeInUp;
+              max-width: 250px;
+            "
+          >
+            <div class="price-table">
+              <div
+                class="price-header lis-bg-light lis-rounded-top border border-bottom-0 lis-brd-light"
+              >
+                <div
+                  id="carouselPaketwisata"
+                  class="carousel slide"
+                  data-bs-ride="carousel"
+                >
+                  <div class="carousel-inner">
+                  @foreach($item->images as $image)
+
+                    <div class="carousel-item active">
+                      < <img src="{{ asset('/posts/paket_wisata/'.$image->url) }}" class="img-card-paket-wisata p-2 rounded-4" alt="Paket B">
                     </div>
+                    @endforeach
+                  </div>
                 </div>
-                <div class="card-body text-center">
-                    <h2 class="card-title">{{ $item->name }}</h2>
-                    <h5 class="card-subtitle mb-2 text-muted">{{ $item->price }}</h5>
-                    <p class="card-text">
-                        <ul class="list-unstyled">
-                            @foreach($item->content as $content)
-                            <li class="mb-2">{{ $content->content }}</li>
-                            @endforeach
-                        </ul>
-                    </p>
-                </div>
+              </div>
+              
+              <div
+                class="border border-top-0 lis-brd-light bg-white lis-rounded-bottom"
+              >
+                <h5 class="nama-paket text-uppercase">{{$item->price }}</h5>
+                <h5
+                  class="harga display-4 lis-font-weight-500"
+                  style="font-size: 3.5rem"
+                >
+                  39
+                </h5>
+                <ul class="list-unstyled lis-line-height-3">
+              @foreach($item->content as $content)
+              <li class="mb-2">{{ $content->content }}</li>
+              @endforeach
+                </ul>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</div>
-@endforeach
-    </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-scrollbar"></div>
-  </div>
+      @endforeach
+      </div>
+      
 </section>
 
 
@@ -471,6 +513,35 @@
           },
         },
       });
+
+      var swiper = new Swiper(".swiper-container-berita", {
+  initialSlide: 2,
+  effect: "coverflow",
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: "auto",
+  coverflowEffect: {
+    rotate: 0,
+    stretch: 0,
+    depth: 150,
+    modifier: 1,
+    slideShadows: true,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  on: {
+    slideChange: function () {
+      var activeSlide = this.slides[this.activeIndex];
+      activeSlide.classList.add("swiper-slide-active");
+    },
+  },
+});
   </script>
 </body>
 </html>

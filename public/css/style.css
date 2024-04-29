@@ -1,5 +1,194 @@
 body {
-    background-color: #FFE382;
+  font-family: 'Poppins', sans-serif;
+  background-color: #F0F0F0;
+  overflow-x: hidden;
+}
+
+.dashboard{
+position: relative;
+}
+
+.navbar {
+  background-color: rgba(0, 0, 0, 0.521);
+}
+
+.navbar-mobile{
+  background-color: rgba(0, 0, 0, 0.521);
+  color: white;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.text-overlay h1 {
+  margin: 0;
+  font-size: 4vw;
+
+}
+
+.text-overlay h1 span {
+  display: block;
+  font-size: 7vw;
+}
+
+.container-sejarah {
+  position: relative;
+  z-index: 1;
+  margin-top: -35px; 
+  background-color: #063C48;
+  border-radius: 50px;
+}
+
+.sjrh{
+  padding-bottom: 200px;
+}
+
+.pict-sejarah {
+  position: relative;
+  z-index: 1; /* Set a lower z-index to place it below container-sejarah */
+  width: 100%; /* Ensure the image fills its container */
+  height: auto;
+  object-fit: cover;
+}
+
+.container-sejarah .row {
+  position: relative;
+  z-index: 3;
+}
+
+.text-sejarah {
+  color: #ffffffa7;
+  size: 1.5em;
+}
+
+
+.berita {
+  margin-top: -200px;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 4;
+}
+
+.swiper-container-berita{
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+.swiper-pagination {
+  position: relative;
+  margin-top: 200px;
+  width: 100%;
+  text-align: center;
+}
+
+.swiper-slide-berita {
+  background-size: cover;
+  background-position: center;
+  margin-left: -28px;
+  margin-right: -28px;
+  width: 18rem; 
+  height: 28rem;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.swiper-slide-berita.swiper-slide-berita-active {
+  opacity: 1;
+}
+
+.swiper-pagination-bullet {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+  background-color: #000000;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #063C48;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none;
+}
+
+.card-berita {
+  width: 18rem;
+  height: 28rem; 
+  position: relative;
+  border-radius: 10pt !important;
+  border: none !important;
+}
+
+.berita-pict {
+  border-radius: 10pt;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-text-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  text-align: left;
+  color: white;
+  border-radius: 10pt;
+  background-image: radial-gradient(at 84% 80%, hsla(128, 0%, 0%, 0.35) 0px, transparent 50%),
+    radial-gradient(at 20% 76%, hsla(240, 0%, 0%, 0.35) 0px, transparent 50%),
+    radial-gradient(at 83% 20%, hsla(240, 0%, 0%, 0.35) 0px, transparent 50%),
+    radial-gradient(at 19% 18%, hsla(343, 0%, 0%, 0.35) 0px, transparent 50%);
+}
+
+.card-text-container p:first-child {
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.card-text-container p:last-child {
+  margin-top: 0;
+  font-size: 1em;
+}
+
+.card-text {
+  margin-bottom: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.card-text-container button {
+  margin-top: 10px;
+}
+
+.button-berita {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 10px;
+  border: none !important;
+}
+
+.button-berita:hover {
+  background-color: #ffffff;
+  color: #000000ac;
 }
 
 .navbar {
@@ -202,3 +391,75 @@ body {
     font-weight: 700;
     z-index: 1000;
   }
+  .nama-paket,
+      .harga {
+        color: #222222;
+        margin: 0 0 15px;
+        font-family: "Poppins", sans-serif;
+        line-height: 1.75rem;
+        font-size: 1.25rem;
+      }
+
+      .font-weight-normal {
+        font-weight: 400 !important;
+      }
+
+      .price-table {
+        -webkit-transition: 0.3s ease;
+      }
+
+      .lis-rounded-top {
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+      }
+
+      .lis-bg-light {
+        background-color: #f7f7f7;
+      }
+
+      .lis-brd-light {
+        border-color: #dadada !important;
+      }
+      .bg-white {
+        background-color: #fff !important;
+      }
+      .py-5 {
+        padding-bottom: 3rem !important;
+      }
+      .lis-line-height-3 {
+        line-height: 3 !important;
+      }
+
+      .list-unstyled {
+        padding-left: 0;
+        list-style: none;
+      }
+
+      .lis-line-height-3 {
+        line-height: 2 !important;
+      }
+
+      .lis-rounded-circle-50 {
+        border-radius: 50px;
+      }
+
+      .price-table.active {
+        transform: scale(1.045);
+        -webkit-transform: scale(1.045);
+      }
+
+      .price-table {
+        -webkit-transition: 0.3s ease;
+      }
+
+      .lis-rounded-bottom {
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+      }
+
+      .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    
