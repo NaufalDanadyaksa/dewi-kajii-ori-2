@@ -17,6 +17,7 @@ class HomestayController extends Controller
         return view('homestay.homestay', compact('homestay'));
     }
 
+    
     /**
      * Show the form for creating a new resource.
      */
@@ -67,12 +68,11 @@ class HomestayController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        $homestay = Homestay::with('images')->find($id);
+    public function showHomestay(string $id){
+        $homestay=Homestay::findOrFail($id);
 
-        return view('homestay.show', compact('homestay'));
-    }
+
+        return view('homestay.detail', compact('homestay'));}
 
     /**
      * Show the form for editing the specified resource.

@@ -1,11 +1,14 @@
 <?php
 
+
 namespace App\Http\Controllers;
+
 
 use App\Models\PaketWisata;
 use App\Models\PaketWisataContent;
 use App\Models\PaketWisataImage;
 use Illuminate\Http\Request;
+
 
 class PaketWisataController extends Controller
 {
@@ -18,6 +21,7 @@ class PaketWisataController extends Controller
         return view('paket_wisata.paket_wisata', compact('wisata'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      */
@@ -25,6 +29,7 @@ class PaketWisataController extends Controller
     {
         return view('paket_wisata.create');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -37,23 +42,31 @@ class PaketWisataController extends Controller
             'images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust max file size as needed
         ]);
 
+
         $paketWisata = new PaketWisata();
         $paketWisata->name = $request->name;
         $paketWisata->price = $request->price;
         $paketWisata->save();
 
+
         // Save contents
-        foreach ($request->contents as $content) {
-            $paketContent = new PaketWisataContent();
-            $paketContent->paket_wisata_id = $paketWisata->id;
-            $paketContent->content = $content;
-            $paketContent->save();
+        if ($request->has('contents')) {
+            foreach ($request->contents as $content) {
+                if (!empty($content)) { // Only create content if not empty
+                    $paketContent = new PaketWisataContent();
+                    $paketContent->paket_wisata_id = $paketWisata->id;
+                    $paketContent->content = $content;
+                    $paketContent->save();
+                }
+            }
         }
+
 
         // Save images
         foreach ($request->file('images') as $image) {
             $imageName = time() . '_' . $image->getClientOriginalName();
             $image->move(public_path('posts/paket_wisata'), $imageName);
+
 
             $paketImage = new PaketWisataImage();
             $paketImage->paket_wisata_id = $paketWisata->id;
@@ -61,8 +74,10 @@ class PaketWisataController extends Controller
             $paketImage->save();
         }
 
+
         return redirect()->route('wisata.index')->with('success', 'Paket Wisata berhasil dibuat.');
     }
+
 
     /**
      * Display the specified resource.
@@ -73,11 +88,13 @@ class PaketWisataController extends Controller
         return view('paket_wisata.show', compact('wisata'));
     }
 
+
     public function edit(string $id)
     {
         $wisata = PaketWisata::with('images', 'content')->find($id);
         return view('paket_wisata.edit', compact('wisata'));
     }
+
 
     public function update(Request $request, string $id)
     {
@@ -98,14 +115,20 @@ class PaketWisataController extends Controller
             PaketWisataImage::whereIn('id', $deleteImageIds)->delete();
         }
 
+
         // update contents
         if ($request->has('contents')) {
-            $wisata->content()->delete();
+            // First, delete existing contents
+            $wisata->contents()->delete();
+    
+            // Then, save new contents if provided
             foreach ($request->contents as $content) {
-                $wisataContent = new PaketWisataContent();
-                $wisataContent->paket_wisata_id = $wisata->id;
-                $wisataContent->content = $content;
-                $wisataContent->save();
+                if (!empty($content)) { // Only create content if not empty
+                    $paketContent = new PaketWisataContent();
+                    $paketContent->paket_wisata_id = $wisata->id;
+                    $paketContent->content = $content;
+                    $paketContent->save();
+                }
             }
         }
     
@@ -128,6 +151,7 @@ class PaketWisataController extends Controller
     public function destroy(string $id)
     {
         $wisata = PaketWisata::findOrFail($id);
+
 
    
         $images = $wisata->images;

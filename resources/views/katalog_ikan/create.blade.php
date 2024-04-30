@@ -5,7 +5,7 @@
 <style>
     #name::placeholder,
     #price::placeholder {
-        color: #ffffff ; 
+      color: #ffffffa0 ;
     }
 </style>
 
@@ -21,16 +21,8 @@
           placeholder="nama ikan"
           name='name' value="{{ old('name') }}" id="name"
           style="
-            background-color: #68687D;
-            text-decoration: none;
-            opacity: 1;
-            box-shadow: none;
-            border: none;
-            border-radius: 6px;
-            margin-bottom:10px;
-          "
-        />
-      </div>
+            background-color: #68687D; margin-bottom:20px;">
+            </div>
 
       <div class="form-group">
         <input
@@ -40,37 +32,37 @@
           name='price' value="{{ old('price') }}" id="price"
           style="
             background-color: #68687D;
-            text-decoration: none;
-            opacity: 1;
-            box-shadow: none;
-            border: none;
-            border-radius: 6px;
           "
         />
       </div>
-
+      
     <div class="form-group" style="margin-top: 20px;">
-    <input
-      type="file"
-      name="image[]" id="image" 
-      multiple required class="form-control rounded-pill text-white"
-      style=" display: none;"
-    />
-    <button type="button" onclick="document.getElementById('image').click()" class="btn text-white rounded-pill" style="background-color: #68687D; margin-top:10px; margin-bottom:10px; " id="chooseImageButton">Pilih Gambar</button>
-    <div id="preview"></div>
-    <small id="imageHelp" class="form-text text-muted">Pilih beberapa gambar dengan menekan tombol Ctrl/Cmd saat memilih.</small>
+      <input
+        type="file"
+        name="image[]" id="image" 
+        multiple required class="form-control rounded-pill text-white"
+        style=" display: none;"
+      />
+      <button type="button" onclick="document.getElementById('image').click()" class="btn text-white rounded-pill" style="background-color: #68687D; margin-top:10px; margin-bottom:10px; " id="chooseImageButton">Pilih Gambar</button>
+      <div id="preview"></div>
+      <small id="imageHelp" class="form-text text-muted">Pilih beberapa gambar dengan menekan tombol Ctrl/Cmd saat memilih.</small>
+  </div>
+  <div class="row justify-content-end">
+    <div class="col-auto">
+    <a href="{{ url('ikan') }}" class="btn text-white rounded-pill py-2 px-3" style="background-color: #95959a;text-decoration: none; opacity:1.0; box-shadow:none; border:none">Kembali</a>
+      <button type="submit" name="submit" class="btn text-white rounded-pill py-2 px-3" style="background-color: #68687D;text-decoration: none; opacity:1.0; box-shadow:none; border:none">Kirim</button>
+    </div>
 </div>
-
-    <div class="row justify-content-end">
-          <div class="col-auto">
-          <a href="{{ url('ikan') }}" class="btn text-white rounded-pill py-2 px-3" style="background-color: #95959a;text-decoration: none; opacity:1.0; box-shadow:none; border:none">Kembali</a>
-            <button type="submit" name="submit" class="btn text-white rounded-pill py-2 px-3" style="background-color: #68687D;text-decoration: none; opacity:1.0; box-shadow:none; border:none">Kirim</button>
-          </div>
       </div>
+
+
+    
+
 
 </form>
 
 <!-- AKHIR FORM --> 
+
 
 <script>
         document.getElementById('image').addEventListener('change', function(e) {
@@ -120,6 +112,9 @@
             reader.readAsDataURL(file);
         }
     });
+
 </script>
 
+
 @endsection
+
