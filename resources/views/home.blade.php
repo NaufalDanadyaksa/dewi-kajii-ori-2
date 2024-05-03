@@ -1,4 +1,5 @@
 @php
+    $ulasan = \App\Models\Ulasan::get();
     $atraksi = \App\Models\Atraksi::with('images')->get();
     $wisata = \App\Models\PaketWisata::with('images')->get();
     $ikan = \App\Models\KatalogIkan::with('images')->get();
@@ -128,7 +129,7 @@
           <a class="text-white nav-link" href="#section2">Paket Wisata</a>
         </li>
         <li class="nav-item">
-          <a class="text-white nav-link" href="#section2">Katalog Ikan</a>
+          <a class="text-white nav-link" href="{{url('/katalog-ikan')}}">Katalog Ikan</a>
         </li>
         <li class="nav-item">
           <a class="text-white nav-link" href="#section2">Homestay</a>
@@ -172,7 +173,7 @@
             <div class="card-text-container">
               <p class="text-end me-2">{{ $item->title }}</p>
               <p class="card-text">{{ $item->article }}</p>
-              <a href="{{url('berita/'.$item->id)}}" class="btn button-berita">Selengkapnya</a>
+              <a href="{{url('berita/show/'.$item->id)}}" class="btn button-berita">Selengkapnya</a>
             </div>  
           </div>
         </div>
@@ -285,17 +286,18 @@
   <div class="swiper-container-ulasan">
     <div class="swiper-wrapper">
 
+        @foreach ($ulasan as $item)
         <div class="swiper-slide swiper-slide-ulasan">
           <div class="card card-ulasan ms-4">
               <div class="card-body">
-                  <p class="nama-pengulas pt-3 px-2"><strong>Devan Miliar</strong></p>
+                  <p class="nama-pengulas pt-3 px-2"><strong>{{$item->name}}</strong></p>
                   <p class="text-ulasan pt-3 px-2">
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga autem, hic ab excepturi nostrum blanditiis
-                      pariatur
+                      {{$item->ulasan}}
                   </p>
               </div>
           </div>
         </div>
+        @endforeach
 
     </div>
   </div>
@@ -304,7 +306,8 @@
 <div class="container" id="container" style="            width: 800px;
 height: 500px;">
   <h1>Berikan Tanggapan Anda</h1>
-
+<form action="{{ url('ulasan/create') }}" method="post">
+  @csrf
   <div class="form-group">
       <input
       type="text"
@@ -330,7 +333,7 @@ height: 500px;">
       type="text"
       class="form-control text-white"
       placeholder="Tanggapan"
-      name='description' value="" id="description"
+      name='ulasan' value="" id="ulasan"
       style="height: 90px;"
       />
       <span class="placeholder"></span> 
@@ -338,7 +341,7 @@ height: 500px;">
 
   <button class="button-submit-ulasan">Kirim</button>
 </div>
-
+</form>
 
 <section class="footer" style="color: #063C48;">
   <footer class="bg-light py-5 pt-5">

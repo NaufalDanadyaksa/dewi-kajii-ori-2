@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Atraksi;
 use App\Models\Berita;
 use App\Models\Homestay;
+use App\Models\KatalogIkan;
 use App\Models\Sejarah;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,11 @@ class HomeController extends Controller
         return view('ulasan.create');
     }
 
+    public function toIkan(){
+        $ikan = KatalogIkan::with('images')->get();
+
+        return view('katalog_ikan.page_ikan', compact('ikan'));
+    }
     
     public function showAtraksi(string $id)
     {

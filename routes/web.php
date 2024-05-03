@@ -32,15 +32,18 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/homestay/detail/{id}', [HomeController::class,'showHomestay']);
     Route::get('/atraksi/detail/{id}', [HomeController::class,'showAtraksi']);
     Route::get('/sejarah/profile/', [HomeController::class,'showSejarah'])->name("profile");
-    Route::get('/berita/{id}', [HomeController::class,'showBerita']);
+    Route::get('/berita/show/{id}', [HomeController::class,'showBerita']);
+    Route::post('/ulasan/create', [UlasanController::class, 'store']);
+    Route::get('/katalog-ikan', [HomeController::class, 'toIkan']);
 });
 Route::middleware(['auth'])->group(function () {
+
     Route::resource('atraksi', AtraksiController::class);
     Route::resource('homestay', HomestayController::class);
     Route::resource('ikan', KatalogIkanController::class);
     Route::resource('wisata', PaketWisataController::class);
+    Route::resource('ulasan', UlasanController::class);
     Route::resource('berita', BeritaController::class);
-    Route::resource('ulasan ', UlasanController::class);
     Route::resource('sejarah', SejarahController::class);
     Route::get('/logout', [SessionController::class, 'logout']);
     Route::get('/dashboard', function () {
@@ -51,5 +54,8 @@ Route::get('/home', function () {
     return redirect('/');
 });
 Route::get('/', function () {
+    return view('home');
+});
+Route::get('/ulasan/create', function () {
     return view('home');
 });

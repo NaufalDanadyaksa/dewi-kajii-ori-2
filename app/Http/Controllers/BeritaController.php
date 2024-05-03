@@ -22,6 +22,7 @@ class BeritaController extends Controller
      */
     public function create()
     {
+        
         return view('berita.create');
     }
 
@@ -35,6 +36,14 @@ class BeritaController extends Controller
             'article' => 'required|string',
             'image' => 'image|mimes:jpeg,png,jpg,gif',
         ]);
+
+        $jumlahBerita = Berita::count();
+
+        // Jika jumlah berita sudah mencapai batas maksimal (misalnya 5), kirim notifikasi
+        if ($jumlahBerita >= 5) {
+            return redirect()->route('berita.index')->with('error', 'Data berita sudah mencapai batas maksimal.');
+        }
+
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('posts/berita'), $imageName);
         $imagePath = 'posts/berita/' . $imageName;
