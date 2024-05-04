@@ -3,6 +3,8 @@
     $atraksi = \App\Models\Atraksi::with('images')->get();
     $wisata = \App\Models\PaketWisata::with('images')->get();
     $ikan = \App\Models\KatalogIkan::with('images')->get();
+    $sejarah = \App\Models\Sejarah::first();
+    $berita = \App\Models\Berita::get();
     $homestay = \App\Models\Homestay::with('images')->get();
 @endphp
 
@@ -155,10 +157,10 @@
 
       </div>
       <div class="carousel-item">
-        <img src="./img/fotbarrr.jpg" class="d-block w-100" alt="Image 2" />
+        <img src="fotbarrr.jpg" class="d-block w-100" alt="Image 2" />
       </div>
       <div class="carousel-item">
-        <img src="./img/seoeda.jpg" class="d-block w-100" alt="Image 3" />
+        <img src="seoeda.jpg" class="d-block w-100" alt="Image 3" />
       </div>
     </div>
   </div>
