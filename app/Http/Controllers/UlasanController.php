@@ -43,7 +43,8 @@ class UlasanController extends Controller
      */
     public function show(string $id)
     {
-        $ulasan = Ulasan::find($id);
+        
+        $ulasan = Ulasan::findOrFail($id);
         return view('ulasan.show', compact('ulasan'));
     }
 
@@ -68,7 +69,7 @@ class UlasanController extends Controller
      */
     public function destroy(string $id)
     {
-        Ulasan::where( $id)->delete();
+        Ulasan::where($id)->delete();
         return view('home')->with('success', 'Ulasan Berhasil Dihapus');
     }
 }

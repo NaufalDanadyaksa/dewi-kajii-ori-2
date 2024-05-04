@@ -1,16 +1,18 @@
 @php
+    $ulasan = \App\Models\Ulasan::get();
     $atraksi = \App\Models\Atraksi::with('images')->get();
     $wisata = \App\Models\PaketWisata::with('images')->get();
     $ikan = \App\Models\KatalogIkan::with('images')->get();
+    $sejarah = \App\Models\Sejarah::first();
+    $berita = \App\Models\Berita::get();
     $homestay = \App\Models\Homestay::with('images')->get();
-    $sejarah= \App\Models\Sejarah::first();
-    $berita= \App\Models\Berita::get();
 @endphp
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Desa Wisata Kajii</title>
@@ -23,15 +25,15 @@
 <body>
 <!-- Navbar Mobile -->
 <nav class="navbar navbar-expand-lg fixed-top navbar-light d-lg-none p-0">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img
-        src="element/logo.png"
-        alt="logo"
-        class="img-fluid"
-        style="max-width: 40px; height: auto"
-      />
-    </a>
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img
+          src="./img/logo.png"
+          alt="logo"
+          class="img-fluid"
+          style="max-width: 40px; height: auto"
+        />
+      </a>
 
     <button
       class="navbar-toggler border-0 text-white"
@@ -128,7 +130,7 @@
           <a class="text-white nav-link" href="#section2">Paket Wisata</a>
         </li>
         <li class="nav-item">
-          <a class="text-white nav-link" href="#section2">Katalog Ikan</a>
+          <a class="text-white nav-link" href="{{url('/katalog-ikan')}}">Katalog Ikan</a>
         </li>
         <li class="nav-item">
           <a class="text-white nav-link" href="#section2">Homestay</a>
@@ -210,9 +212,13 @@
     <div>
       <h1 class="judul-atraksi ms-3 mt-3">Atraksi</h1>
     </div>
+    <div>
+      <h1 class="judul-atraksi ms-3 mt-3">Atraksi</h1>
+    </div>
       <div class="container mt-5">
           <div class="row d-flex justify-content-center">
               @foreach ($atraksi as $item)
+              <div class="col-md-3 mb-4 col-6 d-flex justify-content-center">
               <div class="col-md-3 mb-4 col-6 d-flex justify-content-center">
                   @foreach($item->images as $image)
                   <div class="card card-atraksi">
@@ -220,6 +226,7 @@
                           <img src="{{ asset('/posts/atraksi/'.$image->url) }}" alt="Description of image" class="atraksi-pict">
                           <p class="deskripsi-atraksi h-4"> {{ $item->description }}</p>
                       </div>
+                      <h6 class="judul-atraksi mt-2 fw-bold">{{ $item->name}}</h6>
                       <h6 class="judul-atraksi mt-2 fw-bold">{{ $item->name}}</h6>
                   </div>
                   @endforeach
@@ -235,28 +242,45 @@
 <section class="paket-wisata">
   <div>
     <h1 class="judul-PaketWisata ms-3 mt-3">Paket Wisata</h1>
+  <div>
+    <h1 class="judul-PaketWisata ms-3 mt-3">Paket Wisata</h1>
   </div>
-  <div class="swiper-container-Paket" style="overflow-x: hidden;">
+  <div class="swiper PaketWisata">
     <div class="swiper-wrapper">
       @foreach ($wisata as $item)
-        <div class="swiper-slide">
-          @foreach($item->images as $image)
-            <div class="card-paket-wisata">
-              <img src="{{ asset('/posts/paket_wisata/'.$image->url) }}" alt="Description of image" class="pict-paket">
-              <div class="text-container-paket">
-                <p class="judul-paket">{{ $item->name }}</p>
-                @foreach($item->content as $content)
-                  <p class="list-paket">{{ $content->content }}</p>
-                @endforeach
-              </div>
+<div class="swiper-slide">
+    <div class="card-paket-wisata">
+        <div class="col mt-2">
+            <div class="card cardPaketWisata bg-light">
+                <div id="carouselPaketwisata" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach($item->images as $image)
+                        <div class="carousel-item active">
+                            <img src="{{ asset('/posts/paket_wisata/'.$image->url) }}" class="img-card-paket-wisata p-2 rounded-4" alt="Paket B">
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <h2 class="card-title">{{ $item->name }}</h2>
+                    <h5 class="card-subtitle mb-2 text-muted">{{ $item->price }}</h5>
+                    <p class="card-text">
+                        <ul class="list-unstyled">
+                            @foreach($item->content as $content)
+                            <li class="mb-2">{{ $content->content }}</li>
+                            @endforeach
+                        </ul>
+                    </p>
+                </div>
             </div>
-          @endforeach
         </div>
-      @endforeach
     </div>
-    <!-- Add Arrows -->
+</div>
+@endforeach
+    </div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
+    <div class="swiper-scrollbar"></div>
   </div>
 </section>
 
@@ -267,16 +291,26 @@
     <h1 class="judul-Homestay ms-3 mt-3">Homestay</h1>
   </div>
   <div class="container mt-5">
+  <div>
+    <h1 class="judul-Homestay ms-3 mt-3">Homestay</h1>
+  </div>
+  <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-12">
         <div class="row row-cols-2 row-cols-md-4 d-flex justify-content-center">
           @foreach ($homestay as $item)
           <div class="col mb-4 d-flex justify-content-center">
+        <div class="row row-cols-2 row-cols-md-4 d-flex justify-content-center">
+          @foreach ($homestay as $item)
+          <div class="col mb-4 d-flex justify-content-center">
             <div class="card card-homestay">
+              @foreach($item->images as $image)
               @foreach($item->images as $image)
               <img src="{{ asset('/posts/homestay/'.$image->url) }}" class="homestay-pict" alt="card" />
               @endforeach
+              @endforeach
               <div class="card-overlay-text">
+                <p class="homestay-title pt-2 text-white">{{$item->name}}</p>
                 <p class="homestay-title pt-2 text-white">{{$item->name}}</p>
               </div>
               <div class="card-overlay-button">
@@ -284,6 +318,7 @@
               </div>
             </div>
           </div>
+          @endforeach
           @endforeach
         </div>
       </div>
@@ -397,42 +432,42 @@ var swiper = new Swiper(".swiper-container-berita", {
   },
 });
 
-const swiperUlasan = new Swiper(".swiper-container-ulasan", {
-  slidesPerView: 2,
-  spaceBetween: 30,
-  direction: "horizontal",
-  loop: false,
-
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-
-  breakpoints: {
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 40
-    }
-  },
-});
-
-const swiperPaket = new Swiper(".swiper-container-Paket", {
-  slidesPerView: 2,
-  spaceBetween: 30,
-  direction: "horizontal",
-  loop: false,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  breakpoints: {
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 40
-    }
-  },
-});
-
+    var swiper = new Swiper(".katalog-ikan", {
+        slidesPerView: 2,
+        speed: 1000,
+        spaceBetween: 30,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          hide: true,
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 5,
+          },
+        },
+      });
+    var swiper = new Swiper(".ulasan", {
+        slidesPerView: 2,
+        speed: 1000,
+        spaceBetween: 30,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          hide: true,
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 3,
+          },
+        },
+      });
   </script>
 </body>
 </html>
