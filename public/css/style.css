@@ -12,30 +12,54 @@ body {
     background-color: rgba(0, 0, 0, 0.521);
   }
   
-  .navbar-mobile{
-    background-color: rgba(0, 0, 0, 0.521);
-    color: white;
+  .youtube {
+    background-color: #F0F0F0;
+    padding-top: 90px;
+    padding-bottom: 90px;
   }
-  
+
+  /* Memberikan video responsif */
+  .youtube iframe {
+    width: 80%;
+    height: 230px;
+  }
+
+  .keseruan {
+      width: 100%;
+      height: 550px;
+      object-fit: cover;
+      position: relative;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(6, 60, 72, 0.4);
+    z-index: 1;
+  }
+
   .text-overlay {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
-    padding: 20px;
+    z-index: 2;
   }
-  
+
   .text-overlay h1 {
     margin: 0;
-    font-size: 4vw;
-  
+    font-size: 2em;
   }
-  
+
   .text-overlay h1 span {
+    padding-top: 30px;
     display: block;
-    font-size: 7vw;
+    font-size: 0.6em;
   }
   
   .container-sejarah {
@@ -247,37 +271,6 @@ body {
     padding: 20px;
     color: white;
   }
-
-  .button-ulasan {
-    border-radius: 50%;
-    width: 40px; 
-    height: 40px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff93;
-  }
-  
-  .icon-plus{
-    font-size: 25px;
-    color: #063C48;
-  }
-
-  .button-ulasan:hover {
-    border-radius: 50%;
-    width: 40px; 
-    height: 40px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #00000093;
-  }
-  
-  .icon-plus{
-    font-size: 25px;
-    color: #063C48;
-  }
- 
   
   .card-ulasan{
     
@@ -374,6 +367,37 @@ body {
   
   
   @media (max-width: 768px) {
+
+    .youtube {
+      background-color: #F0F0F0;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    /* Memberikan video responsif */
+    .youtube iframe {
+      width: 90%;
+      height: 150px;
+    }
+  
+    .keseruan {
+        width: 100%;
+        height: 275px;
+        object-fit: cover;
+        position: relative;
+    }
+  
+  
+    .text-overlay h1 {
+      margin: 0;
+      font-size: 0.5em;
+    }
+  
+    .text-overlay h1 span {
+      padding-top: 30px;
+      display: block;
+      font-size: 0.6em;
+    }
+
   
   .deskripsi-sejarah{
     font-size: 0.6em;
@@ -505,26 +529,15 @@ body {
   }
 
   .berita-pict-detail{
-    width: 300px;
-    height: 200px;
+    width: 200px;
+    height: 100px;
     object-fit: cover
-}
-
-  .text-fill {
-    color: aliceblue;
-    font-size: 70px;
-    font-family: 'Poppins', sans-serif;
-    position: relative;
-    margin-left: 110px;
-  }
-  
-  .text-stroke {
-    -webkit-text-stroke: 2px rgb(255, 255, 255);
-    color: transparent;
-  }
-  
-  
-  
+}  
+.homestay-pict-detail{
+  width: 200px;
+  height: 100px;
+  object-fit: cover
+}  
   
   }
   
@@ -584,19 +597,11 @@ body {
     object-fit: cover
 }
 
-.text-fill {
-color: aliceblue;
-font-size: 100px;
-font-family: 'Poppins', sans-serif;
-position: relative;
-margin-left: 140px;
+.homestay-pict-detail{
+  width: 400px;
+  height: 300px;
+  object-fit: cover
 }
-
-.text-stroke {
--webkit-text-stroke: 4px rgb(255, 255, 255);
-color: transparent;
-}
-
 
         .form-group {
             position: relative; 

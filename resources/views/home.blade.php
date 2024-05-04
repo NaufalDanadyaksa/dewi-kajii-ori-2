@@ -138,13 +138,30 @@
   </div>
 </nav>
 
-  <section class="dashboard">
-    <img src="fotbarrr.jpg" class="pict-dahboard d-block w-100" alt="Image 1" />
-    <div class="text-overlay">
-      <h1>Welcome to</h1>
-      <h1><span>Dewi Kajii</span></h1>
+<section class="youtube">
+  <div class="container-youtube">
+    <div class="row justify-content-center">
+      <div class="col-lg-5 position-relative order-lg-1 order-1 d-flex justify-content-center mt-4">
+        <h1 class="text-dashboard text-start text-black">AKTIVITAS MENYENANGKAN BLA BLA BLA BLA</h1>
+      </div>
+      <div class="col-lg-4 order-lg-2 order-2 mt-4 d-flex justify-content-center">
+        <iframe src="https://www.youtube.com/embed/-v2yXAzu-s4" frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+<section class="dashboard">
+  <div class="position-relative">
+    <!-- Menambahkan gambar dengan overlay -->
+    <img src="seoeda.jpg" class="keseruan" alt="Image 1" />
+    <div class="overlay"></div>
+    <div class="text-overlay">
+      <h1>BERBAGAI MACAM KESERUAN ATRAKSI WISATA OUTBOUND, CAMPING, MAKRAB, GATHERING UNTUK KOMUNITAS</h1>
+      <h1><span>
+          Berbagai keseruan dan pengalaman di Desa Wisata Kajii</span></h1>
+    </div>
+  </div>
+</section>
 
   <section class="container-sejarah p-5">
     <div class="container sjrh">
@@ -277,9 +294,6 @@
 <section class="ulasan">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h1 class="judul-ulasan">Ulasan</h1>
-    <button class="btn button-ulasan me-3">
-      <i class="ti ti-plus icon-plus">{{ url('ulasan'.$item->id) }}</i>
-    </button>
   </div>
 
   <div class="swiper-container-ulasan">
@@ -301,43 +315,7 @@
   </div>
 </section>
 
-<div class="container" id="container" style="            width: 800px;
-height: 500px;">
-  <h1>Berikan Tanggapan Anda</h1>
 
-  <div class="form-group">
-      <input
-      type="text"
-      class="form-control text-white"
-      placeholder="Username"
-      name='name' value="" id="name"
-      />
-      <span class="placeholder"></span> 
-  </div>
-
-  <div class="form-group">
-      <input
-      type="text"
-      class="form-control text-white"
-      placeholder="Email"
-      name='email' value="" id="email"
-      />
-      <span class="placeholder"></span> 
-  </div>
-
-  <div class="form-group">
-      <input
-      type="text"
-      class="form-control text-white"
-      placeholder="Tanggapan"
-      name='description' value="" id="description"
-      style="height: 90px;"
-      />
-      <span class="placeholder"></span> 
-  </div>
-
-  <button class="button-submit-ulasan">Kirim</button>
-</div>
 
 
 <section class="footer" style="color: #063C48;">

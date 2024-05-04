@@ -52,12 +52,11 @@ class BeritaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        $berita= Berita::find($id);
+    public function showBerita(string $id){
+        $berita=Berita::findOrFail($id);
 
-        return view('berita.show', compact('berita'));
-    }
+
+        return view('berita.detail', compact('berita'));}
 
     /**
      * Show the form for editing the specified resource.
