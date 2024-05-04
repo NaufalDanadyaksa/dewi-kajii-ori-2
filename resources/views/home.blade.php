@@ -4,14 +4,13 @@
     $wisata = \App\Models\PaketWisata::with('images')->get();
     $ikan = \App\Models\KatalogIkan::with('images')->get();
     $homestay = \App\Models\Homestay::with('images')->get();
-    $sejarah= \App\Models\Sejarah::first();
-    $berita= \App\Models\Berita::get();
 @endphp
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Desa Wisata Kajii</title>
@@ -24,15 +23,15 @@
 <body>
 <!-- Navbar Mobile -->
 <nav class="navbar navbar-expand-lg fixed-top navbar-light d-lg-none p-0">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img
-        src="element/logo.png"
-        alt="logo"
-        class="img-fluid"
-        style="max-width: 40px; height: auto"
-      />
-    </a>
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img
+          src="./img/logo.png"
+          alt="logo"
+          class="img-fluid"
+          style="max-width: 40px; height: auto"
+        />
+      </a>
 
     <button
       class="navbar-toggler border-0 text-white"
@@ -139,13 +138,30 @@
   </div>
 </nav>
 
-  <section class="dashboard">
-    <img src="fotbarrr.jpg" class="pict-dahboard d-block w-100" alt="Image 1" />
-    <div class="text-overlay">
-      <h1>Welcome to</h1>
-      <h1><span>Dewi Kajii</span></h1>
+  <!-- Carousel -->
+  <div
+    id="carouselExampleCaptions"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+
+        <img src="empang1.jpg" class="d-block w-100" alt="Image 1" />
+        <a href="{{route('profile')}}" class="custom-button1" style="position: absolute; left: 55px; top: 340px;">Kunjungi Profil</a>
+        <div class="welcome-text">Selamat Datang di
+        <br>Desa Wisata Kajii</br>
+      </div>
+
+      </div>
+      <div class="carousel-item">
+        <img src="./img/fotbarrr.jpg" class="d-block w-100" alt="Image 2" />
+      </div>
+      <div class="carousel-item">
+        <img src="./img/seoeda.jpg" class="d-block w-100" alt="Image 3" />
+      </div>
     </div>
-  </section>
+  </div>
 
   <section class="container-sejarah p-5">
     <div class="container sjrh">
@@ -173,7 +189,9 @@
             <div class="card-text-container">
               <p class="text-end me-2">{{ $item->title }}</p>
               <p class="card-text">{{ $item->article }}</p>
+
               <a href="{{url('berita/show/'.$item->id)}}" class="btn button-berita">Selengkapnya</a>
+
             </div>  
           </div>
         </div>
@@ -220,27 +238,42 @@
   <div>
     <h1 class="judul-PaketWisata ms-3 mt-3">Paket Wisata</h1>
   </div>
-  <div class="swiper-container-Paket" style="overflow-x: hidden;">
+  <div class="swiper PaketWisata">
     <div class="swiper-wrapper">
       @foreach ($wisata as $item)
-        <div class="swiper-slide">
-          @foreach($item->images as $image)
-            <div class="card-paket-wisata">
-              <img src="{{ asset('/posts/paket_wisata/'.$image->url) }}" alt="Description of image" class="pict-paket">
-              <div class="text-container-paket">
-                <p class="judul-paket">{{ $item->name }}</p>
-                @foreach($item->content as $content)
-                  <p class="list-paket">{{ $content->content }}</p>
-                @endforeach
-              </div>
+<div class="swiper-slide">
+    <div class="card-paket-wisata">
+        <div class="col mt-2">
+            <div class="card cardPaketWisata bg-light">
+                <div id="carouselPaketwisata" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach($item->images as $image)
+                        <div class="carousel-item active">
+                            <img src="{{ asset('/posts/paket_wisata/'.$image->url) }}" class="img-card-paket-wisata p-2 rounded-4" alt="Paket B">
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="card-body text-center">
+                    <h2 class="card-title">{{ $item->name }}</h2>
+                    <h5 class="card-subtitle mb-2 text-muted">{{ $item->price }}</h5>
+                    <p class="card-text">
+                        <ul class="list-unstyled">
+                            @foreach($item->content as $content)
+                            <li class="mb-2">{{ $content->content }}</li>
+                            @endforeach
+                        </ul>
+                    </p>
+                </div>
             </div>
-          @endforeach
         </div>
-      @endforeach
     </div>
-    <!-- Add Arrows -->
+</div>
+@endforeach
+    </div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
+    <div class="swiper-scrollbar"></div>
   </div>
 </section>
 
@@ -286,6 +319,7 @@
   <div class="swiper-container-ulasan">
     <div class="swiper-wrapper">
 
+
         @foreach ($ulasan as $item)
         <div class="swiper-slide swiper-slide-ulasan">
           <div class="card card-ulasan ms-4">
@@ -293,11 +327,14 @@
                   <p class="nama-pengulas pt-3 px-2"><strong>{{$item->name}}</strong></p>
                   <p class="text-ulasan pt-3 px-2">
                       {{$item->ulasan}}
+
                   </p>
               </div>
           </div>
         </div>
+
         @endforeach
+
 
     </div>
   </div>
@@ -306,8 +343,10 @@
 <div class="container" id="container" style="            width: 800px;
 height: 500px;">
   <h1>Berikan Tanggapan Anda</h1>
+
 <form action="{{ url('ulasan/create') }}" method="post">
   @csrf
+
   <div class="form-group">
       <input
       type="text"
@@ -333,7 +372,9 @@ height: 500px;">
       type="text"
       class="form-control text-white"
       placeholder="Tanggapan"
+
       name='ulasan' value="" id="ulasan"
+
       style="height: 90px;"
       />
       <span class="placeholder"></span> 
@@ -341,7 +382,9 @@ height: 500px;">
 
   <button class="button-submit-ulasan">Kirim</button>
 </div>
+
 </form>
+
 
 <section class="footer" style="color: #063C48;">
   <footer class="bg-light py-5 pt-5">
@@ -422,42 +465,42 @@ var swiper = new Swiper(".swiper-container-berita", {
   },
 });
 
-const swiperUlasan = new Swiper(".swiper-container-ulasan", {
-  slidesPerView: 2,
-  spaceBetween: 30,
-  direction: "horizontal",
-  loop: false,
-
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-
-  breakpoints: {
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 40
-    }
-  },
-});
-
-const swiperPaket = new Swiper(".swiper-container-Paket", {
-  slidesPerView: 2,
-  spaceBetween: 30,
-  direction: "horizontal",
-  loop: false,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  breakpoints: {
-    768: {
-      slidesPerView: 4,
-      spaceBetween: 40
-    }
-  },
-});
-
+    var swiper = new Swiper(".katalog-ikan", {
+        slidesPerView: 2,
+        speed: 1000,
+        spaceBetween: 30,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          hide: true,
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 5,
+          },
+        },
+      });
+    var swiper = new Swiper(".ulasan", {
+        slidesPerView: 2,
+        speed: 1000,
+        spaceBetween: 30,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          hide: true,
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 3,
+          },
+        },
+      });
   </script>
 </body>
 </html>
