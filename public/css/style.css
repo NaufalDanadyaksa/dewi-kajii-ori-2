@@ -1,5 +1,5 @@
 body {
-<<<<<<< HEAD
+
   font-family: 'Poppins', sans-serif;
   background-color: #F0F0F0;
   overflow-x: hidden;
@@ -193,7 +193,6 @@ position: relative;
 }
 
 .navbar {
-=======
     font-family: 'Poppins', sans-serif;
     background-color: #F0F0F0;
     overflow-x: hidden;
@@ -204,7 +203,6 @@ position: relative;
   }
   
   .navbar {
->>>>>>> 737b79bf323433bdfe78f7d9e39f4de4b17a20bc
     background-color: rgba(0, 0, 0, 0.521);
   }
   
@@ -780,119 +778,7 @@ position: relative;
     object-fit: cover
 }
 
-<<<<<<< HEAD
-  .custom-button2:hover {
-    background-color: #c8e3854e; /* Warna latar belakang hover */
-  }
-  .welcome-text {
-    position: absolute;
-    top: 40%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    margin-bottom: 10px;
-    font-size: 32pt;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-weight: 700;
-    z-index: 1000;
-  }
-  .welcome-text1 {
-    position: absolute;
-    top: 40%;
-    left: 26%;
-    transform: translate(-50%, -50%);
-    margin-bottom: 10px;
-    font-size: 32pt;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-weight: 700;
-    z-index: 1000;
-  }
-  .welcome-text2 {
-    position: absolute;
-    top: 40%;
-    left: 26%;
-    transform: translate(-50%, -50%);
-    margin-bottom: 10px;
-    font-size: 32pt;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-weight: 700;
-    z-index: 1000;
-  }
-  .nama-paket,
-      .harga {
-        color: #222222;
-        margin: 0 0 15px;
-        font-family: "Poppins", sans-serif;
-        line-height: 1.75rem;
-        font-size: 1.25rem;
-      }
 
-      .font-weight-normal {
-        font-weight: 400 !important;
-      }
-
-      .price-table {
-        -webkit-transition: 0.3s ease;
-      }
-
-      .lis-rounded-top {
-        border-top-right-radius: 20px;
-        border-top-left-radius: 20px;
-      }
-
-      .lis-bg-light {
-        background-color: #f7f7f7;
-      }
-
-      .lis-brd-light {
-        border-color: #dadada !important;
-      }
-      .bg-white {
-        background-color: #fff !important;
-      }
-      .py-5 {
-        padding-bottom: 3rem !important;
-      }
-      .lis-line-height-3 {
-        line-height: 3 !important;
-      }
-
-      .list-unstyled {
-        padding-left: 0;
-        list-style: none;
-      }
-
-      .lis-line-height-3 {
-        line-height: 2 !important;
-      }
-
-      .lis-rounded-circle-50 {
-        border-radius: 50px;
-      }
-
-      .price-table.active {
-        transform: scale(1.045);
-        -webkit-transform: scale(1.045);
-      }
-
-      .price-table {
-        -webkit-transition: 0.3s ease;
-      }
-
-      .lis-rounded-bottom {
-        border-bottom-right-radius: 20px;
-        border-bottom-left-radius: 20px;
-      }
-
-      .carousel-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    
-=======
 .text-fill {
 color: aliceblue;
 font-size: 100px;
@@ -943,5 +829,6 @@ color: transparent;
             background-color: #063C48;
             border: none;
             color: white;
+
         }
->>>>>>> 737b79bf323433bdfe78f7d9e39f4de4b17a20bc
+

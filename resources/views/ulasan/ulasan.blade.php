@@ -34,7 +34,7 @@
                             <td>{{ $item->created_at }}</td>
                             <td>{{ $item->updated_at }}</td>
                             <td>
-                                <a href='{{ url('ulasan/'.$item->id) }}' class="btn btn-primary btn-sm">Show</a>
+                                <a href="{{ url('ulasan/'.$item->id) }}" class="btn btn-primary btn-sm ">Show</a>
                                 <form onsubmit="return confirm('Yakin akan menghapus data?')" class='d-inline' action="{{ url('ulasan/'.$item->id) }}" method="post">
                                     @csrf 
                                     @method('DELETE')
