@@ -45,6 +45,8 @@ class UlasanController extends Controller
     {
         
         $ulasan = Ulasan::findOrFail($id);
+        
+        $ulasan = Ulasan::findOrFail($id);
         return view('ulasan.show', compact('ulasan'));
     }
 

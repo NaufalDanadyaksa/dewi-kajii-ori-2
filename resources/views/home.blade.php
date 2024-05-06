@@ -1,5 +1,6 @@
 @php
     $ulasan = \App\Models\Ulasan::get();
+    $ulasan = \App\Models\Ulasan::get();
     $atraksi = \App\Models\Atraksi::with('images')->get();
     $wisata = \App\Models\PaketWisata::with('images')->get();
  
@@ -297,7 +298,10 @@
           <div class="card card-ulasan ms-4">
               <div class="card-body">
                   <p class="nama-pengulas pt-3 px-2"><strong>{{$item->name}}</strong></p>
+                  <p class="nama-pengulas pt-3 px-2"><strong>{{$item->name}}</strong></p>
                   <p class="text-ulasan pt-3 px-2">
+                      {{$item->ulasan}}
+
                       {{$item->ulasan}}
 
                   </p>

@@ -40,10 +40,12 @@ Route::middleware(['guest'])->group(function () {
 });
 Route::middleware(['auth'])->group(function () {
 
+
     Route::resource('atraksi', AtraksiController::class);
     Route::resource('homestay', HomestayController::class);
     Route::resource('ikan', KatalogIkanController::class);
     Route::resource('wisata', PaketWisataController::class);
+    Route::resource('ulasan', UlasanController::class);
     Route::resource('ulasan', UlasanController::class);
     Route::resource('berita', BeritaController::class);
     Route::resource('sejarah', SejarahController::class);
@@ -57,6 +59,11 @@ Route::get('/home', function () {
 });
 Route::get('/', function () {
     return view('home');
+
+});
+Route::get('/ulasan/create', function () {
+    return view('home');
+
 
 });
 Route::get('/ulasan/create', function () {
