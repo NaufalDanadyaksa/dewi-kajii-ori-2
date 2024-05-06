@@ -162,48 +162,7 @@
     </div>
   </div>
 
-  <section class="container-sejarah p-5">
-    <div class="container sjrh">
-        <div class="container text-start">
-            <div class="row justify-content-center">
-              <div class="col-md-6 col-lg-6"> <!-- Adjust column size as needed for responsiveness -->
-                <img src="fotbarrr.jpg" alt="" srcset="" class="pict-sejarah img-fluid">
-              </div>
-              <div class="col-md-6 col-lg-4"> <!-- Adjust column size as needed for responsiveness -->
-                <h2 class="text-sejarah">Sejarah</h2>
-                <p class="deskripsi-sejarah text-white">{{$sejarah->article}}</p>
-              </div>
-            </div>
-          </div>
-    </div>
-  </section>
-
-  <section class="berita" id="berita">
-    <div class="swiper-container-berita">
-      <div class="swiper-wrapper">
-        @foreach ($berita as $item)
-        <div class="swiper-slide swiper-slide-berita">
-          <div class="card card-berita d-flex justify-content-center">
-            <img src="{{ asset($item->image) }}" class="berita-pict" alt="card" />
-            <div class="card-text-container">
-              <p class="text-end me-2">{{ $item->title }}</p>
-              <p class="card-text">{{ $item->article }}</p>
-              <a href="{{url('berita/'.$item->id)}}" class="btn button-berita">Selengkapnya</a>
-            </div>  
-          </div>
-        </div>
-        @endforeach
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
-    <div class="swiper-pagination"></div>
-  </section>
-  
-
-
-
-
+ 
   <!-- Atraksi -->
   <section class="atraksi" id="atraksi">
     <div>
