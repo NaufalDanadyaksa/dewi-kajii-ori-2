@@ -35,7 +35,7 @@ class UlasanController extends Controller
             'ulasan' => 'required',
         ]);
         Ulasan::create($request->all());
-        return view('home')->with('success', 'Ulasan Berhasil Dikirim');
+         return redirect('/');
     }
 
     /**
@@ -43,6 +43,8 @@ class UlasanController extends Controller
      */
     public function show(string $id)
     {
+        
+        $ulasan = Ulasan::findOrFail($id);
         
         $ulasan = Ulasan::findOrFail($id);
         return view('ulasan.show', compact('ulasan'));
@@ -69,7 +71,7 @@ class UlasanController extends Controller
      */
     public function destroy(string $id)
     {
-        Ulasan::where($id)->delete();
-        return view('home')->with('success', 'Ulasan Berhasil Dihapus');
+        Ulasan::findOrFail($id)->delete();
+        return redirect()->route('ulasan.index')->with('success', 'Ulasan berhasil di hapus');
     }
 }
