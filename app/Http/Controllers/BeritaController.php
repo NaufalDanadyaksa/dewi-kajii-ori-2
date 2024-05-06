@@ -22,6 +22,7 @@ class BeritaController extends Controller
      */
     public function create()
     {
+        
         return view('berita.create');
     }
 
@@ -35,6 +36,14 @@ class BeritaController extends Controller
             'article' => 'required|string',
             'image' => 'image|mimes:jpeg,png,jpg,gif',
         ]);
+
+        $jumlahBerita = Berita::count();
+
+        // Jika jumlah berita sudah mencapai batas maksimal (misalnya 5), kirim notifikasi
+        if ($jumlahBerita >= 5) {
+            return redirect()->route('berita.index')->with('error', 'Data berita sudah mencapai batas maksimal.');
+        }
+
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('posts/berita'), $imageName);
         $imagePath = 'posts/berita/' . $imageName;
@@ -52,12 +61,11 @@ class BeritaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        $berita= Berita::find($id);
+    public function showBerita(string $id){
+        $berita=Berita::findOrFail($id);
 
-        return view('berita.show', compact('berita'));
-    }
+
+        return view('berita.detail', compact('berita'));}
 
     /**
      * Show the form for editing the specified resource.

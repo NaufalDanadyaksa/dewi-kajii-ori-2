@@ -1,7 +1,11 @@
 @php
+    $ulasan = \App\Models\Ulasan::get();
+    $ulasan = \App\Models\Ulasan::get();
     $atraksi = \App\Models\Atraksi::with('images')->get();
     $wisata = \App\Models\PaketWisata::with('images')->get();
-    $ikan = \App\Models\KatalogIkan::with('images')->get();
+ 
+    $sejarah = \App\Models\Sejarah::first();
+    $berita = \App\Models\Berita::get();
     $homestay = \App\Models\Homestay::with('images')->get();
 @endphp
 
@@ -25,7 +29,7 @@
     <div class="container">
       <a class="navbar-brand" href="#">
         <img
-          src="./img/logo.png"
+          src="{{asset('element/logo.png')}}"
           alt="logo"
           class="img-fluid"
           style="max-width: 40px; height: auto"
@@ -65,19 +69,19 @@
   <div class="offcanvas-body">
     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link active" aria-current="page" href="#home">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Atraksi</a>
+        <a class="nav-link" href="#atraksi">Atraksi</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Paket Wisata</a>
+        <a class="nav-link" href="#paket-wisata">Paket Wisata</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Katalog Ikan</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Homestay</a>
+        <a class="nav-link" href="#homestay">Homestay</a>
       </li>
     </ul>
   </div>
@@ -112,57 +116,89 @@
       id="navbarText"
     >
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a
-            class="text-white nav-link active"
-            aria-current="page"
-            href="#section1"
-            >Home</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="text-white nav-link" href="#section2">Atraksi</a>
-        </li>
-        <li class="nav-item">
-          <a class="text-white nav-link" href="#section2">Paket Wisata</a>
-        </li>
-        <li class="nav-item">
-          <a class="text-white nav-link" href="#section2">Katalog Ikan</a>
-        </li>
-        <li class="nav-item">
-          <a class="text-white nav-link" href="#section2">Homestay</a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link text-white active" aria-current="page" href="#home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#atraksi">Atraksi</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#paket-wisata">Paket Wisata</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="">Katalog Ikan</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#homestay">Homestay</a>
+      </li>
       </ul>
     </div>
   </div>
 </nav>
 
-  <!-- Carousel -->
-  <div
-    id="carouselExampleCaptions"
-    class="carousel slide"
-    data-bs-ride="carousel"
-  >
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-
-        <img src="empang1.jpg" class="d-block w-100" alt="Image 1" />
-        <a href="{{route('profile')}}" class="custom-button1" style="position: absolute; left: 55px; top: 340px;">Kunjungi Profil</a>
-        <div class="welcome-text">Selamat Datang di
-        <br>Desa Wisata Kajii</br>
+<section class="youtube" id="home">
+  <div class="container-youtube">
+    <div class="row justify-content-center">
+      <div class="col-lg-5 position-relative order-lg-1 order-1 d-flex justify-content-center mt-4">
+        <h1 class="text-dashboard text-start text-black">AKTIVITAS MENYENANGKAN BLA BLA BLA BLA</h1>
       </div>
-
-      </div>
-      <div class="carousel-item">
-        <img src="./img/fotbarrr.jpg" class="d-block w-100" alt="Image 2" />
-      </div>
-      <div class="carousel-item">
-        <img src="./img/seoeda.jpg" class="d-block w-100" alt="Image 3" />
+      <div class="col-lg-4 order-lg-2 order-2 mt-4 d-flex justify-content-center">
+        <iframe src="https://www.youtube.com/embed/-v2yXAzu-s4" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
   </div>
+</section>
+<section class="dashboard">
+  <div class="position-relative">
+    <img src="seoeda.jpg" class="keseruan" alt="Image 1" />
+    <div class="overlay"></div>
+    <div class="text-overlay">
+      <h1>BERBAGAI MACAM KESERUAN ATRAKSI WISATA OUTBOUND, CAMPING, MAKRAB, GATHERING UNTUK KOMUNITAS</h1>
+      <h1><span>
+          Berbagai keseruan dan pengalaman di Desa Wisata Kajii</span></h1>
+    </div>
+  </div>
+</section>
 
- 
+  <section class="container-sejarah p-5">
+    <div class="container sjrh">
+        <div class="container text-start">
+            <div class="row justify-content-center">
+              <div class="col-md-6 col-lg-6">
+                <img src="fotbarrr.jpg" alt="" srcset="" class="pict-sejarah img-fluid">
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <h2 class="text-sejarah">Sejarah</h2>
+                <p class="deskripsi-sejarah text-white">{{$sejarah->article}}</p>
+              </div>
+            </div>
+          </div>
+    </div>
+  </section>
+
+  <section class="berita" id="berita">
+    <div class="swiper-container-berita">
+      <div class="swiper-wrapper">
+        @foreach ($berita as $item)
+        <div class="swiper-slide swiper-slide-berita">
+          <div class="card card-berita d-flex justify-content-center">
+            <img src="{{ asset($item->image) }}" class="berita-pict" alt="card" />
+            <div class="card-text-container">
+              <p class="text-end me-2">{{ $item->title }}</p>
+              <p class="card-text">{{ $item->article }}</p>
+              <a href="{{url('berita/news/'.$item->id)}}" class="btn button-berita">Selengkapnya</a>
+            </div>  
+          </div>
+        </div>
+        @endforeach
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </section>
+  
+
   <!-- Atraksi -->
   <section class="atraksi" id="atraksi">
     <div>
@@ -190,144 +226,117 @@
 
 
 <!-- Paket Wisata -->
-<section class="paket-wisata">
+<section class="paket-wisata" id="paket-wisata">
   <div>
     <h1 class="judul-PaketWisata ms-3 mt-3">Paket Wisata</h1>
   </div>
-  <div class="swiper PaketWisata">
+  <div class="swiper-container-Paket" style="overflow-x: hidden;">
     <div class="swiper-wrapper">
       @foreach ($wisata as $item)
-<div class="swiper-slide">
-    <div class="card-paket-wisata">
-        <div class="col mt-2">
-            <div class="card cardPaketWisata bg-light">
-                <div id="carouselPaketwisata" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        @foreach($item->images as $image)
-                        <div class="carousel-item active">
-                            <img src="{{ asset('/posts/paket_wisata/'.$image->url) }}" class="img-card-paket-wisata p-2 rounded-4" alt="Paket B">
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="card-body text-center">
-                    <h2 class="card-title">{{ $item->name }}</h2>
-                    <h5 class="card-subtitle mb-2 text-muted">{{ $item->price }}</h5>
-                    <p class="card-text">
-                        <ul class="list-unstyled">
-                            @foreach($item->content as $content)
-                            <li class="mb-2">{{ $content->content }}</li>
-                            @endforeach
-                        </ul>
-                    </p>
-                </div>
+        <div class="swiper-slide">
+          @foreach($item->images as $image)
+            <div class="card-paket-wisata">
+              <img src="{{ asset('/posts/paket_wisata/'.$image->url) }}" alt="Description of image" class="pict-paket">
+              <div class="text-container-paket">
+                <p class="judul-paket">{{ $item->name }}</p>
+                @foreach($item->content as $content)
+                  <p class="list-paket">{{ $content->content }}</p>
+                @endforeach
+              </div>
             </div>
+          @endforeach
         </div>
-    </div>
-</div>
-@endforeach
+      @endforeach
     </div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
-    <div class="swiper-scrollbar"></div>
   </div>
 </section>
 
-
-
-<section class="homestay mt-5">
+<section class="homestay mt-5" id="homestay">
   <div>
     <h1 class="judul-Homestay ms-3 mt-3">Homestay</h1>
   </div>
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <div class="row row-cols-2 row-cols-md-4 d-flex justify-content-center">
-          @foreach ($homestay as $item)
-          <div class="col mb-4 d-flex justify-content-center">
-            <div class="card card-homestay">
-              @foreach($item->images as $image)
-              <img src="{{ asset('/posts/homestay/'.$image->url) }}" class="homestay-pict" alt="card" />
-              @endforeach
-              <div class="card-overlay-text">
-                <p class="homestay-title pt-2 text-white">{{$item->name}}</p>
-              </div>
-              <div class="card-overlay-button">
-                <a href="{{ url('homestay/detail/'.$item->id) }}"><button class="btn button-homestay px-2 py-2 text">Selengkapnya</button></a>
+  <div class="container">
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="row row-cols-2 row-cols-md-4 justify-content-center">
+            @foreach ($homestay as $item)
+            <div class="col mb-4 d-flex justify-content-center">
+              <div class="card card-homestay">
+                @foreach($item->images as $image)
+                <img src="{{ asset('/posts/homestay/'.$image->url) }}" class="homestay-pict" alt="card" />
+                @endforeach
+                <div class="card-overlay-text">
+                  <p class="homestay-title pt-2">{{$item->name}}</p>
+                  <!-- Hanya satu baris yang diperlukan -->
+                </div>
+                <div class="card-overlay-button">
+                  <a href="{{ url('homestay/detail/'.$item->id) }}"><button class="btn button-homestay px-2 py-2 text">Selengkapnya</button></a>
+                </div>
               </div>
             </div>
+            @endforeach
           </div>
-          @endforeach
         </div>
       </div>
     </div>
   </div>
 </section>
 
+
+
 <section class="ulasan">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h1 class="judul-ulasan">Ulasan</h1>
-    <button class="btn button-ulasan me-3">
-      <i class="ti ti-plus icon-plus">{{ url('ulasan'.$item->id) }}</i>
-    </button>
   </div>
-
   <div class="swiper-container-ulasan">
     <div class="swiper-wrapper">
-
+        @foreach ($ulasan as $item)
         <div class="swiper-slide swiper-slide-ulasan">
           <div class="card card-ulasan ms-4">
               <div class="card-body">
-                  <p class="nama-pengulas pt-3 px-2"><strong>Devan Miliar</strong></p>
+                  <p class="nama-pengulas pt-3 px-2"><strong>{{$item->name}}</strong></p>
+                  <p class="nama-pengulas pt-3 px-2"><strong>{{$item->name}}</strong></p>
                   <p class="text-ulasan pt-3 px-2">
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga autem, hic ab excepturi nostrum blanditiis
-                      pariatur
+                      {{$item->ulasan}}
+
+                      {{$item->ulasan}}
+
                   </p>
               </div>
           </div>
         </div>
-
+        @endforeach
     </div>
   </div>
 </section>
 
-<div class="container" id="container" style="            width: 800px;
-height: 500px;">
-  <h1>Berikan Tanggapan Anda</h1>
 
-  <div class="form-group">
-      <input
-      type="text"
-      class="form-control text-white"
-      placeholder="Username"
-      name='name' value="" id="name"
-      />
-      <span class="placeholder"></span> 
-  </div>
 
-  <div class="form-group">
-      <input
-      type="text"
-      class="form-control text-white"
-      placeholder="Email"
-      name='email' value="" id="email"
-      />
-      <span class="placeholder"></span> 
-  </div>
-
-  <div class="form-group">
-      <input
-      type="text"
-      class="form-control text-white"
-      placeholder="Tanggapan"
-      name='description' value="" id="description"
-      style="height: 90px;"
-      />
-      <span class="placeholder"></span> 
-  </div>
-
-  <button class="button-submit-ulasan">Kirim</button>
+<section class="form-ulasan-section">
+<div class="container container-ulasan" id="container">
+  <h1 class="judul-ulasan text-black">Berikan Tanggapan Anda</h1>
+  <form action="{{url('ulasan/create')}}" method="POST">
+    @csrf
+    <div class="mb-3">
+      <input type="text" class="form-control" id="username" placeholder="Username" name='name' value="">
+    </div>
+    <div class="mb-3">
+      <input type="email" class="form-control" id="email" placeholder="Email" name='email' value="">
+    </div>
+    <div class="mb-3">
+      <textarea class="form-control" id="tanggapan" rows="5" placeholder="Tanggapan" name='ulasan' value=""></textarea>
+    </div>
+    <button type="submit" class="btn button-submit mt-2">Kirim</button>
+  </form>
 </div>
+</section>
+
+
+
+
 
 
 <section class="footer" style="color: #063C48;">
@@ -369,7 +378,7 @@ height: 500px;">
                   </ul>
               </div>
           </div>
-          <small class="text-muted ">&copy; 2024 Desa Wisata Kajii. All rights reserved.</small>
+          <small class="text-muted mt-3">&copy; 2024 Desa Wisata Kajii. All rights reserved.</small>
       </div>
   </footer>
 </section>
@@ -427,7 +436,7 @@ var swiper = new Swiper(".swiper-container-berita", {
           },
         },
       });
-    var swiper = new Swiper(".ulasan", {
+      var swiper = new Swiper(".swiper-container-ulasan", {
         slidesPerView: 2,
         speed: 1000,
         spaceBetween: 30,
@@ -441,7 +450,7 @@ var swiper = new Swiper(".swiper-container-berita", {
         },
         breakpoints: {
           768: {
-            slidesPerView: 3,
+            slidesPerView: 4,
           },
         },
       });

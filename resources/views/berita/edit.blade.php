@@ -10,12 +10,10 @@
         <div class="form-group">
             <label for="name">Judul</label>
             <input type="text" class="form-control rounded-pill text-white" id="title" name="title" value="{{ $berita->title }}" style="background-color: #68687D; text-decoration: none; opacity: 1; box-shadow: none; border: none;" />
-            <input type="text" class="form-control rounded-pill text-white" id="title" name="title" value="{{ $berita->title }}" style="background-color: #68687D; text-decoration: none; opacity: 1; box-shadow: none; border: none;" />
         </div>
 
         <div class="form-group">
             <label for="article">Artikel</label>
-            <textarea type="text" class="form-control text-white p-3" id="article" name="article" rows="5" style="background-color: #68687D; text-decoration: none; opacity: 1.0; box-shadow: none; border: none">
             <textarea type="text" class="form-control text-white p-3" id="article" name="article" rows="5" style="background-color: #68687D; text-decoration: none; opacity: 1.0; box-shadow: none; border: none">
                 {{ $berita->article }}</textarea>
         </div>
@@ -34,7 +32,6 @@
 
             <div id="preview"></div>
             @if ($berita->image)
-                <img src="{{ asset($berita->image) }}" alt="Gambar Berita" class="mt-2" style="max-width: 300px;">
                 <img src="{{ asset($berita->image) }}" alt="Gambar Berita" class="mt-2" style="max-width: 300px;">
             @endif
         </div>
