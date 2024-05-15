@@ -28,7 +28,7 @@
     }
 
     body{
-      background-color: #FFE382;
+      background-color: #063C48;
       font-family: 'Varela Round', sans-serif;
 }
 .table-responsive {

@@ -78,7 +78,8 @@
         <a class="nav-link" href="#paket-wisata">Paket Wisata</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Katalog Ikan</a>
+      
+        <a class="nav-link" href="/katalog-ikan">Katalog Ikan</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#homestay">Homestay</a>
@@ -126,7 +127,7 @@
         <a class="nav-link text-white" href="#paket-wisata">Paket Wisata</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="">Katalog Ikan</a>
+        <a class="nav-link text-white" href="/katalog-ikan">Katalog Ikan</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" href="#homestay">Homestay</a>
@@ -298,12 +299,8 @@
           <div class="card card-ulasan ms-4">
               <div class="card-body">
                   <p class="nama-pengulas pt-3 px-2"><strong>{{$item->name}}</strong></p>
-                  <p class="nama-pengulas pt-3 px-2"><strong>{{$item->name}}</strong></p>
                   <p class="text-ulasan pt-3 px-2">
                       {{$item->ulasan}}
-
-                      {{$item->ulasan}}
-
                   </p>
               </div>
           </div>
@@ -451,6 +448,24 @@ var swiper = new Swiper(".swiper-container-berita", {
         breakpoints: {
           768: {
             slidesPerView: 4,
+          },
+        },
+      });
+      var swiper = new Swiper(".swiper-container-Paket", {
+        slidesPerView: 2,
+        speed: 1000,
+        spaceBetween: 30,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          hide: true,
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 3,
           },
         },
       });

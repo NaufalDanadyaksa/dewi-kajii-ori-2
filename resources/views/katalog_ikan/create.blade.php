@@ -17,21 +17,21 @@
     <div class="form-group">
         <input
           type="text"
-          class="form-control text-white"
+          class="form-control text-black"
           placeholder="nama ikan"
           name='name' value="{{ old('name') }}" id="name"
           style="
-            background-color: #68687D; margin-bottom:20px;">
+            background-color: #d3d3d3; margin-bottom:20px;">
             </div>
 
       <div class="form-group">
         <input
           type="number"
-          class="form-control text-white"
+          class="form-control text-black"
           placeholder="harga"
           name='price' value="{{ old('price') }}" id="price"
           style="
-            background-color: #68687D;
+            background-color: #d3d3d3;
           "
         />
       </div>

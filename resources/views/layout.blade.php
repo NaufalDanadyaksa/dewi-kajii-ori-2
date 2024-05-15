@@ -26,7 +26,7 @@
 
     .content-container {
       background-color:#F1F1F1; /* Warna latar belakang konten */
-      border-radius: 10px; /* Tambahkan border radius sesuai keinginan */
+      border-radius: 5px; /* Tambahkan border radius sesuai keinginan */
       padding: 20px; /* Tambahkan padding sesuai keinginan */
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk membuat konten menonjol */
       margin-top:50px   
@@ -35,7 +35,7 @@
    
 
       body{
-        background-color: #FFE382;
+        background-color: #063C48;
       }
     </style>
   </head>

@@ -74,7 +74,7 @@ class HomestayController extends Controller
         $homestay=Homestay::findOrFail($id);
 
 
-        return view('homestay.detail', compact('homestay'));}
+        return view('homestay.show', compact('homestay'));}
 
     /**
      * Show the form for editing the specified resource.
