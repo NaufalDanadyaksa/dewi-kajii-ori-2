@@ -112,7 +112,7 @@
                     @foreach($wisata->images as $index => $image)
                     <div class="carousel-item {{$index == 0 ? 'active' : ''}}">
 
-                        <img src="{{ asset('/posts/wisata/'.$image->url) }}" class="img-card-wisata d-block w-100" alt="..." style="height: 12rem; border-radius: 10px;">
+                        <img src="{{ asset('/posts/paket_wisata/'.$image->url) }}" class="img-card-wisata d-block w-100" alt="..." style="height: 12rem; border-radius: 10px;">
 
                     </div>
                     @endforeach

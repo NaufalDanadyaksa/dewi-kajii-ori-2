@@ -33,7 +33,7 @@ class KatalogIkanController extends Controller
         $request->validate([
             'name' => 'required|string',
             'price' => 'required|numeric',
-            'image' => 'required|array',
+            'image' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif',
         ]);
 
@@ -43,18 +43,20 @@ class KatalogIkanController extends Controller
         $product->save();
 
         $imageUrls = [];
+        $image= $request->file('image');
+        $name= $image->getClientOriginalName();
+        $image->move(public_path('posts/katalog_ikan'), $name);
+
+        $productImage = new KatalogIkanImage();
+        $productImage->katalog_ikan_id = $product->id;
+        $productImage->url = $name;
+        $productImage->save();
+
+        $imageUrls[] = $name;
 
         if ($request->hasFile('image')) {
             foreach ($request->file('image') as $image) {
-                $name= $image->getClientOriginalName();
-                $image->move(public_path('posts/katalog_ikan'), $name);
-
-                $productImage = new KatalogIkanImage();
-                $productImage->katalog_ikan_id = $product->id;
-                $productImage->url = $name;
-                $productImage->save();
-
-                $imageUrls[] = $name;
+               
             }
         }
 
@@ -86,6 +88,7 @@ class KatalogIkanController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        
         $request->validate([
             'name' => 'required|string',
             'price' => 'required|numeric',
@@ -98,24 +101,51 @@ class KatalogIkanController extends Controller
         $ikan->save();
     
         // Hapus gambar yang akan dihapus
-        if ($request->has('delete_image')) {
-            $deleteImageIds = $request->delete_image;
-            KatalogIkanImage::whereIn('id', $deleteImageIds)->delete();
-        }
-    
-        // Unggah gambar baru
-        if ($request->hasFile('new_image')) {
-            foreach ($request->file('new_image') as $image) {
-                $name = $image->getClientOriginalName();
-                $image->move(public_path('posts/katalog_ikan/'), $name);
-    
-                $productImage = new KatalogIkanImage();
-                $productImage->katalog_ikan_id = $ikan->id;
-                $productImage->url = $name;
-                $productImage->save();
+       
+    if ($request->has('delete_image')) {
+        $deleteImageIds = $request->delete_image;
+        KatalogIkanImage::whereIn('id', $deleteImageIds)->delete();
+    }
+
+    // Update contents
+    if ($request->has('contents')) {
+        // First, delete existing contents
+        $ikan->contents()->delete();
+
+        // Then, save new contents if provided
+        foreach ($request->contents as $content) {
+            if (!empty($content)) { // Only create content if not empty
+                $paketContent = new KatalogIkanImage();
+                $paketContent->katalog_ikan_id = $ikan->id;
+                $paketContent->content = $content;
+                $paketContent->save();
             }
         }
-    
+    }
+
+    // Unggah gambar baru (hanya satu)
+    if ($request->hasFile('new_image')) {
+        // Hapus gambar lama jika ada
+        $existingImages = $ikan->images;
+        foreach ($existingImages as $image) {
+            $imagePath = public_path('posts/katalog_ikan/'.$image->url);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+            $image->delete();
+        }
+
+        // Unggah gambar baru
+        $image = $request->file('new_image');
+        $name = time() . '_' . $image->getClientOriginalName();
+        $image->move(public_path('posts/katalog_ikan'), $name);
+
+        $productImage = new KatalogIkanImage();
+        $productImage->katalog_ikan_id = $ikan->id;
+        $productImage->url = $name;
+        $productImage->save();
+    }
+
         return redirect()->route('ikan.index')->with('success', 'Katalog Ikan berhasil diperbarui.');
     }
 

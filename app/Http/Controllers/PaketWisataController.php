@@ -39,7 +39,7 @@ class PaketWisataController extends Controller
         $request->validate([
             'name' => 'required|string',
             'price' => 'required|integer',
-            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust max file size as needed
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:10000', // Adjust max file size as needed
         ]);
 
 
@@ -60,11 +60,8 @@ class PaketWisataController extends Controller
                 }
             }
         }
-
-
-        // Save images
-        foreach ($request->file('images') as $image) {
-            $imageName = time() . '_' . $image->getClientOriginalName();
+        $image=$request->file('images');
+        $imageName = time() . '_' . $image->getClientOriginalName();
             $image->move(public_path('posts/paket_wisata'), $imageName);
 
 
@@ -72,6 +69,10 @@ class PaketWisataController extends Controller
             $paketImage->paket_wisata_id = $paketWisata->id;
             $paketImage->url = $imageName;
             $paketImage->save();
+
+        // Save images
+        foreach ($request->file('images') as $image) {
+            
         }
 
 
@@ -97,56 +98,66 @@ class PaketWisataController extends Controller
 
 
     public function update(Request $request, string $id)
-    {
-        $request->validate([
-            'name' => 'required|string',
-            'price' => 'required|string',
-            'image.*' => 'image|mimes:jpeg,png,jpg,gif',
-        ]);
-    
-        $wisata = PaketWisata::findOrFail($id);
-        $wisata->name = $request->name;
-        $wisata->price = $request->price;
-        $wisata->save();
-    
-        // Hapus gambar yang akan dihapus
-        if ($request->has('delete_image')) {
-            $deleteImageIds = $request->delete_image;
-            PaketWisataImage::whereIn('id', $deleteImageIds)->delete();
-        }
+{
+    $request->validate([
+        'name' => 'required|string',
+        'price' => 'required|string',
+        'new_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
 
+    $wisata = PaketWisata::findOrFail($id);
+    $wisata->name = $request->name;
+    $wisata->price = $request->price;
+    $wisata->save();
 
-        // update contents
-        if ($request->has('contents')) {
-            // First, delete existing contents
-            $wisata->contents()->delete();
-    
-            // Then, save new contents if provided
-            foreach ($request->contents as $content) {
-                if (!empty($content)) { // Only create content if not empty
-                    $paketContent = new PaketWisataContent();
-                    $paketContent->paket_wisata_id = $wisata->id;
-                    $paketContent->content = $content;
-                    $paketContent->save();
-                }
-            }
-        }
-    
-        // Unggah gambar baru
-        if ($request->hasFile('new_image')) {
-            foreach ($request->file('new_image') as $image) {
-                $name = $image->getClientOriginalName();
-                $image->move(public_path('posts/paket_wisata'), $name);
-    
-                $productImage = new PaketWisataImage();
-                $productImage->paket_wisata_id = $wisata->id;
-                $productImage->url = $name;
-                $productImage->save();
-            }
-        }
-    
-        return redirect()->route('wisata.index')->with('success', 'wisata berhasil diperbarui.');
+    // Hapus gambar yang akan dihapus
+    if ($request->has('delete_image')) {
+        $deleteImageIds = $request->delete_image;
+        PaketWisataImage::whereIn('id', $deleteImageIds)->delete();
     }
+
+    // Update contents
+    if ($request->has('contents')) {
+        // First, delete existing contents
+        $wisata->content()->delete();
+
+        // Then, save new contents if provided
+        foreach ($request->contents as $content) {
+            if (!empty($content)) { // Only create content if not empty
+                $paketContent = new PaketWisataContent();
+                $paketContent->paket_wisata_id = $wisata->id;
+                $paketContent->content = $content;
+                $paketContent->save();
+            }
+        }
+    }
+
+    // Unggah gambar baru (hanya satu)
+    if ($request->hasFile('new_image')) {
+        // Hapus gambar lama jika ada
+        $existingImages = $wisata->images;
+        foreach ($existingImages as $image) {
+            $imagePath = public_path('posts/paket_wisata/'.$image->url);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+            $image->delete();
+        }
+
+        // Unggah gambar baru
+        $image = $request->file('new_image');
+        $name = time() . '_' . $image->getClientOriginalName();
+        $image->move(public_path('posts/paket_wisata'), $name);
+
+        $productImage = new PaketWisataImage();
+        $productImage->paket_wisata_id = $wisata->id;
+        $productImage->url = $name;
+        $productImage->save();
+    }
+
+    return redirect()->route('wisata.index')->with('success', 'wisata berhasil diperbarui.');
+}
+
     
     public function destroy(string $id)
     {

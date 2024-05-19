@@ -112,7 +112,7 @@
                     @foreach($ikan->images as $index => $image)
                     <div class="carousel-item {{$index == 0 ? 'active' : ''}}">
 
-                        <img src="{{ asset('/posts/ikan/'.$image->url) }}" class="img-card-ikan d-block w-100" alt="..." style="height: 12rem; border-radius: 10px;">
+                        <img src="{{ asset('/posts/katalog_ikan/'.$image->url) }}" class="img-card-ikan d-block w-100" alt="..." style="height: 12rem; border-radius: 10px;">
 
                     </div>
                     @endforeach

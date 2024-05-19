@@ -5,11 +5,6 @@
         color: #ffffffa0 ; 
     }
 </style>
-<style>
-    #contents1::placeholder{
-        color: #ffffffa0 ; 
-    }
-</style>
 <div class="container">
     <form action='{{ route('wisata.update', $wisata->id) }}' method='POST' enctype="multipart/form-data">
         @csrf 
@@ -17,7 +12,6 @@
         <div class="form-group">
             <input
                 type="text"
-                class="form-control text-white"
                 class="form-control text-white"
                 name='name' id="name"
                 style="
@@ -42,16 +36,6 @@
                 border-radius: 6px;
                 margin-bottom:10px;
               "
-            <input type="number" class="form-control text-white"
-                name="price" id="price" style="
-                background-color:  #68687D;
-                text-decoration: none;
-                opacity: 1;
-                box-shadow: none;
-                border: none;
-                border-radius: 6px;
-                margin-bottom:10px;
-              "
                 value="{{ $wisata->price }}" required>
         </div>
         <div class="form-group">
@@ -66,20 +50,9 @@
             margin-bottom:10px;
           "
           placeholder="nama paket" value="{{ $content->content }}">
-            <input type="text" class="form-control mt-2 text-white" id="contents1" name="contents[]" style="
-            background-color:  #68687D;
-            text-decoration: none;
-            opacity: 1;
-            box-shadow: none;
-            border: none;
-            border-radius: 6px;
-            margin-bottom:10px;
-          "
-          placeholder="nama paket" value="{{ $content->content }}">
             @endforeach
         </div>
 
-        <div class="row row-cols-1 row-cols-md-3 mt-5">
         <div class="row row-cols-1 row-cols-md-3 mt-5">
             @foreach($wisata->images as $image)
             <div class="swiper-slide" style="height: 500px;">
@@ -88,37 +61,24 @@
                 <input type="checkbox" name="delete_image[]" value="{{ $image->id }}" class="form-check-input rounded-circle me-2">Hapus
             </div>
             @endforeach
-             </div>
-            <div class="swiper-slide" style="height: 500px;">
-                <img src="{{ asset('posts/paket_wisata/'.$image->url) }}" class="rounded mb-3 w-100 h-100" style="max-height: 300px;">
-                <!-- Tambahkan checkbox untuk menghapus gambar -->
-                <input type="checkbox" name="delete_image[]" value="{{ $image->id }}" class="form-check-input rounded-circle me-2">Hapus
-            </div>
-            @endforeach
-             </div>
+        </div>
+            
         <div class="form-group">
             <label for="image_input">Pilih Gambar Baru:</label>
             <input
                 type="file"
-                name='new_image[]' id="image" multiple
-                name='new_image[]' id="image" multiple
+                name='new_image' id="image"
                 class="form-control rounded-pill text-white"
                 style="display:none;"
             />
             <button type="button" onclick="document.getElementById('image').click()" class="btn text-white rounded-pill" style="background-color: #68687D; margin-top:10px; margin-bottom:10px; " id="chooseImageButton">Pilih Gambar</button>
-        <div id="preview"></div>
-        <small id="imageHelp" class="form-text text-muted">Pilih beberapa gambar dengan menekan tombol Ctrl/Cmd saat memilih.</small>
-                style="display:none;"
-            />
-            <button type="button" onclick="document.getElementById('image').click()" class="btn text-white rounded-pill" style="background-color: #68687D; margin-top:10px; margin-bottom:10px; " id="chooseImageButton">Pilih Gambar</button>
-        <div id="preview"></div>
-        <small id="imageHelp" class="form-text text-muted">Pilih beberapa gambar dengan menekan tombol Ctrl/Cmd saat memilih.</small>
+            <div id="preview"></div>
+            <small id="imageHelp" class="form-text text-muted">Pilih gambar baru untuk menggantikan yang lama.</small>
         </div>
 
         <div class="row justify-content-end">
             <div class="col-auto">
-               <a href="{{ route('wisata.index') }}" class="btn text-white rounded-pill py-2 px-3" style="background-color: #95959a;;text-decoration: none; opacity:1.0; box-shadow:none; border:none">Kembali</a>
-               <a href="{{ route('wisata.index') }}" class="btn text-white rounded-pill py-2 px-3" style="background-color: #95959a;;text-decoration: none; opacity:1.0; box-shadow:none; border:none">Kembali</a>
+                <a href="{{ route('wisata.index') }}" class="btn text-white rounded-pill py-2 px-3" style="background-color: #95959a;;text-decoration: none; opacity:1.0; box-shadow:none; border:none">Kembali</a>
                 <button
                     type="submit"
                     name="submit"
@@ -148,8 +108,8 @@ document.getElementById('image').addEventListener('change', function(e) {
         chooseImageButton.style.display = 'block';
     }
     
-    for (var i = 0; i < files.length; i++) {
-        var file = files[i];
+    if (files.length > 0) {
+        var file = files[0];
         var reader = new FileReader();
         
         reader.onload = function(e) {
@@ -167,9 +127,8 @@ document.getElementById('image').addEventListener('change', function(e) {
             
             button.addEventListener('click', function() {
                 preview.removeChild(div);
-                if (preview.children.length === 0) {
-                    chooseImageButton.style.display = 'block';
-                }
+                document.getElementById('image').value = '';
+                chooseImageButton.style.display = 'block';
             });
             
             var div = document.createElement('div');
@@ -182,15 +141,5 @@ document.getElementById('image').addEventListener('change', function(e) {
         reader.readAsDataURL(file);
     }
 });
-
 </script>
-
-
-
 @endsection
-
-
-
-
-
-
