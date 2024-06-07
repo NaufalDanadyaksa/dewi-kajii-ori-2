@@ -136,12 +136,21 @@
     </div>
   </div>
 </nav>
-
 <section class="youtube" id="home">
   <div class="container-youtube">
     <div class="row justify-content-center">
-      <div class="col-lg-5 position-relative order-lg-1 order-1 d-flex justify-content-center mt-4">
-        <h1 class="text-dashboard text-start text-black">AKTIVITAS MENYENANGKAN BLA BLA BLA BLA</h1>
+      <div class="col-lg-5 position-relative order-lg-1 order-1 d-flex flex-column justify-content-center mt-4">
+        <h1 class="text-dashboard text-start text-black">AKTIVITAS MENARIK UNTUK MENGISI LIBURAN ANDA</h1>
+        <a href="/your-action-url" class="cta-button mt-3" style="  display: inline-block;
+    background-color: #024B4E;
+    color: white; /* Warna teks */
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 15px 30px;
+    width: 250px;
+    height: 50px;
+    text-align: center;
+    transition: background-color 0.3s;">Jelajahi Selengkapnya</a>
       </div>
       <div class="col-lg-4 order-lg-2 order-2 mt-4 d-flex justify-content-center">
         <iframe src="https://www.youtube.com/embed/-v2yXAzu-s4" frameborder="0" allowfullscreen></iframe>
@@ -149,6 +158,8 @@
     </div>
   </div>
 </section>
+
+
 <section class="dashboard">
   <div class="position-relative">
     <img src="seoeda.jpg" class="keseruan" alt="Image 1" />
@@ -156,7 +167,7 @@
     <div class="text-overlay">
       <h1>BERBAGAI MACAM KESERUAN ATRAKSI WISATA OUTBOUND, CAMPING, MAKRAB, GATHERING UNTUK KOMUNITAS</h1>
       <h1><span>
-          Berbagai keseruan dan pengalaman di Desa Wisata Kajii</span></h1>
+          Temukan keseruan dan pengalaman baru di Desa Wisata Kajii</span></h1>
     </div>
   </div>
 </section>
