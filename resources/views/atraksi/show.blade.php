@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
     <style>
         .carousel-indicators {
+        }
             bottom: -50px;
         .carousel-indicators {
             bottom: -50px;
@@ -49,6 +50,8 @@
             height: 400px; /* tinggi foto */
             object-fit: cover; /* agar foto tetap proporsional */
             border-radius: 20px;
+        }
+        
         .carousel-indicators li {
             border-radius: 50%;
             width: 10px;
@@ -91,6 +94,7 @@
             .container {
                 height: auto;
             }
+        }
 
         /* Gaya untuk konten lainnya */
         @media (max-width: 576px) {

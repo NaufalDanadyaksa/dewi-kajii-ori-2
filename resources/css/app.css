@@ -373,7 +373,7 @@ color: #000000ac;
     padding-top: 50px;
     padding-bottom: 50px;
   }
-  /* Memberikan video responsif */
+
   .youtube iframe {
     width: 90%;
     height: 150px;
@@ -640,4 +640,98 @@ object-fit: cover
 }
 .button-submit:hover {
   background-color: #326a77;
+}
+
+.body-login {
+	background: hsla(191, 85%, 15%, 1);
+
+	background: linear-gradient(45deg, hsla(191, 85%, 15%, 1) 0%, hsla(195, 24%, 70%, 1) 100%);
+	
+	background: -moz-linear-gradient(45deg, hsla(191, 85%, 15%, 1) 0%, hsla(195, 24%, 70%, 1) 100%);
+	
+	background: -webkit-linear-gradient(45deg, hsla(191, 85%, 15%, 1) 0%, hsla(195, 24%, 70%, 1) 100%);
+	
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#063C48", endColorstr="#9FBBC4", GradientType=1 );
+    /* Pastikan body memenuhi seluruh halaman */
+    min-height: 100vh;
+}
+
+
+.login-box {
+	width: 420px;
+	height: 480px;
+	background: #f7f7f7;
+	color: #000;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	padding: 40px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-box h2 {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.user-box {
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.user-box input:focus,
+.user-box input:valid {
+
+    outline: none; 
+}
+
+
+.user-box input {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #000;
+	margin-bottom: 3px;
+	border: none;
+	border-bottom: 1px solid #000;
+	background: transparent;
+	margin-top: 10px;
+}
+
+.user-box label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #000;
+	pointer-events: none;
+	transition: .5s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+	top: -20px;
+	left: 0;
+	color: #063C48;
+	font-size: 12px;
+}
+
+.login-box form input[type="submit"] {
+	width: 100%;
+	padding: 10px;
+	background: #063C48;
+	border: none;
+	color: #fff;	
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.login-box form input[type="submit"]:hover {
+	background: #04252d;
+}
+
+.login-box input[type="checkbox"] {
+	margin-top: 10px;
 }

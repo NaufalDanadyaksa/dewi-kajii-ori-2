@@ -17,7 +17,7 @@
     <div class="form-group">
         <input
           type="text"
-          class="form-control text-white"
+          class="form-control text-black"
           placeholder="nama atraksi"
           name='name' value="{{ old('name') }}" id="name"
           style="

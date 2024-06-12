@@ -13,7 +13,7 @@
         background-size: cover;
         background-position: center;
         width: 100%;
-        height: 100vh; /* Sesuaikan dengan kebutuhan Anda */
+        height: 100vh;
     }
 
     
@@ -40,11 +40,18 @@
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk membuat konten menonjol */
       margin-top:50px   
     }
-    
+
     body{
       background-color: #E7DACE;
     }
+
+    .welcome-text h1{
+      padding-top: 200px;
+      font-size: 54px
+    }
     </style>
+
+    
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark fixed-top">
@@ -103,11 +110,10 @@
         </nav>
         
         <div class="background-container">
-            <div class="welcome-text">
-                <h1>Selamat Datang</h1>
+            <div class="welcome-text ">
+                <h1 class="text-white  ms-5"><br>Selamat Datang Admin</br></h1>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </body>
     </html>
-
