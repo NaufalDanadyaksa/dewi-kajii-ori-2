@@ -18,6 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Desa Wisata Kajii</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Freehand&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
@@ -140,7 +141,8 @@
   <div class="container-youtube">
     <div class="row justify-content-center">
       <div class="col-lg-5 position-relative order-lg-1 order-1 d-flex flex-column justify-content-center mt-4">
-        <h1 class="text-dashboard text-start text-black">AKTIVITAS MENARIK UNTUK MENGISI LIBURAN ANDA</h1>
+        <p class="text-dashboard text-start" style="font-family:'Freehand'; color:#609EA2;
+  font-size: 50px;">Selamat Datang di <br> Desa Wisata Kajii</br></p>
         <a href="/your-action-url" class="cta-button mt-3" style="  display: inline-block;
     background-color: #024B4E;
     color: white; /* Warna teks */
