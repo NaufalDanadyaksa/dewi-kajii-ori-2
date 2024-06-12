@@ -13,7 +13,7 @@
 </head>
 <body class="body-login">
 	<section >
-		<div class="login-box">
+		<div class="login-box" style="border-radius:10px;">
 			<h2>Login Dengan Alamat Email Anda
 			</h2>
 			@if ($errors->any())
@@ -35,7 +35,7 @@
 					<input type="password" name="password" required="">
 					<label>Password</label>
 				</div>
-				<input type="submit" value="Login">
+				<input type="submit" value="Login" style="border-radius:10px;">
 		
 			</form>
 		</div>

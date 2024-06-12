@@ -111,7 +111,7 @@
         
         <div class="background-container">
             <div class="welcome-text ">
-                <h1 class="text-white  ms-5"><br>Selamat Datang Admin</br></h1>
+                <h1 class="text-white  ms-5">Selamat Datang <br>Admin Desa Wisata Kajii</br></h1>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

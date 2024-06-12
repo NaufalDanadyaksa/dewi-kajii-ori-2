@@ -17,21 +17,21 @@
     <div class="form-group">
         <input
           type="text"
-          class="form-control text-white"
+          class="form-control text-black"
           placeholder="nama ikan"
           name='name' value="{{ old('name') }}" id="name"
           style="
-            background-color: #68687D; margin-bottom:20px;">
+            background-color: #d3d3d3; margin-bottom:20px;">
             </div>
 
       <div class="form-group">
         <input
           type="number"
-          class="form-control text-white"
+          class="form-control text-black"
           placeholder="harga"
           name='price' value="{{ old('price') }}" id="price"
           style="
-            background-color: #68687D;
+            background-color: #d3d3d3;
           "
         />
       </div>
@@ -39,13 +39,13 @@
     <div class="form-group" style="margin-top: 20px;">
       <input
         type="file"
-        name="image[]" id="image" 
-        multiple required class="form-control rounded-pill text-white"
+        name="image" id="image" 
+        required class="form-control rounded-pill text-white"
         style=" display: none;"
       />
       <button type="button" onclick="document.getElementById('image').click()" class="btn text-white rounded-pill" style="background-color: #68687D; margin-top:10px; margin-bottom:10px; " id="chooseImageButton">Pilih Gambar</button>
       <div id="preview"></div>
-      <small id="imageHelp" class="form-text text-muted">Pilih beberapa gambar dengan menekan tombol Ctrl/Cmd saat memilih.</small>
+     
   </div>
   <div class="row justify-content-end">
     <div class="col-auto">

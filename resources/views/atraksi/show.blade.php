@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,7 +105,7 @@
         }
     </style>
 </head>
-<body style=" background-color: #FFE382;">
+<body style=" background-color: #063C48;">
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-5 order-md-1 order-2">

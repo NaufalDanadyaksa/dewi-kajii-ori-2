@@ -2,14 +2,13 @@
 
 @section('content')
 <div class="container">
-    <h2>sejarah</h2>
+    <h2>Tambahkan Artikel Sejarah</h2>
     <form action="{{ route('sejarah.update', $sejarah->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
        
         <div class="mb-3">
-            <label for="article" class="form-label">Artikel</label>
-            <textarea class="form-control text-white" id="article" name="article" rows="5" style="background-color: #68687D;">{{ $sejarah->article }}</textarea>
+            <textarea class="form-control text-black" id="article" name="article" rows="5" style="background-color: #d3d3d3;">{{ $sejarah->article }}</textarea>
         </div>
        
         <div class="row justify-content-end">

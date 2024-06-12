@@ -11,33 +11,33 @@
 
 <form action='{{ url('berita') }}' method='POST' enctype="multipart/form-data">
     @csrf 
-    <body style="background-color: #FFE382;">
+    <body style="background-color: #063C48;">
         
         <div>
             <div>
                 <input type="text" class="form-control" name='title' value="{{ old('title') }}" id="title"
                     style="
-                        background-color: #68687D;
+                        background-color: #d3d3d3;
                         text-decoration: none;
                         opacity: 1;
                         box-shadow: none;
                         border: none;
                         border-radius: 6px;
                         margin-bottom:10px;
-                        color: white;"
+                        color: black;"
                     placeholder="Judul Berita">
             </div>
         </div>
         <div>
             <div>
                 <textarea name="article" id="article" class="form-control"  style="
-                    background-color: #68687D;
+                    background-color: #d3d3d3;
                     text-decoration: none;
                     opacity: 1;
                     box-shadow: none;
                     border: none;
                     border-radius: 6px;
-                    color: white;"
+                    color: black;"
                     placeholder="Artikel">{{ old('article') }}</textarea>
             </div>
         </div>

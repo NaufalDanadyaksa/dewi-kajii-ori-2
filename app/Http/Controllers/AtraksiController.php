@@ -35,7 +35,7 @@ class AtraksiController extends Controller
         $request->validate([
             'name' => 'required|string',
             'description' => 'required|string',
-            'image' => 'required|array',
+            'image' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif',
         ]);
 
@@ -45,10 +45,8 @@ class AtraksiController extends Controller
         $product->save();
 
         $imageUrls = [];
-
-        if ($request->hasFile('image')) {
-            foreach ($request->file('image') as $image) {
-                $name= $image->getClientOriginalName();
+        $image = $request->file('image');
+        $name= $image->getClientOriginalName();
                 $image->move(public_path('posts/atraksi'), $name);
 
                 $productImage = new AtraksiImage();
@@ -57,6 +55,10 @@ class AtraksiController extends Controller
                 $productImage->save();
 
                 $imageUrls[] = $name;
+
+        if ($request->hasFile('image')) {
+            foreach ($request->file('image') as $image) {
+                
             }
         }
 
@@ -99,24 +101,50 @@ class AtraksiController extends Controller
     $atraksi->description = $request->description;
     $atraksi->save();
 
-    // Hapus gambar yang akan dihapus
     if ($request->has('delete_image')) {
         $deleteImageIds = $request->delete_image;
         AtraksiImage::whereIn('id', $deleteImageIds)->delete();
     }
 
-    // Unggah gambar baru
-    if ($request->hasFile('new_image')) {
-        foreach ($request->file('new_image') as $image) {
-            $name = $image->getClientOriginalName();
-            $image->move(public_path('posts/atraksi'), $name);
+    // Update contents
+    if ($request->has('contents')) {
+        // First, delete existing contents
+        $atraksi->contents()->delete();
 
-            $productImage = new AtraksiImage();
-            $productImage->atraksi_id = $atraksi->id;
-            $productImage->url = $name;
-            $productImage->save();
+        // Then, save new contents if provided
+        foreach ($request->contents as $content) {
+            if (!empty($content)) { // Only create content if not empty
+                $paketContent = new AtraksiImage();
+                $paketContent->paket_wisata_id = $atraksi->id;
+                $paketContent->content = $content;
+                $paketContent->save();
+            }
         }
     }
+
+    // Unggah gambar baru (hanya satu)
+    if ($request->hasFile('new_image')) {
+        // Hapus gambar lama jika ada
+        $existingImages = $atraksi->images;
+        foreach ($existingImages as $image) {
+            $imagePath = public_path('posts/atraksi/'.$image->url);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+            $image->delete();
+        }
+
+        // Unggah gambar baru
+        $image = $request->file('new_image');
+        $name = time() . '_' . $image->getClientOriginalName();
+        $image->move(public_path('posts/atraksi'), $name);
+
+        $productImage = new AtraksiImage();
+        $productImage->atraksi_id = $atraksi->id;
+        $productImage->url = $name;
+        $productImage->save();
+    }
+
 
     return redirect()->route('atraksi.index')->with('success', 'Atraksi berhasil diperbarui.');
 }

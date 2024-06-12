@@ -649,7 +649,12 @@ object-fit: cover
 .button-submit:hover {
   background-color: #326a77;
 }
-
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
 .body-login {
 	background: hsla(191, 85%, 15%, 1);
 
@@ -743,3 +748,4 @@ object-fit: cover
 .login-box input[type="checkbox"] {
 	margin-top: 10px;
 }
+

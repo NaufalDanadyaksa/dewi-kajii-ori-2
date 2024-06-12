@@ -1,3 +1,7 @@
+@php
+     $homestays = \App\Models\Homestay::get(); // Ambil semua homestay
+   $selectedHomestay = $homestays->first(); 
+  @endphp
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,7 +26,7 @@
         alt="logo"
         class="img-fluid"
         style="max-width: 40px; height: auto"
-        />
+        />
       </a>
   
       <button
@@ -87,7 +91,7 @@
           alt="logo"
           class="img-fluid"
           style="max-width: 40px; height: auto"
-        />
+        />
       </a>
       <button
         class="navbar-toggler border-0 text-white"
@@ -130,17 +134,16 @@
     </div>
   </nav>
 
-
   <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-lg-5 position-relative order-lg-1 order-1 d-flex justify-content-center mt-5">
-        @foreach($homestay->images as $image)
+        @foreach($selectedHomestay->images as $image)
           <img src="{{ asset('/posts/homestay/'.$image->url) }}" alt="" class="homestay-pict-detail d-flex justify-content-center">
         @endforeach
       </div>
       <div class="col-lg-4 order-lg-2 order-2 mt-5">
-        <h1 class="text-white">{{$homestay->name}}</h1>
-        <p class="text-white">{{$homestay->description}}</p> 
+        <h1 class="text-white">{{$selectedHomestay->name}}</h1>
+        <p class="text-white">{{$selectedHomestay->description}}</p> 
       </div>
     </div>
   </div>

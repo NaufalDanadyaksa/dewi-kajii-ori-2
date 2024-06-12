@@ -1,8 +1,10 @@
 @php
     $ulasan = \App\Models\Ulasan::get();
     $ulasan = \App\Models\Ulasan::get();
+    $ulasan = \App\Models\Ulasan::get();
     $atraksi = \App\Models\Atraksi::with('images')->get();
     $wisata = \App\Models\PaketWisata::with('images')->get();
+ 
  
     $sejarah = \App\Models\Sejarah::first();
     $berita = \App\Models\Berita::get();
@@ -19,6 +21,7 @@
   <title>Desa Wisata Kajii</title>
   <link rel="icon" type="image/png" href="{{asset('element/logo.png')}}">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Freehand&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
@@ -30,6 +33,7 @@
     <div class="container">
       <a class="navbar-brand" href="#">
         <img
+          src="{{asset('element/logo.png')}}"
           src="{{asset('element/logo.png')}}"
           alt="logo"
           class="img-fluid"
@@ -71,17 +75,21 @@
     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="#home">Home</a>
+        <a class="nav-link active" aria-current="page" href="#home">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#atraksi">Atraksi</a>
+        <a class="nav-link" href="#atraksi">Atraksi</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="#paket-wisata">Paket Wisata</a>
         <a class="nav-link" href="#paket-wisata">Paket Wisata</a>
       </li>
       <li class="nav-item">
         <a class="text-white nav-link" href="{{url('/katalog-ikan')}}">Katalog Ikan</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="#homestay">Homestay</a>
         <a class="nav-link" href="#homestay">Homestay</a>
       </li>
     </ul>
@@ -145,6 +153,8 @@
       </div>
       <div class="col-lg-4 order-lg-2 order-2 mt-4 d-flex justify-content-center">
         <iframe src="https://www.youtube.com/embed/-v2yXAzu-s4" frameborder="0" allowfullscreen></iframe>
+      <div class="col-lg-4 order-lg-2 order-2 mt-4 d-flex justify-content-center">
+        <iframe src="https://www.youtube.com/embed/-v2yXAzu-s4" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -166,8 +176,10 @@
         <div class="container text-start">
             <div class="row justify-content-center">
               <div class="col-md-6 col-lg-6">
+              <div class="col-md-6 col-lg-6">
                 <img src="fotbarrr.jpg" alt="" srcset="" class="pict-sejarah img-fluid">
               </div>
+              <div class="col-md-6 col-lg-4">
               <div class="col-md-6 col-lg-4">
                 <h2 class="text-sejarah">Sejarah</h2>
                 <p class="deskripsi-sejarah text-white">{{$sejarah->article}}</p>
@@ -188,6 +200,7 @@
               <p class="text-end me-2">{{ $item->title }}</p>
               <p class="card-text">{{ $item->article }}</p>
               <a href="{{url('berita/news/'.$item->id)}}" class="btn button-berita">Selengkapnya</a>
+              <a href="{{url('berita/news/'.$item->id)}}" class="btn button-berita">Selengkapnya</a>
             </div>  
           </div>
         </div>
@@ -198,6 +211,7 @@
     </div>
     <div class="swiper-pagination"></div>
   </section>
+  
   
 
   <!-- Atraksi -->
@@ -228,12 +242,28 @@
 
 <!-- Paket Wisata -->
 <section class="paket-wisata" id="paket-wisata">
+<section class="paket-wisata" id="paket-wisata">
   <div>
     <h1 class="judul-PaketWisata ms-3 mt-3">Paket Wisata</h1>
   </div>
   <div class="swiper-container-Paket" style="overflow-x: hidden;">
+  <div class="swiper-container-Paket" style="overflow-x: hidden;">
     <div class="swiper-wrapper">
       @foreach ($wisata as $item)
+        <div class="swiper-slide">
+          @foreach($item->images as $image)
+            <div class="card-paket-wisata">
+              <img src="{{ asset('/posts/paket_wisata/'.$image->url) }}" alt="Description of image" class="pict-paket">
+              <div class="text-container-paket">
+                <p class="judul-paket">{{ $item->name }}</p>
+                @foreach($item->content as $content)
+                  <p class="list-paket">{{ $content->content }}</p>
+                @endforeach
+              </div>
+            </div>
+          @endforeach
+        </div>
+      @endforeach
         <div class="swiper-slide">
           @foreach($item->images as $image)
             <div class="card-paket-wisata">
@@ -254,6 +284,7 @@
   </div>
 </section>
 
+<section class="homestay mt-5" id="homestay">
 <section class="homestay mt-5" id="homestay">
   <div>
     <h1 class="judul-Homestay ms-3 mt-3">Homestay</h1>
@@ -289,6 +320,8 @@
 
 
 
+
+
 <section class="ulasan">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h1 class="judul-ulasan">Ulasan</h1>
@@ -317,6 +350,23 @@
 
 
 
+
+<section class="form-ulasan-section">
+<div class="container container-ulasan" id="container">
+  <h1 class="judul-ulasan text-black">Berikan Tanggapan Anda</h1>
+  <form action="{{url('ulasan/create')}}" method="POST">
+    @csrf
+    <div class="mb-3">
+      <input type="text" class="form-control" id="username" placeholder="Username" name='name' value="">
+    </div>
+    <div class="mb-3">
+      <input type="email" class="form-control" id="email" placeholder="Email" name='email' value="">
+    </div>
+    <div class="mb-3">
+      <textarea class="form-control" id="tanggapan" rows="5" placeholder="Tanggapan" name='ulasan' value=""></textarea>
+    </div>
+    <button type="submit" class="btn button-submit mt-2">Kirim</button>
+  </form>
 <section class="form-ulasan-section">
 <div class="container container-ulasan" id="container">
   <h1 class="judul-ulasan text-black">Berikan Tanggapan Anda</h1>
@@ -334,6 +384,10 @@
     <button type="submit" class="btn button-submit mt-2">Kirim</button>
   </form>
 </div>
+</section>
+
+
+
 </section>
 
 
@@ -380,6 +434,7 @@
                   </ul>
               </div>
           </div>
+          <small class="text-muted mt-3">&copy; 2024 Desa Wisata Kajii. All rights reserved.</small>
           <small class="text-muted mt-3">&copy; 2024 Desa Wisata Kajii. All rights reserved.</small>
       </div>
   </footer>

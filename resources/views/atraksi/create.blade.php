@@ -5,8 +5,9 @@
 <style>
     #name::placeholder,
     #description::placeholder {
-        color: #ffffffa0 ; 
+        color: #fffff ; 
     }
+
 </style>
 
 
@@ -18,10 +19,10 @@
         <input
           type="text"
           class="form-control text-black"
-          placeholder="nama atraksi"
+          placeholder="Nama Atraksi"
           name='name' value="{{ old('name') }}" id="name"
           style="
-            background-color: #68687D;
+            background-color: #d3d3d3;
             text-decoration: none;
             opacity: 1;
             box-shadow: none;
@@ -32,23 +33,23 @@
       </div>
 
     <div class="form-group">
-        <textarea type="text" class="form-control text-white p-3"
+        <textarea type="text" class="form-control text-black p-3"
         placeholder="Deskripsi"
         name="description" id="description" style="background-color:
-        #68687D;text-decoration: none; opacity:1.0; box-shadow:none; border-radius: 6px;
+        #d3d3d3;text-decoration: none; opacity:1.0; box-shadow:none; border-radius: 6px;
         border:none; margin-top: 20px;">{{ old('description') }}</textarea>
     </div>
 
     <div class="form-group" style="margin-top: 20px;">
     <input
       type="file"
-      name="image[]" id="image" 
-      multiple required class="form-control rounded-pill text-white"
+      name="image" id="image" 
+      required class="form-control rounded-pill text-black"
       style=" display: none;"
     />
     <button type="button" onclick="document.getElementById('image').click()" class="btn text-white rounded-pill" style="background-color: #68687D; margin-top:10px; margin-bottom:10px; " id="chooseImageButton">Pilih Gambar</button>
     <div id="preview"></div>
-    <small id="imageHelp" class="form-text text-muted">Pilih beberapa gambar dengan menekan tombol Ctrl/Cmd saat memilih.</small>
+    
 </div>
 
     <div class="row justify-content-end">
@@ -63,6 +64,15 @@
 <!-- AKHIR FORM --> 
 
 <script>
+    document.querySelectorAll('input[type="text"]').forEach(input => {
+    input.addEventListener('input', function() {
+        if (this.value.trim() !== '') {
+            this.style.color = '#000000'; // Mengubah warna teks menjadi hitam
+        } else {
+            this.style.color = '#ffffffa0'; // Mengembalikan warna placeholder jika input kosong
+        }
+    });
+});
          document.getElementById('image').addEventListener('change', function(e) {
         var files = e.target.files;
         var preview = document.getElementById('preview');
