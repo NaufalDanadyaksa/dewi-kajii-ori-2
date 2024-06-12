@@ -3,7 +3,6 @@
     $ulasan = \App\Models\Ulasan::get();
     $atraksi = \App\Models\Atraksi::with('images')->get();
     $wisata = \App\Models\PaketWisata::with('images')->get();
- 
     $sejarah = \App\Models\Sejarah::first();
     $berita = \App\Models\Berita::get();
     $homestay = \App\Models\Homestay::with('images')->get();
