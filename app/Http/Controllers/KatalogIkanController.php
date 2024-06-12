@@ -34,9 +34,17 @@ class KatalogIkanController extends Controller
             'name' => 'required|string',
             'price' => 'required|numeric',
             'image' => 'required',
-            'image.*' => 'image|mimes:jpeg,png,jpg,gif',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif|size:10000',
+        ], [
+            'name.required' => 'Nama produk wajib diisi.',
+            'price.required' => 'Harga produk wajib diisi.',
+            'price.numeric' => 'Harga produk harus berupa angka.',
+            'image.required' => 'Gambar produk wajib diunggah.',
+            'image.image' => 'File harus berupa gambar.',
+            'image.mimes' => 'Gambar harus berformat jpeg, png, jpg, atau gif.',
+            'image.size' => 'Ukuran gambar tidak boleh lebih dari 10MB.'
         ]);
-
+    
         $product = new KatalogIkan();
         $product->name = $request->name;
         $product->price = $request->price;

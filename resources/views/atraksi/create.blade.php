@@ -16,6 +16,17 @@
 @csrf
     
     <div class="form-group">
+
+      @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+  @endif
+          
         <input
           type="text"
           class="form-control text-black"
