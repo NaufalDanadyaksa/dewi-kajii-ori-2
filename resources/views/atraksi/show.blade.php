@@ -48,6 +48,8 @@
             height: 400px; /* tinggi foto */
             object-fit: cover; /* agar foto tetap proporsional */
             border-radius: 20px;
+        }
+        
         .carousel-indicators li {
             border-radius: 50%;
             width: 10px;
