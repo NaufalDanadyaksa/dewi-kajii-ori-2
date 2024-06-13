@@ -32,7 +32,7 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/homestay/detail/{id}', [HomeController::class,'showHomestay']);
     Route::get('/atraksi/detail/{id}', [HomeController::class,'showAtraksi']);
     Route::get('/sejarah/profile/', [HomeController::class,'showSejarah'])->name("profile");
-
+    
     Route::get('/berita/news/{id}', [HomeController::class,'showBerita']);
     Route::post('/ulasan/create', [UlasanController::class, 'store']);
     Route::get('/katalog-ikan', [HomeController::class, 'toIkan']);

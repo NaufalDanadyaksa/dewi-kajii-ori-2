@@ -1,6 +1,4 @@
-@php
-$berita= \App\Models\Berita::get();
-@endphp
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -135,15 +133,15 @@ $berita= \App\Models\Berita::get();
 
     <div class="container mt-5">
         <div class="row justify-content-center">
-          @foreach ($berita as $item)
+          
           <div class="col-lg-5 position-relative order-lg-1 order-1 mt-5 d-flex justify-content-center"> <!-- Urutan diubah untuk layar besar -->
-            <img src="{{ asset($item->image) }}" alt="" class="berita-pict-detail d-flex justify-content-center">
+            <img src="{{ asset($berita->image) }}" alt="" class="berita-pict-detail d-flex justify-content-center">
           </div>
           <div class="col-lg-4 order-lg-2 order-2 mt-5"> <!-- Urutan diubah untuk layar besar -->
-            <h1 class="text-white">{{ $item->title }}</h1>
-            <p class="text-white">{{ $item->article }}</p> 
+            <h1 class="text-white">{{ $berita->title }}</h1>
+            <p class="text-white">{{ $berita->article }}</p> 
           </div>
-          @endforeach
+          
         </div>
       </div>
       

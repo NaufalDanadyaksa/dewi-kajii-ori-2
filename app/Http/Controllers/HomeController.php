@@ -42,15 +42,17 @@ class HomeController extends Controller
     }
     public function showBerita(string $id)
     {
-        $berita = Berita::findOrFail($id);
 
-        return view('berita.detail', compact('berita'));
+        $berita = Berita::findOrFail($id);
+        
+        // return view('berita.detail', compact('berita'));
+        return view('berita.detail', ['berita' => $berita]);
+
     }
 
     public function showHomestay(string $id){
         $homestay=Homestay::findOrFail($id);
-
-
+        
         return view('homestay.detail', compact('homestay'));
     }
 }
