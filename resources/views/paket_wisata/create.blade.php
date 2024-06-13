@@ -15,6 +15,16 @@
     <form action="{{ route('wisata.store') }}" method="POST" enctype="multipart/form-data" id="attractionForm">
         @csrf
 
+      @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+  @endif
+          
     
         <div class="form-group">
             <input type="text" class="form-control text-black" placeholder="Nama Paket Wisata" name='name' value="{{ old('name') }}" id="name" required style="background-color: #d3d3d3; text-decoration: none; opacity: 1; box-shadow: none; border: none; border-radius: 6px; margin-bottom: 10px;">

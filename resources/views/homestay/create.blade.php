@@ -16,6 +16,15 @@
 @csrf
     
     <div class="form-group">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <input
           type="text"
           class="form-control text-black"
@@ -44,7 +53,7 @@
           type="text"
           class="form-control text-black"
           placeholder="Lokasi"
-          name='name' value="{{ old('name') }}" id="name"
+          name='location' value="{{ old('location') }}" id="location"
           style="
             background-color: #d3d3d3;
             text-decoration: none;

@@ -13,6 +13,16 @@
     @csrf 
     <body style="background-color: #063C48;">
         
+      @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+  @endif
+          
         <div>
             <div>
                 <input type="text" class="form-control" name='title' value="{{ old('title') }}" id="title"

@@ -17,6 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Desa Wisata Kajii</title>
   <link rel="icon" type="image/png" href="{{asset('element/logo.png')}}">
+  <link rel="icon" type="image/png" href="{{asset('element/logo.png')}}">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Freehand&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -36,7 +37,28 @@
         style="max-width: 40px; height: auto"
       />
     </a>
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img
+        src="{{asset('element/logo.png')}}"
+        alt="logo"
+        class="img-fluid"
+        style="max-width: 40px; height: auto"
+      />
+    </a>
 
+  <button
+    class="navbar-toggler border-0 text-white"
+    type="button"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasNavbar"
+    aria-controls="offcanvasNavbar"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span><i class="ti ti-menu-2"></i></span>
+  </button>
+</div>
   <button
     class="navbar-toggler border-0 text-white"
     type="button"
@@ -173,11 +195,47 @@ font-size: 50px;">Selamat Datang di <br> Desa Wisata Kajii</br></p>
     </div>
   </div>
 </div>
+<div class="container-youtube">
+  <div class="row justify-content-center">
+    <div class="col-lg-5 position-relative order-lg-1 order-1 d-flex flex-column justify-content-center mt-4">
+      <p class="text-dashboard text-start" style="font-family:'Freehand'; color:#609EA2;
+font-size: 50px;">Selamat Datang di <br> Desa Wisata Kajii</br></p>
+      <a href="/your-action-url" class="cta-button mt-3" style="  display: inline-block;
+  background-color: #024B4E;
+  color: white; /* Warna teks */
+  text-decoration: none;
+  border-radius: 30px;
+  padding: 15px 30px;
+  width: 250px;
+  height: 50px;
+  text-align: center;
+  transition: background-color 0.3s;">Jelajahi Selengkapnya</a>
+    </div>
+    <div class="col-lg-4 order-lg-2 order-2 mt-4 d-flex justify-content-center">
+      <iframe src="https://www.youtube.com/embed/-v2yXAzu-s4" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
 </section>
 
 
 
 
+<section class="container-sejarah p-5">
+  <div class="container sjrh">
+      <div class="container text-start">
+          <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-6">
+              <img src="fotbarrr.jpg" alt="" srcset="" class="pict-sejarah img-fluid">
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <h2 class="text-sejarah">Sejarah</h2>
+              <p class="deskripsi-sejarah text-white">{{$sejarah->article}}</p>
+            </div>
+          </div>
+        </div>
+  </div>
+</section>
 <section class="container-sejarah p-5">
   <div class="container sjrh">
       <div class="container text-start">
@@ -286,6 +344,7 @@ font-size: 50px;">Selamat Datang di <br> Desa Wisata Kajii</br></p>
                 @foreach($item->images as $image)
                 <img src="{{ asset('/posts/homestay/'.$image->url) }}" class="homestay-pict" alt="card" />
                 @break
+                @break
                 @endforeach
                 <div class="card-overlay-text">
                   <p class="homestay-title pt-2">{{$item->name}}</p>
@@ -314,8 +373,15 @@ font-size: 50px;">Selamat Datang di <br> Desa Wisata Kajii</br></p>
     <div class="swiper-wrapper swipper-slide-Ulasan">
           @foreach ($ulasan as $item)
         <div class="swiper-slide">
+  <div class="swiper-container-Ulasan" style="overflow-y: visible;">
+    <div class="swiper-wrapper swipper-slide-Ulasan">
+          @foreach ($ulasan as $item)
+        <div class="swiper-slide">
           <div class="card card-ulasan ms-4">
               <div class="card-body">
+                  <p class="nama-pengulas pt-3 px-2">
+                    <strong>{{$item->name}}</strong>
+                  </p>
                   <p class="nama-pengulas pt-3 px-2">
                     <strong>{{$item->name}}</strong>
                   </p>
@@ -327,6 +393,9 @@ font-size: 50px;">Selamat Datang di <br> Desa Wisata Kajii</br></p>
         </div>
         @endforeach
     </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-scrollbar"></div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-scrollbar"></div>
@@ -398,12 +467,58 @@ font-size: 50px;">Selamat Datang di <br> Desa Wisata Kajii</br></p>
         </div>
     </footer>
   </section>
+  
+  
+  <section class="footer" style="color: #063C48;">
+    <footer class="bg-light py-5 pt-5">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Desa Wisata Kajii</h5>
+                    <img src="/element/logo.png" alt="" style="width: 200px; height: 200px;">
+                </div>
+                <div class="col-md-3">
+                    <h5>Alamat</h5>
+                    <p class="text-start">Kadisoro, Gilangharjo, Kec. Pandak, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55761, Indonesia</p>
+                    <h5 class="text-start">Map Lokasi</h5>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.975546932868!2d110.3090821!3d-7.897623299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7aff55db42a7e5%3A0xb31e373fc1e28cad!2sDesa%20Wisata%20Kajii%20(Dewi%20Kajii%20-%20Edukasi%20Ikan%20Hias)!5e0!3m2!1sid!2sid!4v1711380178061!5m2!1sid!2sid" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    
+                </div>
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col">
+                            <h5>NO TELP</h5>
+                            <p>0882-2520-8880</p>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <h5>About</h5>
+                            <p>pelajari Selengkapnya</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h5>OUR SOCIAL MEDIA</h5>
+                    <ul>
+                      <i class="ti ti-brand-youtube" style="font-size: 28px;"></i>
+                      <i class="ti ti-brand-instagram" style="font-size: 28px;"></i>
+                      <i class="ti ti-brand-facebook" style="font-size: 28px;"></i>
+                      <i class="ti ti-brand-twitter" style="font-size: 28px;"></i>
+                    </ul>
+                </div>
+            </div>
+            <small class="text-muted mt-3">&copy; 2024 Desa Wisata Kajii. All rights reserved.</small>
+        </div>
+    </footer>
+  </section>
 
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script>
+  var swiper = new Swiper(".swiper-container-berita", {
   var swiper = new Swiper(".swiper-container-berita", {
   initialSlide: 2,
   effect: "coverflow",
@@ -436,6 +551,9 @@ font-size: 50px;">Selamat Datang di <br> Desa Wisata Kajii</br></p>
 
 
 var swiper = new Swiper(".swiper-container-Paket", {
+
+
+var swiper = new Swiper(".swiper-container-Paket", {
         slidesPerView: 2,
         speed: 1000,
         spaceBetween: 30,
@@ -450,9 +568,12 @@ var swiper = new Swiper(".swiper-container-Paket", {
         breakpoints: {
           768: {
             slidesPerView: 3,
+            slidesPerView: 3,
           },
         },
       });
+
+      var swiperUlasan = new Swiper(".swiper-container-Ulasan", {
 
       var swiperUlasan = new Swiper(".swiper-container-Ulasan", {
         slidesPerView: 2,
@@ -472,6 +593,7 @@ var swiper = new Swiper(".swiper-container-Paket", {
           },
         },
       });
+
 
   </script>
 </body>
